@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrierung</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header>PLACEHOLDER HEADER | Hier soll später ein Bild des Hotels und das Logo als Banner sein</header>
+    <nav>
+        <p>Navigation:<a href="main.html">Startseite</a> / Zimmerreservierung / <a href="registration.html">Registrierung</a> / <a href="login.html">Login</a> Über uns</p>
+    </nav>
+
+    <section>
+        <form action="" method="Post">
+            <h2>Registrierung</h2>
+            <div>
+                <label id="gender" for="gender">Anrede</label>
+                <select for="gender" id="gender">
+                    <option value="female">Frau</option>
+                    <option value="male">Herr</option>
+                    <option value="other">Vorname Nachname</option>
+                </select>
+            </div>
+            <div>
+                <label id="first_name" for="first_name">Vorname:</label>
+                <input type="text" name="first_name" id="first_name" required>
+            </div>
+            <div>
+                <label id="second_name" for="second_name">Nachname:</label>
+                <input type="text" name="second_name" id="second_name" required>
+            </div>
+            <div>
+                <label id="email">E-Mail Adresse:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div>
+                <label id="user_name_registration" for="user_name_registration">Username:</label>
+                <input type="text" name="user_name_registration" id="user_name_registration" required>
+            </div>
+            <div>
+                <label id="password" for="password">Passwort:</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div>
+                <label id="password_repitition" for="password_repitition">Passwortwiederholung:</label>
+                <input type="password" name="password_repitition" id="password_repitition" required>
+            </div>
+            <br>
+            <div>
+                <button type="submit">Bestätigen</button>
+            </div>
+
+        </form>
+    
+    <footer>
+        <a href="impressum.html">Impressum</a>
+        <a href="faq.html">FAQs</a>
+    </footer>
+</body>
+</html>

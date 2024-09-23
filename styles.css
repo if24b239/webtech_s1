@@ -1,0 +1,33 @@
+body {
+    background-color: rgba(135, 85, 19, 0.849);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+header {
+    background-image: url("pictures/headerBackground.png");
+    /*background-image: url("bilder/kolibri.png"); - Vergleich*/
+    background-size : cover;
+
+    text-align: center;
+}
+
+nav {
+    background-color: rgba(102, 82, 27, 0.69);
+    text-align: right;
+}
+
+form {
+    background-color: rgba(102, 82, 27, 0.69);
+}
+
+section {
+    background-color: rgba(161, 138, 74, 0.69);   
+}
+ /* Versuch die Section im Impressum anders zu designen*/
+section.impressum {
+    background-color: rgba(80, 74, 161, 0.69);    
+}
+
+footer {
+    background-color: rgba(102, 82, 27, 0.69);
+}
