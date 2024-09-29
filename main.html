@@ -6,23 +6,43 @@
     <link href="styles.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-    <header>PLACEHOLDER HEADER | Hier soll später ein Bild des Hotels und das Logo als Banner sein</header>
+<body class="main">
+    <header>
+        <img class="header" src="pictures/woodenLogo.png" alt="Hölzernes Schild mit Namen des Hotels">
+    </header>
     <nav>
-        <p>Navigation:<a href="main.html">Startseite</a> / Zimmerreservierung / <a href="registration.html">Registrierung</a> / <a href="login.html">Login</a> Über uns</p>
-    
+        <ul>
+            <li><a class="navigation" href="main.html">Startseite</a></li>
+            <li>Zimmerreservierung</li>
+            <li><a class="navigation" href="registration.html">Registrierung</a></li>
+            <li><a class="navigation" href="login.html">Login</a></li> 
+            <li>Über uns</li>
+        </ul>
     </nav>
 
-    <section>
-        <h1>Startseite</h1>
-        <p>Das hier ist die Startseite</p>
-        <p>hier sollen später die Beiträge der Moderator*Innen sein</p>
+    <section class="main">
 
+        <section class="section-mainLeft">
+            <img class="img-main" src="pictures/tavernInside.jpg" alt="Ein Bild unseres Frühstücksbereichs">
+            <section class="text-inside-section">
+                <p class="p-main">Wir begrüßen Sie in unserer Taverne. Hier genießen Sie ihr inkludiertes Frühstück.</p>
+            </section>
+        </section>
 
-    
+        <section class="section-mainRight">
+            <section class="text-inside-section">
+                <p class="p-main">Entspannen Sie in unserem Garten. Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text TexText Text Text Text Text Text Text Text Text Text Text Text t Text Text Text Text Text Text Text Text Text Text Text Text Text </p>
+            </section>
+
+            <img class="img-main" style="float: right;" src="pictures/garden.jpg" alt="Ein Foto unseres Gartens.">
+        </section>
+
+    </section>
+
     <footer>
-        <a href="impressum.html">Impressum</a>
-        <a href="faq.html">FAQs</a>
+        <a class="footer" href="impressum.html">Impressum</a>
+        <a class="footer" href="faq.html">FAQs</a>
+        <a class="footer" href="sources.html">Quellen</a>
     </footer>
 </body>
 </html>
