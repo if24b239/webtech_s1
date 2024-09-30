@@ -6,14 +6,13 @@ body {
     padding: 0px;
     margin: 0;
     color:rgb(83, 47, 5);
-
 }
 a {
     color: rgb(125, 89, 44);
 }
 /*Header*/
 header {
-    background-image: url("pictures/headerBackground5_3.jpg");
+    background-image: url("pictures/tileable_background.jpg");
     background-size: contain;
     /*height: 3cm;*/
     margin: 0px;
@@ -23,7 +22,8 @@ header {
 
 img.header{
     width: 200px;
-    height: 100px;   
+    height: 100px; 
+    content: url("pictures/woodenLogo.png");
 }
 
 /*Navigation*/
@@ -89,7 +89,7 @@ section.impressum {
     background-color: rgba(161, 138, 74, 0.69); 
 }
 .section-mainLeft{
-    background-color: rgba(160, 148, 115, 0.69); 
+    background-color: rgba(160, 148, 115, 0.69);
 } 
 
 /* Startseite */
@@ -100,13 +100,18 @@ section.impressum {
     /* Impressum*/
     figure.impressum {
         display: inline;
+        width: auto;
     }
     section.impressum {
         background-color: rgba(161, 138, 74, 0.69); 
     }
 
 
+<<<<<<< HEAD
 /*FLEXBOXPROPERTYS*/
+=======
+/*Flexbox Properties*/
+>>>>>>> 4c9086242414cb3612879b326ab3b774b7224a1b
 .body{
     display: flex;
     justify-content: center;
