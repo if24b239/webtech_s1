@@ -28,7 +28,8 @@ a {
 
 img.header{
     width: 200px;
-    height: 100px;   
+    height: 100px; 
+    content: url("pictures/woodenLogo.png");
 }
 
 /*Navigation*/
