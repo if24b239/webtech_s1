@@ -1,4 +1,4 @@
-/*Allgemein*/
+/*FARBEN TEXTGRÖßE PADDING MARGIN USW*/
 body {
 
     background-color: rgba(135, 85, 19, 0.849);
@@ -8,7 +8,9 @@ body {
     color:rgb(83, 47, 5);
 
 }
-
+a {
+    color: rgb(125, 89, 44);
+}
 /*Header*/
 header {
     background-image: url("pictures/headerBackground5_3.jpg");
@@ -17,14 +19,6 @@ header {
     margin: 0px;
     padding: 45px;
     text-align: center;
-}
-
-p.header{
-    color: white;
-}
-
-a {
-    color: rgb(125, 89, 44);
 }
 
 img.header{
@@ -50,7 +44,7 @@ a.navigation:hover {
     color:rgba(158, 112, 56, 0.748);
 }
 
-ul {
+ul { /*weil bisher nur in navigation verwendet, hat es keine Klasse*/
     list-style-type: none;
     display: inline-block;
     /*text-align: center;*/
@@ -58,7 +52,7 @@ ul {
     margin: none;
 }
 
-li {
+li {/*weil bisher nur in navigation verwendet, hat es keine Klasse*/
     display: inline-block;
     background-color: rgba(102, 78, 22, 0.899);
     padding: none;
@@ -77,32 +71,31 @@ a.footer {
 a.footer:hover {
     color:rgba(158, 112, 56, 0.748);
 }
+
 footer {
     background-color: rgba(102, 82, 27, 0.69);
 }
 
-/*Veränderbarer Teil*/
+/*Teil der nicht stetig ist, also nicht im Header, Navigation oder Footer*/
 form {
     background-color: rgba(161, 138, 74, 0.69);
     margin:5px;
 }
 
-
+section.impressum {
+    background-color: rgba(161, 138, 74, 0.69); 
+}
 .section-mainRight{
     background-color: rgba(161, 138, 74, 0.69); 
 }
 .section-mainLeft{
     background-color: rgba(160, 148, 115, 0.69); 
 } 
-section.impressum {
-    background-color: rgba(161, 138, 74, 0.69); 
-}
 
-    /* Startseite */
+/* Startseite */
     p.main{
         display: inline;
     }
-
 
     /* Impressum*/
     figure.impressum {
@@ -113,7 +106,7 @@ section.impressum {
     }
 
 
-/*Flexbox Propertys*/
+/*FLEXBOXPROPERTYS*/
 .body{
     display: flex;
     justify-content: center;

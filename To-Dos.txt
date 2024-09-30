@@ -1,0 +1,61 @@
+nur 5% Note
+
+Sollen wir gleich Bootstraps verwenden um uns später Zeit zu sparen? Nope sollen wir nicht :/
+
+
+Stylen Sie zu Übungszwecken selbstgewählte Formulare (Login, Registrierung, etc.) 
+und machen Sie diese responsive (siehe Bausteine 3-5). 
+Verwenden Sie unterschiedliche Breakpoints für Desktop, Tablet (Horizontal und Vertikal) und Mobile Devices (Horizontal und Vertikal) 
+
+	Welche Formulare wollen wir Stylen?
+		Registrierung: Wer? erledigt?
+		Login: wer? erledigt?
+		
+		Bei kleinem Bildschirm z.B. EingabeFeld und Label nicht nebeneinander sondern übereinander
+	
+	Wer macht welche Devices?
+		Desktop: Viewportbreite 1224+ px
+		Tablet-Horizontal:1023-768px
+		Tablet-Vertikal:
+		Mobile Device-Horizontal:767-320px
+		Mobile Device-Vertikal: 
+		
+		@media screen and(max-width:800px) and (min-with:300px){
+			CSS Regeln
+		}
+
+
+	Anforderungen:
+		1.)Die gesamte Website muss responsive sein und somit für Smartphones, Tablets
+		und Desktop-Clients verwendbar sein. Testen Sie dies mit den jeweiligen
+		Developer Tools Ihres Browsers.
+			Developer Tools?
+			Wie können wir testen wie die Website auf einem Smartphone angezeigt wird?
+			- Formular richtig gemacht?
+				- Label mit Eingabe verknüpft? NICHT GEPRÜFT
+				
+			- NICHT getestet für Handy horizontal
+			- NICHT getestet für Handy vertikal
+			- NICHT getestet für Desktop
+			- NICHT getestet für Tablet vertikal
+			- NICHT getestet für Tablet horizontal
+
+
+		2.)Für eine außergewöhnlich gute Usability, !Grundzüge der Accessibility! (und
+		Suchmaschinenoptimierung) werden Zusatzpunkte gewährt.
+			Website mit Vorlesetool navigieren?
+
+und laden Sie Ihre Ergebnisse in der Aktivität: Abgabe für Übung 4 hoch. 
+Beachten Sie, dass Übung 4 beurteilt wird! 
+Arbeiten Sie im selben Projekt weiter in dem Sie in den vorherigen Übungen gearbeitet haben. 
+
+
+
+	Accessability:
+		Für Farbenblinde Personen:
+			@media screen and(prefers-color-scheme: wasAuchImmerFürHighKontrastSteht){
+				}
+		Für Blinde Personen:
+			Bilder haben alle ein aussagekräftiges ALT
+			semantic <div>s
+		
