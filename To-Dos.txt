@@ -14,11 +14,10 @@ Verwenden Sie unterschiedliche Breakpoints für Desktop, Tablet (Horizontal und 
 		Bei kleinem Bildschirm z.B. EingabeFeld und Label nicht nebeneinander sondern übereinander
 	
 	Wer macht welche Devices?
-		Desktop: Viewportbreite 1224+ px
-		Tablet-Horizontal:1023-768px
-		Tablet-Vertikal:
-		Mobile Device-Horizontal:767-320px
-		Mobile Device-Vertikal: 
+		Viewportbreite 1224+ px : 
+		1023-768px : 
+		767-320px : 
+		 
 		
 		@media screen and(max-width:800px) and (min-with:300px){
 			CSS Regeln

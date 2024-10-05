@@ -107,11 +107,7 @@ section.impressum {
     }
 
 
-<<<<<<< HEAD
 /*FLEXBOXPROPERTYS*/
-=======
-/*Flexbox Properties*/
->>>>>>> 4c9086242414cb3612879b326ab3b774b7224a1b
 .body{
     display: flex;
     justify-content: center;
