@@ -2,11 +2,9 @@
 
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quellen</title>
-</head>
+
+<?php $title = "Quellen"; include 'php_inserts\head.php' ?>
+
 <body>
     <h1>Bilder Quellen:</h1>
     

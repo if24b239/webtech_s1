@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrierung</title>
-    <link href="styles.css" rel="stylesheet" type="text/css">
-</head>
+
+<?php $title = "Registrierung"; include 'php_inserts\head.php' ?>
 
 <body>
-    <header>
-        <img class="header" alt="Hölzernes Schild mit Namen des Hotels">
-    </header>
-    <nav>
-        <ul>
-            <li><a class="navigation" href="main.html">Startseite</a></li>
-            <li>Zimmerreservierung</li>
-            <li><a class="navigation" href="registration.html">Registrierung</a></li>
-            <li><a class="navigation" href="login.html">Login</a></li> 
-            <li>Über uns</li>
-        </ul>
-    </nav>
+    
+    <?php include 'php_inserts\header.php' ?>
+
+    <?php include 'php_inserts\navigation.php' ?>
 
     <section>
         <form class="col-12" action="registration_action.php" target="_blank" method="Post">
@@ -64,9 +52,7 @@
         </form>
     </section>
 
-    <footer class="col-12">
-        <a class="footer" href="impressum.html">Impressum</a>
-        <a class=" footer" href="faq.html">FAQs</a>
-    </footer>
+    <?php include 'php_inserts\footer.php' ?>
+    
 </body>
 </html>
