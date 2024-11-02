@@ -1,3 +1,49 @@
+/*base columns and column design*/
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+[class^="col-"] {
+    float: left;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/*responsive design*/
+@media only screen and (max-width: 768px) {
+    /*small/phone screens*/
+    [class*="col-"] {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    /*medium screens*/
+    .col-1 {width: 25%;}
+    .col-2 {width: 25%;}
+    .col-3 {width: 25%;}
+
+    .col-4 {width: 50%;}
+    .col-5 {width: 50%;}
+    .col-6 {width: 50%;}
+
+    .col-7 {width: 75%;}
+    .col-7 {width: 75%;}
+    .col-7 {width: 75%;}
+
+    .col-10 {width: 100%;}
+    .col-11 {width: 100%;}
+    .col-12 {width: 100%;}
+}
+
 /*FARBEN TEXTGRÖßE PADDING MARGIN USW*/
 body {
 
@@ -106,8 +152,12 @@ section.impressum {
         background-color: rgba(161, 138, 74, 0.69); 
     }
 
+<<<<<<< HEAD
 
 /*FLEXBOXPROPERTYS*/
+=======
+/*Flexbox Properties*/
+>>>>>>> d029dc7d0cad893379557e33d4c5effcf5f2c986
 .body{
     display: flex;
     justify-content: center;
