@@ -6,13 +6,22 @@ USAGE: no special usage
 
 echo '
 <nav>
+
+    <input type="checkbox" id="toggle_button_nav">
+    <label for="toggle_button_nav" class="toggle_button_nav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </label>
+
     <ul>
-        <li><a class="navigation" href="main.php">Startseite</a></li>
-        <li>Zimmerreservierung</li>
-        <li><a class="navigation" href="registration.php">Registrierung</a></li>
-        <li><a class="navigation" href="login.php">Login</a></li> 
-        <li>Über uns</li>
+        <li><a href="main.php">Startseite</a></li>
+        <li><a href="roomReservation.php">Zimmerreservierung</a></li>
+        <li><a href="aboutUs.php">Über uns</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="registration.php">Registrierung</a></li>
     </ul>
+
 </nav>
 '
 

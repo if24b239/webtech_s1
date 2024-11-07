@@ -1,3 +1,14 @@
+/*Variablen*/
+:root{ /*Der :root-Selektor ermöglicht als strukturelle Pseudoklasse, die Wurzel eines Dokumentes anzusprechen*/
+    --background-color: #704610;
+    --darker-background-color:#4F3006;
+    --accent-color:#C7A239;
+    --text-color:#E5E0DB;
+    --link-color:#EBB037;
+
+    --navbar-height: 80px;
+    --header-height: 135px;/*wegen der Größe vom Logo-Bild*/
+
 /*base columns and column design*/
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -45,16 +56,28 @@
 }
 
 /*FARBEN TEXTGRÖßE PADDING MARGIN USW*/
-body {
+html{
+    height: 100%;
+}
 
-    background-color: rgba(135, 85, 19, 0.849);
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--text-color);
+}
+
+body {
+    height: 100%;
+    background-color: var(--background-color);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 0px;
     margin: 0;
-    color:rgb(83, 47, 5);
+    color: var(--text-color);
 }
 a {
-    color: rgb(125, 89, 44);
+    color: var(--text-color);
 }
 /*Header*/
 header {
@@ -72,91 +95,138 @@ img.header{
     content: url("pictures/woodenLogo.png");
 }
 
-/*Navigation*/
+/*Navigation*/ /*erstellt mit Video: https://youtu.be/QrTG4iu8cUk?si=NWcGc0uyOkB9yBuA  */
 nav {
-    background-color: rgba(102, 78, 22, 0.899);
+    background-color: var(--darker-background-color);
     text-align: right;
-    padding: 0px 16px 0px 0px;
-    margin: none;
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+    color: var(--text-color);
+    height: var(--navbar-height);
+    /*FLEXBOX*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul { /*weil bisher nur in navigation verwendet, hat es keine Klasse*/
+    height: 100%; /*die ganze Höhe des "Elternelements: nav*/
+    width:100%;
+    list-style: none;
+    /*FLEXBOX*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-a.navigation {
-    color:rgb(83, 47, 5);
+nav li {
+    height: 100%;
+    width:fit-content;
+    padding-left: 10px; 
+    padding-right: 10px;
+    text-align: center; 
+    position: relative;
+}
+nav li:hover{/*Funktioniert nicht, weiß nicht warum*/
+    background-color: var(--accent-color);
+}
+nav ul a{
+    height: 100%;
+    width: 100%;
     text-decoration: none;
-}
-a.navigation:hover {
-    background-color: rgba(102, 78, 22, 0.849);
-    padding:rgb(102, 82, 22);
-    color:rgba(158, 112, 56, 0.748);
+    /*FLEXBOX*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
-ul { /*weil bisher nur in navigation verwendet, hat es keine Klasse*/
-    list-style-type: none;
-    display: inline-block;
-    /*text-align: center;*/
-    padding: none;
-    margin: none;
+nav input[type="checkbox"]{
+    display: none;
 }
+.toggle_button_nav{
+    width: 30px;
+    height: 23px;
+    margin-left: 20px;
+    
+    /*FLEXBOX*/
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    /*justify-self: flex-end;*/
+}
+.bar{
+    height: 4px;
+    width: 100%;
+    background: var(--text-color);
+    border-radius: 100px;
+}
+@media only screen and (max-width: 768px){
+    .toggle_button_nav{
+        display: flex;
+    }
+    nav ul{
+        height: min-content;
+        width: 100%;
+        background: var(--darker-background-color);
+        border:#C7A239;
+        border-style: double;
+        display: none;
+        position:absolute;
+        top: 300px; /*damit das ausgeklappte Burger-Menü unter der Nav-Leiste erscheint. Habe leider noch nicht herausgefunden, wie sich das berechnet :/ */
+    }
+    nav li{
+        height: min-content;
+        width: 100%;  
+        border:#C7A239;
+        border-style:groove;
+    }
+    nav ul a{
+        padding: 30px 0;
+    }
 
-li {/*weil bisher nur in navigation verwendet, hat es keine Klasse*/
-    display: inline-block;
-    background-color: rgba(102, 78, 22, 0.899);
-    padding: none;
-    margin: none;
-    border: 5px solid rgba(102, 78, 22, 0.899);
-    text-align: center;  
-    color:rgb(83, 47, 5);
+    #toggle_button_nav:checked ~ ul{
+        display: block;
+    }
 }
 
 /*Footer*/
 a.footer {
-    color: rgb(83, 47, 5);
+    color: var(--text-color);
     text-decoration: none;   
+    width: 100%;
 }
 
 a.footer:hover {
-    color:rgba(158, 112, 56, 0.748);
+    color:var(--accent-color);
 }
 
 footer {
-    background-color: rgba(102, 82, 27, 0.69);
+    background-color: var(--darker-background-color);
 }
 
 /*Teil der nicht stetig ist, also nicht im Header, Navigation oder Footer*/
 form {
-    background-color: rgba(161, 138, 74, 0.69);
+    background-color: var(--background-color);
     margin:5px;
 }
 
 section.impressum {
-    background-color: rgba(161, 138, 74, 0.69); 
+    background-color:var(--background-color); 
 }
-.section-mainRight{
+/*.section-mainRight{
     background-color: rgba(161, 138, 74, 0.69); 
 }
 .section-mainLeft{
     background-color: rgba(160, 148, 115, 0.69);
-} 
+} */
 
-/* Startseite */
-    p.main{
-        display: inline;
-    }
-
-    /* Impressum*/
-    figure.impressum {
-        display: inline;
-        width: auto;
-    }
-    section.impressum {
-        background-color: rgba(161, 138, 74, 0.69); 
-    }
 
 <<<<<<< HEAD
 
-/*FLEXBOXPROPERTYS*/
-=======
-/*Flexbox Properties*/
+/*FLEXBOXPROPERTYS*/ /*--> Flexbox lässt sich eh einfach in die normalen CSS Anweisungn eintragen, ich war damals glaube ich von der Klassenzuweisung verwirrt :0  */
+
 >>>>>>> d029dc7d0cad893379557e33d4c5effcf5f2c986
 .body{
     display: flex;
@@ -176,15 +246,43 @@ section.impressum {
     align-self: ;
     order: ;*/
 }
-.nav{
+
+/* Impressum*/
+figure.impressum {
+    display: inline;
+    width: auto;
+}
+section.impressum {
+    background-color: var(--background-color); 
+}
+
+.p-wholeContainer{ /*aus irgendeinem grund habe ich allen paragraphen im impressum diese Klasse gegeben? ich glaube weil ich sie */
+    /*Flex-Box Child Propertys*/
     width: 100%;
-    /*flex-grow: ;
-    flex-shrink: ;
+    /*flex-grow: 2;*/
+    /*flex-shrink: ;
     flex-basis: ;
     flex: ;
     align-self: ;
     order: ;*/
 }
+
+.figure-impressum{
+        /*Flex-Box Child Propertys*/
+        width: 50%;
+        flex-grow: 1;
+        /*flex-shrink: ;*/
+        flex-basis: 50%;
+        /*flex: ;
+        align-self: ;
+        order: ;*/
+
+        /*Allgemeine CSS Propertys*/
+        display: inline;
+}
+
+ /*STARTSEITE*/
+
 .section.main{
     /*Child Propertys*/
     width: 100%;
@@ -204,17 +302,9 @@ section.impressum {
     /*gap: ;*/
 
     /*Allgemeine CSS Propertys*/
-    margin: 10px;/*Macht hier nichts*/
+    margin: 10px;/*Macht hier nichts wsl weil width 100%?*/
 }
-.footer{
-    width: 100%;
-    /*flex-grow: ;
-    flex-shrink: ;
-    flex-basis: ;
-    flex: ;
-    align-self: ;
-    order: ;*/
-}
+
 .section-mainCenter{
     /*Child Propertys*/
     width: 100%;
@@ -237,6 +327,7 @@ section.impressum {
 .section-mainLeft {
         /*Flex-Box Child Propertys*/
         width: 100%;
+        max-height: 600px;
         /*flex-grow: ;
         flex-shrink: ;
         flex-basis: ;
@@ -247,17 +338,18 @@ section.impressum {
         /*Flex-Box Parent-Propertys*/
         display: flex;
         justify-content: left;
-        align-items: flex-start;
-        flex-wrap: wrap;
+        align-items: center;
+        flex-wrap:nowrap;
         /*align-content: ;*/
         /*gap: ;*/
 
         /*Allgemeine CSS Propertys*/
       
 }
-.section-mainRight {
+.section-mainRight{
         /*Flex-Box Child Propertys*/
         width: 100%;
+        max-height: 600px;
         /*flex-grow: ;
         flex-shrink: ;
         flex-basis: ;
@@ -267,9 +359,10 @@ section.impressum {
     
         /*Flex-Box Parent-Propertys*/
         display: flex;
+        flex-direction: row-reverse;
         justify-content: right;
-        align-items: flex-start;
-        flex-wrap: wrap;
+        align-items: center;
+        flex-wrap: nowrap;
         /*align-content: ;*/
         /*gap: ;*/
 
@@ -288,9 +381,9 @@ section.impressum {
     order: ;*/
 
     /*Allgemeine CSS Propertys*/
-    height: 399px;
-
+    max-height: 399px;
 }
+
 .text-inside-section{
     /*Flex-Box Child Propertys*/
     width: 55%;
@@ -312,7 +405,8 @@ section.impressum {
     /*Allgemeine CSS Propertys*/
     
 }
-.p-main{
+p.main{
+    display: inline;
     /*Flex-Box Child Propertys*/
     width: 55%;
     flex-grow: 2;
@@ -322,39 +416,4 @@ section.impressum {
     align-self: center;
     justify-self: center;
     /*order: ;*/
-}
-.p-wholeContainer{
-    /*Flex-Box Child Propertys*/
-    width: 100%;
-    /*flex-grow: 2;*/
-    /*flex-shrink: ;
-    flex-basis: ;
-    flex: ;
-    align-self: ;
-    order: ;*/
-}
-
-.a-wholeContainer{
-    /*Flex-Box Child Propertys*/
-    width: 100%;
-    flex-grow: 2;
-    /*flex-shrink: ;
-    flex-basis: ;
-    flex: ;
-    align-self: ;
-    order: ;*/
-}
-
-.figure-impressum{
-        /*Flex-Box Child Propertys*/
-        width: 50%;
-        flex-grow: 1;
-        /*flex-shrink: ;*/
-        flex-basis: 50%;
-        /*flex: ;
-        align-self: ;
-        order: ;*/
-
-        /*Allgemeine CSS Propertys*/
-        display: inline;
 }

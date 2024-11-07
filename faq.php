@@ -12,8 +12,9 @@
     <section>
         <h1>FAQ's</h1>
 
-        <summary> 1. FAQ </summary>
+
         <details style="border-style: groove;">
+            <summary> 1. FAQ </summary>
             <p>Antwort auf die häufigste Frage</p>
         </details>
 
