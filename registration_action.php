@@ -7,15 +7,14 @@ if(!isset($_SESSION)){
 //this file Should be in a private folder not in a public one for security reasons
 
 //TO-DOS
-//E-Mail muss ein @ enthalten darf keine Leerzeichen enthalten - Lena
-//Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten - Lena
+//erledigt E-Mail muss ein @ enthalten darf keine Leerzeichen enthalten - Lena
+//erledigt Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten - Lena
 //Passwort  muss funktionieren lol - Marold 
 //Anrede auf gültige eingaben limitieren - Marold
+//doch einzelne SESSION Variablen für jede Fehlermeldung anlegen, damit mehr als eine Warnung gleichzeig gegeben werden kann?
 
-//INFO: ich habe die Input-typen im Formular auf Text geändert, damit wir falsche eingaben machen können müssen wir am ende wieder zurück ändern!
 
 //Kontrolle ob Input mit der Methode "Post" geschickt wurde 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     //nach der Kontrolle werden die Daten in Variablen gespeichert
@@ -32,7 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $site_we_send_to_in_case_of_wrong_input = 'registration.php';
 
     //globale Variable zum ausgeben der richtigen Error-message
-    $_SESSION["error_registration"]='0'; /*0=kein Error, 1=Eine Eingabe ist leer, 2=Passwörter sind unterschiedlich, 3=Nachname enthält invalide zeichen, 4=Vorname enthält invailde zeichen, 5=E-Mail enthält invailde zeichen*/
+    $_SESSION["error_registration"]='0'; 
+    /*0=kein Error, 
+    1=Eine Eingabe ist leer, 
+    2=Passwörter sind unterschiedlich, 
+    3=Nachname enthält invalide zeichen, 
+    4=Vorname enthält invailde zeichen, 
+    5=E-Mail enthält invailde zeichen*/
 
 
     //Leere Eingaben Serverseitig verhindern:
@@ -43,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     || (empty($password))
     || (empty($password_repitition))
     ){
+        $_SESSION["error_registration"]='1';
         header("Location:$site_we_send_to_in_case_of_wrong_input");
         exit();     
     }
@@ -54,7 +60,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit(); 
     }
     //Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten
-    
+    //vorname
+    if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $first_name)){
+        $_SESSION["error_registration"] = '4'; //wird auf 4 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        header("Location:$site_we_send_to_in_case_of_wrong_input");
+        exit();         
+    }
+    //Nachname
+    if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $last_name)){
+        $_SESSION["error_registration"] = '3'; //wird auf 3 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        header("Location:$site_we_send_to_in_case_of_wrong_input");
+        exit();         
+    }
 
     //E-Mail muss ein @ enthalten darf keine Leerzeichen enthalten
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){ /*Funktion prüft ob die eingegebene E-Mail eine valide ist*/ 

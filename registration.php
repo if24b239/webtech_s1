@@ -23,7 +23,7 @@ if(!isset($_SESSION)){
         $warning = 'Passwörter stimmen nicht überein';
         $_SESSION["password_check"] = '';
     }
-    /*Test*/ echo 'test '.$_SESSION["error_registration"].'';
+    /*Test*/ echo 'Status error_registration: '.$_SESSION["error_registration"].'';
 ?>
 
 <body>
@@ -35,7 +35,11 @@ if(!isset($_SESSION)){
     <section>
         <form class="col-12" action="registration_action.php" method="POST">
             <h2>Registrierung</h2>
-            <?php echo $warning; // Ausgabe der Warnung in dem Fall, dass die Passwörter nicht übereinstimmen ?>
+            <?php 
+                if($_SESSION["error_registration"]=='1'){
+                    echo 'Bitte alle Felder ausfüllen!';
+                }
+            ?>
             <div class="col-4">
                 <label id="gender" for="gender">Anrede</label><br>
                 <select for="gender" id="gender" name="gender">
@@ -47,14 +51,24 @@ if(!isset($_SESSION)){
             <div class="col-4">
                 <label id="first_name" for="first_name">Vorname:</label><br>
                 <input type="text" name="first_name" id="first_name" required>
+                <?php 
+                    if($_SESSION["error_registration"]=='4'){
+                        echo 'Der Vorname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
+                    }
+                ?>
             </div>
             <div class="col-4">
                 <label id="last_name" for="last_name">Nachname:</label><br>
                 <input type="text" name="last_name" id="last_name" required>
+                <?php 
+                    if($_SESSION["error_registration"]=='3'){
+                        echo 'Der Nachname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
+                    }
+                ?>
             </div>
             <div class="col-4">
                 <label id="email">E-Mail Adresse:</label><br>
-                <input type="text" name="email" id="email" required> 
+                <input type="email" name="email" id="email" required> 
                 <?php 
                     if($_SESSION["error_registration"]=='5'){
                         echo 'Die E-Mailadresse ist nicht valide!';
@@ -72,6 +86,7 @@ if(!isset($_SESSION)){
             <div class="col-4">
                 <label id="password_repitition" for="password_repitition">Passwortwiederholung:</label><br>
                 <input type="password" name="password_repitition" id="password_repitition" required>
+                <?php echo $warning; // Ausgabe der Warnung in dem Fall, dass die Passwörter nicht übereinstimmen ?>
             </div>
             <br>
             <div class="col-12">
