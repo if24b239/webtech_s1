@@ -1,6 +1,9 @@
 <?php
 if(!isset($_SESSION)){
     session_start();
+    if(!isset($_SESSION["error_registration"])){
+        $_SESSION["error_registration"]='0';
+    }
 }
 ?>
 
@@ -9,7 +12,7 @@ if(!isset($_SESSION)){
 
 <?php $title = "Registrierung"; include 'php_inserts\head.php'; 
     //Ausgabe wenn Passwörter nicht gleich sind
-    
+
     if(!isset($warning)) {
         $warning = '';
     }
@@ -20,7 +23,7 @@ if(!isset($_SESSION)){
         $warning = 'Passwörter stimmen nicht überein';
         $_SESSION["password_check"] = '';
     }
-    
+    /*Test*/ echo 'test '.$_SESSION["error_registration"].'';
 ?>
 
 <body>
@@ -51,7 +54,12 @@ if(!isset($_SESSION)){
             </div>
             <div class="col-4">
                 <label id="email">E-Mail Adresse:</label><br>
-                <input type="email" name="email" id="email" required>
+                <input type="text" name="email" id="email" required> 
+                <?php 
+                    if($_SESSION["error_registration"]=='5'){
+                        echo 'Die E-Mailadresse ist nicht valide!';
+                    }
+                ?>
             </div>
             <div class="col-4">
                 <label id="user_name_registration" for="user_name_registration">Username:</label><br>
