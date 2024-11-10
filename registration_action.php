@@ -50,37 +50,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     || (empty($password))
     || (empty($password_repitition))
     ){
-        $_SESSION["error_registration"]= 1;
+        $_SESSION["error_registration"] += 1;
         header("Location:$site_we_send_to_in_case_of_wrong_input");    
     }
     
     //Überprüfung ob Passwörter gleich sind
     if($password != $password_repitition){
-        $_SESSION["error_registration"] = 2;
+        $_SESSION["error_registration"] += 2;
         header("Location:$site_we_send_to_in_case_of_wrong_input");
     }
     //Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten
     //Nachname
     if (!preg_match('/^[-a-zA-Z[:space:]_]+$/', $last_name)){
-        $_SESSION["error_registration"] = 4; //wird auf 4 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        $_SESSION["error_registration"] += 4; //wird auf 4 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
         header("Location:$site_we_send_to_in_case_of_wrong_input");      
     }
 
     //vorname
     if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $first_name)){
-        $_SESSION["error_registration"] = 8; //wird auf 8 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        $_SESSION["error_registration"] += 8; //wird auf 8 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
         header("Location:$site_we_send_to_in_case_of_wrong_input");      
     }
 
     //E-Mail muss ein @ enthalten darf keine Leerzeichen enthalten
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){ /*Funktion prüft ob die eingegebene E-Mail eine valide ist*/ 
-        $_SESSION["error_registration"] = 16; //wird auf 5 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        $_SESSION["error_registration"] += 16; //wird auf 5 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
         
     }
 
     //Anrede soll nur female male other sein
     if (!($gender == "female" || $gender == "male" || $gender == "other")) {
-        $_SESSION["error_registration"] = 32;
+        $_SESSION["error_registration"] += 32;
     }
 
     if ($_SESSION["error_registration"] > 0) {
