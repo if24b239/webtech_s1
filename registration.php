@@ -36,7 +36,7 @@ if(!isset($_SESSION)){
         <form class="col-12" action="registration_action.php" method="POST">
             <h2>Registrierung</h2>
             <?php 
-                if($_SESSION["error_registration"]=='1'){
+                if($_SESSION["error_registration"] & 1){
                     echo 'Bitte alle Felder ausfüllen!';
                 }
             ?>
@@ -47,12 +47,17 @@ if(!isset($_SESSION)){
                     <option value="male">Herr</option>
                     <option value="other">Vorname Nachname</option>
                 </select>
+                <?php 
+                    if($_SESSION["error_registration"] & 32) {
+                        echo 'Nur Frau, Mann oder Other';
+                    }
+                ?>
             </div>
             <div class="col-4">
                 <label id="first_name" for="first_name">Vorname:</label><br>
                 <input type="text" name="first_name" id="first_name" required>
                 <?php 
-                    if($_SESSION["error_registration"]=='4'){
+                    if($_SESSION["error_registration"] & 8){
                         echo 'Der Vorname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
                     }
                 ?>
@@ -61,7 +66,7 @@ if(!isset($_SESSION)){
                 <label id="last_name" for="last_name">Nachname:</label><br>
                 <input type="text" name="last_name" id="last_name" required>
                 <?php 
-                    if($_SESSION["error_registration"]=='3'){
+                    if($_SESSION["error_registration"] & 4){
                         echo 'Der Nachname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
                     }
                 ?>
@@ -70,7 +75,7 @@ if(!isset($_SESSION)){
                 <label id="email">E-Mail Adresse:</label><br>
                 <input type="email" name="email" id="email" required> 
                 <?php 
-                    if($_SESSION["error_registration"]=='5'){
+                    if($_SESSION["error_registration"] & 16){
                         echo 'Die E-Mailadresse ist nicht valide!';
                     }
                 ?>
@@ -82,11 +87,20 @@ if(!isset($_SESSION)){
             <div class="col-4">
                 <label id="password" for="password">Passwort:</label><br>
                 <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                <?php
+                    if ($_SESSION["error_registration"] & 64) {
+                        echo 'Passwort nicht möglich!';
+                    }
+                ?>
             </div>
             <div class="col-4">
                 <label id="password_repitition" for="password_repitition">Passwortwiederholung:</label><br>
                 <input type="password" name="password_repitition" id="password_repitition" required>
-                <?php echo $warning; // Ausgabe der Warnung in dem Fall, dass die Passwörter nicht übereinstimmen ?>
+                <?php 
+                    if ($_SESSION["error_registration"] & 2) {
+                        echo $warning;
+                    }
+                ?>
             </div>
             <br>
             <div class="col-12">

@@ -35,9 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     /*0=kein Error, 
     1=Eine Eingabe ist leer, 
     2=Passwörter sind unterschiedlich, 
-    3=Nachname enthält invalide zeichen, 
-    4=Vorname enthält invailde zeichen, 
-    5=E-Mail enthält invailde zeichen*/
+    4=Nachname enthält invalide zeichen, 
+    8=Vorname enthält invailde zeichen, 
+    16=E-Mail enthält invailde zeichen
+    32=Gender ist nicht eine der optionen*/
 
 
     //Leere Eingaben Serverseitig verhindern:
@@ -48,38 +49,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     || (empty($password))
     || (empty($password_repitition))
     ){
-        $_SESSION["error_registration"]='1';
-        header("Location:$site_we_send_to_in_case_of_wrong_input");
-        exit();     
+        $_SESSION["error_registration"]= 1;
+        header("Location:$site_we_send_to_in_case_of_wrong_input");    
     }
     
     //Überprüfung ob Passwörter gleich sind
     if($password != $password_repitition){
-        $_SESSION["password_check"] = 'Error';
+        $_SESSION["error_registration"] = 2;
         header("Location:$site_we_send_to_in_case_of_wrong_input");
-        exit(); 
     }
     //Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten
+    //Nachname
+    if (!preg_match('/^[-a-zA-Z[:space:]_]+$/', $last_name)){
+        $_SESSION["error_registration"] = 4; //wird auf 4 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        header("Location:$site_we_send_to_in_case_of_wrong_input");      
+    }
+
     //vorname
     if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $first_name)){
-        $_SESSION["error_registration"] = '4'; //wird auf 4 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
-        header("Location:$site_we_send_to_in_case_of_wrong_input");
-        exit();         
-    }
-    //Nachname
-    if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $last_name)){
-        $_SESSION["error_registration"] = '3'; //wird auf 3 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
-        header("Location:$site_we_send_to_in_case_of_wrong_input");
-        exit();         
+        $_SESSION["error_registration"] = 8; //wird auf 8 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        header("Location:$site_we_send_to_in_case_of_wrong_input");      
     }
 
     //E-Mail muss ein @ enthalten darf keine Leerzeichen enthalten
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){ /*Funktion prüft ob die eingegebene E-Mail eine valide ist*/ 
-        $_SESSION["error_registration"] = '5'; //wird auf 5 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
-        header("Location:$site_we_send_to_in_case_of_wrong_input");
-        exit(); 
+        $_SESSION["error_registration"] = 16; //wird auf 5 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        
     }
-    //
+
+    //Anrede soll nur female male other sein
+    if (!($gender == "female" || $gender == "male" || $gender == "other")) {
+        $_SESSION["error_registration"] = 32;
+    }
+
+    if ($_SESSION["error_registration"] > 0) {
+        header("Location:$site_we_send_to_in_case_of_wrong_input");
+        exit();
+    }
+
     header("Location:main.php");
     exit();
 }
