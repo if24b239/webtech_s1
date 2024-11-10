@@ -38,7 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     4=Nachname enthält invalide zeichen, 
     8=Vorname enthält invailde zeichen, 
     16=E-Mail enthält invailde zeichen
-    32=Gender ist nicht eine der optionen*/
+    32=Gender ist nicht eine der optionen
+    64=Password input falsch strukturiert*/
 
 
     //Leere Eingaben Serverseitig verhindern:
