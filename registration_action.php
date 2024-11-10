@@ -11,7 +11,7 @@ if(!isset($_SESSION)){
 //erledigt Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten - Lena
 //Passwort  muss funktionieren lol - Marold 
 //Anrede auf gültige eingaben limitieren - Marold
-//doch einzelne SESSION Variablen für jede Fehlermeldung anlegen, damit mehr als eine Warnung gleichzeig gegeben werden kann?
+//doch einzelne SESSION Variablen für jede Fehlermeldung anlegen, damit mehr als eine Warnung gleichzeig gegeben werden kann? nein habe nur für Vorname, Nachname noch eine ergänzt weil alle anderen Eingaben eh nur via illegaler F12 betätigung erreicht werden können
 
 
 //Kontrolle ob Input mit der Methode "Post" geschickt wurde 
@@ -37,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     2=Passwörter sind unterschiedlich, 
     3=Nachname enthält invalide zeichen, 
     4=Vorname enthält invailde zeichen, 
-    5=E-Mail enthält invailde zeichen*/
+    5=E-Mail enthält invailde zeichen
+    7=Nachname und Vorname enhält invalide*/
 
 
     //Leere Eingaben Serverseitig verhindern:
@@ -48,34 +49,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     || (empty($password))
     || (empty($password_repitition))
     ){
-        $_SESSION["error_registration"]='1';
+        $_SESSION["error_registration"]='1'; //wird auf 1 gesetzt, damit auf der registration.php die Errormeldung bezüglich leerer Eingaben ausgegeben wird.
         header("Location:$site_we_send_to_in_case_of_wrong_input");
         exit();     
     }
     
     //Überprüfung ob Passwörter gleich sind
-    if($password != $password_repitition){
-        $_SESSION["password_check"] = 'Error';
+    if($password!=$password_repitition){
+        /*Test ob Passwortvariablen richtig gespeichert wurden
+        echo 'Passwort: '.$password.'';
+        echo 'Passwortwiederholung: '.$password_repitition.'';
+        die();*/
+
+        $_SESSION["error_registration"]='2';
+    
         header("Location:$site_we_send_to_in_case_of_wrong_input");
         exit(); 
     }
     //Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten
     //vorname
     if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $first_name)){
-        $_SESSION["error_registration"] = '4'; //wird auf 4 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        $_SESSION["error_registration"] = '4'; //wird auf 4 gesetzt, damit auf der registration.php die Errormeldung bezüglich Vorname ausgegeben wird.
+        if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $last_name)){
+            $_SESSION["error_registration"] = '7'; //wird auf 7 gesetzt, damit auf der registration.php die Errormeldung bezüglich Vor- und Nachname ausgegeben wird.
+        }
         header("Location:$site_we_send_to_in_case_of_wrong_input");
         exit();         
     }
     //Nachname
     if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $last_name)){
-        $_SESSION["error_registration"] = '3'; //wird auf 3 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        $_SESSION["error_registration"] = '3'; //wird auf 3 gesetzt, damit auf der registration.php die Errormeldung bezüglich Nachname ausgegeben wird.
+        if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $first_name)){
+            $_SESSION["error_registration"] = '7'; //wird auf 7 gesetzt, damit auf der registration.php die Errormeldung bezüglich Nach- und Vorname ausgegeben wird.
+        }
         header("Location:$site_we_send_to_in_case_of_wrong_input");
         exit();         
     }
 
     //E-Mail muss ein @ enthalten darf keine Leerzeichen enthalten
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){ /*Funktion prüft ob die eingegebene E-Mail eine valide ist*/ 
-        $_SESSION["error_registration"] = '5'; //wird auf 5 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
+        $_SESSION["error_registration"] = '5'; //wird auf 5 gesetzt, damit auf der registration.php die Errormeldung bezüglich E-Mail ausgegeben wird.
         header("Location:$site_we_send_to_in_case_of_wrong_input");
         exit(); 
     }

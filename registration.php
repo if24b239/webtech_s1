@@ -11,18 +11,7 @@ if(!isset($_SESSION)){
 <html lang="de">
 
 <?php $title = "Registrierung"; include 'php_inserts\head.php'; 
-    //Ausgabe wenn Passwörter nicht gleich sind
 
-    if(!isset($warning)) {
-        $warning = '';
-    }
-    if(!isset($_SESSION["password_ckeck"])){
-        $_SESSION["password_check"] = '';
-    }
-    if ($_SESSION["password_check"] == 'Error') {
-        $warning = 'Passwörter stimmen nicht überein';
-        $_SESSION["password_check"] = '';
-    }
     /*Test*/ echo 'Status error_registration: '.$_SESSION["error_registration"].'';
 ?>
 
@@ -52,7 +41,7 @@ if(!isset($_SESSION)){
                 <label id="first_name" for="first_name">Vorname:</label><br>
                 <input type="text" name="first_name" id="first_name" required>
                 <?php 
-                    if($_SESSION["error_registration"]=='4'){
+                    if($_SESSION["error_registration"]=='4'||$_SESSION["error_registration"]=='7'){
                         echo 'Der Vorname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
                     }
                 ?>
@@ -61,7 +50,7 @@ if(!isset($_SESSION)){
                 <label id="last_name" for="last_name">Nachname:</label><br>
                 <input type="text" name="last_name" id="last_name" required>
                 <?php 
-                    if($_SESSION["error_registration"]=='3'){
+                    if($_SESSION["error_registration"]=='3'||$_SESSION["error_registration"]=='7'){
                         echo 'Der Nachname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
                     }
                 ?>
@@ -86,7 +75,11 @@ if(!isset($_SESSION)){
             <div class="col-4">
                 <label id="password_repitition" for="password_repitition">Passwortwiederholung:</label><br>
                 <input type="password" name="password_repitition" id="password_repitition" required>
-                <?php echo $warning; // Ausgabe der Warnung in dem Fall, dass die Passwörter nicht übereinstimmen ?>
+                <?php 
+                    if($_SESSION["error_registration"]=='2'){
+                        echo 'Passwörter stimmen nicht überein.';
+                    }
+                ?>
             </div>
             <br>
             <div class="col-12">
