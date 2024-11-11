@@ -21,7 +21,7 @@ if(!isset($_SESSION)){
         <section class="section-mainLeft">
             <img class="img-main" src="pictures/tavernInside.jpg" alt="Ein Bild unseres Frühstücksbereichs">
             <section class="text-inside-section">
-                <p>Wir begrüßen Sie in unserer Taverne. Hier genießen Sie ihr inkludiertes Frühstück.</p>
+                <p>Wir begrüßen Sie in unserer Taverne. Hier haben Sie die Möglichkeit Ihr herzhaftes Frühstück zu genießen.</p>
             </section>
         </section>
         <section>

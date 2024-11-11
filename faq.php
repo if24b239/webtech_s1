@@ -14,8 +14,17 @@
 
 
         <details style="border-style: groove;">
-            <summary> 1. FAQ </summary>
-            <p>Antwort auf die häufigste Frage</p>
+            <summary> Wie kann ich eine Reservierung vornehmen? </summary>
+            <br>
+            <p>Um eine Reservierung durchzuführen, müssen Sie registriert und eingeloggt sein. </p>
+            <br>
+            <p>Drücken Sie dann in der Navigationsleiste auf "Zimmerreservierung.</p>
+            <p>Hier wählen Sie nun das von Ihnen gewünschte Zimmer sowie das An- und Abreisedatum aus.</p>
+            <br>
+            <p>Zusätzlich werden Sie noch nach Ihren wünschen bezüglich Frühstück, Parkplatz und der Mitnahme von Haustieren gefragt.</p>
+            <p>Außerdem gibt es dort die Möglichkeit besondere Wünsche anzumerken.</p>
+            <br>
+            <p>Wir freuen uns auf Ihren Besuch!</p>
         </details>
 
         <details style="border-style: groove;">
