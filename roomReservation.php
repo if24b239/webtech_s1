@@ -16,6 +16,24 @@
     <form class="col-12" action="roomReservation_action.php" target="_blank" method="Post"> 
             <h2>Zimmerreservierung</h2>
             <br>
+            <!--Raumwahl-->
+            <div>
+                <div>
+                <label id="room1" for="room1">
+                    Raum Typ A
+                    <input type="radio" name="room" id="room1" value="room1">
+                    <img src="pictures/sleepingChamber1.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ A. Es enthält ein Doppelbett, einen Kleiderschrank und einen Schreibtisch.">
+                </label>
+                </div>
+                <div>
+                <label id="room2" for="room2">
+                    Raum Typ B
+                    <input type="radio" name="room" id="room2" value="room2">
+                    <img src="pictures/sleepingChamber2.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ B. Es enthält ein Doppelbett, einen Kleiderschrank und ein Bücherregal zur Unterhaltung.">
+                </label>
+                </div>
+            </div>
+            <br>
             <!--Reservierungszeitraum (An- und Abreisedatum, Abreisedatum darf nicht <= Anreisedatum sein)-->
             <div class="form-element">
                <label id="arrival"  for="arrival">Anreisedatum:</label><br>

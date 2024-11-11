@@ -10,7 +10,7 @@
     <?php include 'php_inserts\navigation.php' ?>
 
     <section>
-        <form class="col-12" action="login_action.php" target="_blank" method="Post"> /*Daten werden an login_action.php geschickt mit der Methode Post*/
+        <form class="col-12" action="login_action.php" target="_blank" method="Post"> <!--Daten werden an login_action.php geschickt mit der Methode Post-->
             <h2>Login</h2>
             <div class="col-12">
                 <label id="user_name_login" for="user_name_login">Username:</label><br>

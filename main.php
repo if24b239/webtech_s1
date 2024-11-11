@@ -25,7 +25,6 @@ if(!isset($_SESSION)){
             </section>
         </section>
         <section>
-            <p> WAS PASSIERT HIER?</p>
         </section>
         <section class="section-mainRight">
             <section class="text-inside-section">
