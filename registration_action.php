@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $site_we_send_to_in_case_of_wrong_input = 'registration.php';
 
     //globale Variable zum ausgeben der richtigen Error-message
-    $_SESSION["error_registration"]='0'; 
+    $_SESSION["error_registration"]=0; 
     /*0=kein Error, 
     1=Eine Eingabe ist leer, 
     2=Passwörter sind unterschiedlich, 
@@ -50,26 +50,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     || (empty($password))
     || (empty($password_repitition))
     ){
-        $_SESSION["error_registration"] += 1;
-        header("Location:$site_we_send_to_in_case_of_wrong_input");    
+        $_SESSION["error_registration"] += 1; 
     }
     
     //Überprüfung ob Passwörter gleich sind
     if($password != $password_repitition){
         $_SESSION["error_registration"] += 2;
-        header("Location:$site_we_send_to_in_case_of_wrong_input");
     }
     //Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten
     //Nachname
     if (!preg_match('/^[-a-zA-Z[:space:]_]+$/', $last_name)){
-        $_SESSION["error_registration"] += 4; //wird auf 4 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
-        header("Location:$site_we_send_to_in_case_of_wrong_input");      
+        $_SESSION["error_registration"] += 4; //wird auf 4 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.   
     }
 
     //vorname
     if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $first_name)){
-        $_SESSION["error_registration"] += 8; //wird auf 8 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
-        header("Location:$site_we_send_to_in_case_of_wrong_input");      
+        $_SESSION["error_registration"] += 8; //wird auf 8 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.     
     }
 
     //E-Mail muss ein @ enthalten darf keine Leerzeichen enthalten
@@ -82,6 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!($gender == "female" || $gender == "male" || $gender == "other")) {
         $_SESSION["error_registration"] += 32;
     }
+
+    //Funktioniert noch nicht. Sollte prüfen pb die Variabele die folgenden Zeichen enthält, und wenn nicht: Fehlermeldung ausgeben. 
+    /*if (!preg_match('/^[0-9a-zA-Z]+$/i', $password)||(strlen($str)<8)){ 
+        $_SESSION["error_registration"] += 64;
+    }*/
 
     if ($_SESSION["error_registration"] > 0) {
         header("Location:$site_we_send_to_in_case_of_wrong_input");

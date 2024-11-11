@@ -2,7 +2,7 @@
 if(!isset($_SESSION)){
     session_start();
     if(!isset($_SESSION["error_registration"])){
-        $_SESSION["error_registration"]='0';
+        $_SESSION["error_registration"]= 0;
     }
 }
 ?>
@@ -23,7 +23,7 @@ if(!isset($_SESSION)){
         $warning = 'Passwörter stimmen nicht überein';
         $_SESSION["password_check"] = '';
     }
-    /*Test*/ echo 'Status error_registration: '.$_SESSION["error_registration"].'';
+    /*Test*/ echo 'Debugging: Status error_registration: '.$_SESSION["error_registration"].'';
 ?>
 
 <body>
@@ -57,7 +57,6 @@ if(!isset($_SESSION)){
                 <label id="first_name" for="first_name">Vorname:</label><br>
                 <input type="text" name="first_name" id="first_name" required>
                 <?php 
-                    if($_SESSION["error_registration"]=='4'||$_SESSION["error_registration"]=='7'){
                     if($_SESSION["error_registration"] & 8){
                         echo 'Der Vorname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
                     }
@@ -67,7 +66,6 @@ if(!isset($_SESSION)){
                 <label id="last_name" for="last_name">Nachname:</label><br>
                 <input type="text" name="last_name" id="last_name" required>
                 <?php 
-                    if($_SESSION["error_registration"]=='3'||$_SESSION["error_registration"]=='7'){
                     if($_SESSION["error_registration"] & 4){
                         echo 'Der Nachname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
                     }
@@ -91,7 +89,8 @@ if(!isset($_SESSION)){
                 <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                 <?php
                     if ($_SESSION["error_registration"] & 64) {
-                        echo 'Passwort nicht möglich!';
+                        /* Erst Freigeben wenn Abfrage in registration_action funktioniert.*/
+                        /*echo 'Das Passwort muss mindestes 1 Kleinbuchtsaben, 1 Großbuchstaben und eine Zahl enthalen.';*/
                     }
                 ?>
             </div>
@@ -99,13 +98,8 @@ if(!isset($_SESSION)){
                 <label id="password_repitition" for="password_repitition">Passwortwiederholung:</label><br>
                 <input type="password" name="password_repitition" id="password_repitition" required>
                 <?php 
-                    if($_SESSION["error_registration"]=='2'){
-                        echo 'Passwörter stimmen nicht überein.';
-                    }
-                ?>
-                <?php 
                     if ($_SESSION["error_registration"] & 2) {
-                        echo $warning;
+                        echo 'Passwörter stimmen nicht überein.';
                     }
                 ?>
             </div>

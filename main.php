@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION)){
     session_start();
-    $_SESSION["error_registration"]='0';
+    $_SESSION["error_registration"]=0;
 }
 ?>
 
