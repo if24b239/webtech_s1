@@ -18,19 +18,22 @@
             <br>
             <!--Raumwahl-->
             <div>
-                <div>
-                <label id="room1" for="room1">
-                    Raum Typ A
-                    <input type="radio" name="room" id="room1" value="room1">
-                    <img src="pictures/sleepingChamber1.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ A. Es enthält ein Doppelbett, einen Kleiderschrank und einen Schreibtisch.">
-                </label>
+                <div class="roomReservation_Rooms">
+                    <label id="room1" for="room1">
+                        <p>Raum Typ A</p>
+                        <input type="radio" name="room" id="room1" value="room1">
+                        <img src="pictures/sleepingChamber1.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ A. Es enthält ein Doppelbett, einen Kleiderschrank und einen Schreibtisch.">
+                        <p>Dieser Raum bietet Ihnen ein bequemes Doppelbett und einen großen Schreibtisch.</p>
+
+                    </label>
                 </div>
-                <div>
-                <label id="room2" for="room2">
-                    Raum Typ B
-                    <input type="radio" name="room" id="room2" value="room2">
-                    <img src="pictures/sleepingChamber2.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ B. Es enthält ein Doppelbett, einen Kleiderschrank und ein Bücherregal zur Unterhaltung.">
-                </label>
+                <div class="roomReservation_Rooms">
+                    <label id="room2" for="room2">
+                        <p>Raum Typ B</p>
+                        <input type="radio" name="room" id="room2" value="room2">
+                        <img src="pictures/sleepingChamber2.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ B. Es enthält ein Doppelbett, einen Kleiderschrank und ein Bücherregal zur Unterhaltung.">
+                        <p>Dieser Raum bietet Ihnen zusäzlich zum Doppelbett auch ein gut ausgestattetes Bücherregal.</p>
+                    </label>
                 </div>
             </div>
             <br>
@@ -81,7 +84,7 @@
             </div>
 
             <br>
-            <div class=>
+            <div>
                 <button type="submit">Reservierung abschließen</button>
             </div>
         </form>
