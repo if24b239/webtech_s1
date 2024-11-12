@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<?php $title = "FAQ und Impressum"; include 'php_inserts\head.php' ?>
+<?php $title = "Über uns"; include 'php_inserts\head.php' ?>
 
 <body>
 

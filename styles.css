@@ -253,9 +253,9 @@ section.impressum {
 >>>>>>> d029dc7d0cad893379557e33d4c5effcf5f2c986
 .body{
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    justify-content:center;
+    align-items:flex-start;
+    flex-wrap:wrap;
     /*align-content: ;*/
     /*gap: ;*/
 }
@@ -440,6 +440,46 @@ p.main{
     /*order: ;*/
 }
 /*RoomReservation*/
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    margin: 45px;
+}
+.halfScreen{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content:center;
+}
+.halfScreen div{
+    width:50%;
+    flex-wrap: wrap;
+}
+
+.flex p{
+    display:block;
+}
+.flex a{
+    color:var(--text-color);
+    border:var(--text-color);
+    text-decoration: none;
+
+    background-color: var(--darker-background-color);
+    padding: 10px;
+    margin: 0;
+    font-size: 22px;
+    color: var(--text-color);
+    height: 30px;
+    width: 100%;
+}
+
+.flex a:hover{
+    background-color:var(--accent-color);
+}
 
 
 .roomReservation_Rooms{

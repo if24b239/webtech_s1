@@ -17,7 +17,7 @@ echo '
     <ul>
         <li><a href="main.php">Startseite</a></li>
         <li><a href="roomReservation.php">Zimmerreservierung</a></li>
-        <li><a href="aboutUs.php">Über uns</a></li>
+        <li><a href="profile.php">Profil</a></li>
         <li><a href="login.php">Login</a></li>
         <li><a href="registration.php">Registrierung</a></li>
     </ul>

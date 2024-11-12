@@ -1,7 +1,17 @@
+<?php
+    session_start();
+    if(!isset($_SESSION["user_name"])){
+        $_SESSION["logged_in"] = 0;
+    }
+?>
 <!DOCTYPE html>
 <html lang="de">
 
-<?php $title = "Zimmerreservierung"; include 'php_inserts\head.php' ?>
+<?php $title = "Zimmerreservierung"; include 'php_inserts\head.php';
+
+echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'';
+
+?>
 
 <body>
 
@@ -17,6 +27,10 @@
             <h2>Zimmerreservierung</h2>
             <br>
             <!--Raumwahl-->
+        <?php
+        
+        if($_SESSION["logged_in"]==1){
+            echo'
             <div>
                 <div class="roomReservation_Rooms">
                     <label id="room1" for="room1">
@@ -87,8 +101,15 @@
             <div>
                 <button type="submit">Reservierung abschließen</button>
             </div>
-        </form>
-
+        </form>';
+    }
+    else if($_SESSION["logged_in"]==0){
+        echo '
+            <p>Um eine Zimmerreservierung durchzuführen müssen Sie sich <a href="login.php">einloggen</a></p>
+        ';
+    }
+    
+    ?>
 
     </section>
     
