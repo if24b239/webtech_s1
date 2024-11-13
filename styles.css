@@ -204,6 +204,7 @@ a.footer:hover {
 
 footer {
     background-color: var(--darker-background-color);
+
 }
 
 /*Formulare*/
@@ -246,11 +247,11 @@ section.impressum {
 } */
 
 
-<<<<<<< HEAD
+
 
 /*FLEXBOXPROPERTYS*/ /*--> Flexbox lässt sich eh einfach in die normalen CSS Anweisungn eintragen, ich war damals glaube ich von der Klassenzuweisung verwirrt :0  */
 
->>>>>>> d029dc7d0cad893379557e33d4c5effcf5f2c986
+
 .body{
     display: flex;
     justify-content:center;
@@ -325,7 +326,7 @@ section.impressum {
     /*gap: ;*/
 
     /*Allgemeine CSS Propertys*/
-    margin:;/*Macht hier nichts wsl weil width 100%?*/
+    /*margin:;/*Macht hier nichts wsl weil width 100%?*/
 }
 
 .section-mainCenter{
@@ -481,6 +482,7 @@ p.main{
     background-color:var(--accent-color);
 }
 
+/*RadioButton auf gesammtes elternelement vergrößern*/
 
 .roomReservation_Rooms{
     display:inline-block;
@@ -489,3 +491,7 @@ p.main{
 -roomReservations_Rooms p{
     display: inline;
 }
+
+/*Start test*/
+
+/*Ende Test*/
