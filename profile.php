@@ -22,12 +22,9 @@
         
         <div>
             <?php
-                echo '  Willkommen '.$_SESSION["user_name"].'';
+                echo '  Willkommen '.$_SESSION["user_name"].'!';
             ?>
-            <br>
-            <br>
-            <br> 
-            <a href="room_reservation.php">Zimmerreservierung</a>   
+            <br>  
             <br>
             <br>
         </div>
@@ -42,22 +39,28 @@
                             <div class="bordered">
                                 <p>Reservierung vom '.$x["arrival"].' bis zum '.$x["departure"].':</p>  
                                 <br>
-                                <p>gewähltes Zimmer: '.$x["room"].'</p>
+                                <p>gewähltes Zimmer: <br>'.$x["room"].'</p>
                                 <br>
                                 <p>Frühstück: </p>
                         ';
                                     if($x["breakfast"]=='with_breakfast'){
-                                        echo 'mit Frühstück';
+                                        echo 'mit Frühstück
+                                            <br>
+                                        ';
                                     }
                                     else if ($x["breakfast"]=='without_breakfast'){
-                                        echo 'ohne Frühstück';
+                                        echo 'ohne Frühstück
+                                            <br>
+                                        ';
                                     }
                                 echo '
                                     <br>
                                     <p>Parkplatz: </p> 
                                 ';
                                 if($x["parking"]=='with_parking'){
-                                    echo 'mit Parkplatz';
+                                    echo 'mit Parkplatz
+                                        <br>
+                                    ';
                                 }
                                 else if ($x["parking"]=='without_parking'){
                                     echo 'ohne Parkplatz
@@ -87,7 +90,7 @@
                                 }
 
                                 echo '
-                                    <p>Anmerkungen: '.$x["special_requests"].'</p>
+                                    <p>Anmerkungen: <br>'.$x["special_requests"].'</p>
                                     <br>
                                 
                             </div>
@@ -99,8 +102,36 @@
             </div>
             
             <div class="halfScreenChild right test2">
-                <h1>Stammdaten</h1>
+                <h1>Profildaten</h1>
+                    <div class="bordered">
+                    <?php
+                        if($_SESSION["gender"]=='female'){
+                            echo'Anrede: Frau '.$_SESSION["last_name"].'';
+                        }
+                        if($_SESSION["gender"]=='male'){
+                            echo'Anrede: Herr '.$_SESSION["last_name"].'';
+                        }
+                        if($_SESSION["gender"]=='other'){
+                            echo'Anrede: '.$_SESSION["first_name"].' '.$_SESSION["last_name"].'';
+                        }
+                        echo'
+                            <br>
+                            <br>
+                            E-Mail Adresse: '.$_SESSION["email"].'
+                        ';
 
+                        echo'
+                            <br>
+                            <br>
+                            Username: '.$_SESSION["user_name"].'
+                        ';
+                        echo '';
+                        ?>
+
+                    </div>
+                <form action="profile_change_action.php" method="Post">
+                    
+                </form> 
             </div>
         </div>
         

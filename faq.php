@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -16,7 +20,7 @@
         <details style="border-style: groove;">
             <summary> Wie kann ich eine Reservierung vornehmen? </summary>
             <br>
-            <p>Um eine Reservierung durchzuführen, müssen Sie registriert und eingeloggt sein. </p>
+            <p>Um eine Reservierung durchzuführen, müssen Sie 1. registriert und 2. eingeloggt sein. </p>
             <br>
             <p>Drücken Sie dann in der Navigationsleiste auf "Zimmerreservierung.</p>
             <p>Hier wählen Sie nun das von Ihnen gewünschte Zimmer sowie das An- und Abreisedatum aus.</p>

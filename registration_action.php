@@ -62,12 +62,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     //Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten
     //Nachname
-    if (!preg_match('/^[-a-zA-Z[:space:]_]+$/', $last_name)){
+    if (!preg_match('/^[-a-zA-Z[:space:]äöüÄÖÜ_]+$/', $last_name)){
         $_SESSION["error_registration"] += 4; //wird auf 4 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.   
     }
 
     //vorname
-    if(!preg_match('/^[-a-zA-Z[:space:]_]+$/', $first_name)){
+    if(!preg_match('/^[-a-zA-Z[:space:]äöüÄÖÜ_]+$/', $first_name)){
         $_SESSION["error_registration"] += 8; //wird auf 8 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.     
     }
 
@@ -92,8 +92,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-
-$_SESSION["registration"][] = $registration;
+    //Session_Variablen für die Ausgabe der Reservierungsdaten beim Profil - kann gelöscht werden wenn Datenbank inkludiert
+    $_SESSION["gender"]=$gender;
+    $_SESSION["first_name"]=$first_name;
+    $_SESSION["last_name"]=$last_name;
+    $_SESSION["email"]=$email;
+    $_SESSION["user_name"]=$user_name_registration;
+    //Ende Session_Variablen für die Ausgabe der Reservierungsdaten beim Profil - bitte löschen, wenn Datenbank inkludiert
 
     header("Location:main.php");
     exit();
@@ -101,7 +106,7 @@ $_SESSION["registration"][] = $registration;
 
 //Falls die Userin diese Seite auf einem anderen Weg als über das Formular erreicht hat, wird sie auf die Startseite verwiesen
 else { // if ($_SERVER["REQUEST_METHOD"] == "POST")
-    header("Location:main.php");
+    header("Location:profile.php");
     exit();
 }
 
