@@ -54,7 +54,7 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'';
             </div>
             <br>
             <div>
-                <label id="departure"  for="departure">Anreisedatum:</label><br>
+                <label id="departure"  for="departure">Abreisedatum:</label><br>
                 <input type="date" name="departure" id="departure" required>
             </div>
             <br>

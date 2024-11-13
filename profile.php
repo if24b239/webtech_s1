@@ -26,7 +26,7 @@
             <br>
             <br>
             <br> 
-            <a href="roomReservation.php">Zimmerreservierung</a>   
+            <a href="room_reservation.php">Zimmerreservierung</a>   
         </div>
         <br>
         <div class="halfScreen">
