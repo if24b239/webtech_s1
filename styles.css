@@ -455,10 +455,23 @@ p.main{
     width: 100%;
     flex-wrap: wrap;
     align-content:center;
+    justify-content: space-around;
 }
-.halfScreen div{
-    width:50%;
+.halfScreenChild{
+    width: 45%;
     flex-wrap: wrap;
+    min-width:fit-content;
+    max-width: 45%;
+    border: var(--accent-color);     
+}
+
+.bordered{
+    border: var(--darker-background-color);
+    border-width: 2px;
+    border-style: double;
+}
+.right{
+    justify-self: flex-end;
 }
 
 .flex p{

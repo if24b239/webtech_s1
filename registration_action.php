@@ -92,10 +92,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+
+$_SESSION["registration"][] = $registration;
+
     header("Location:main.php");
     exit();
 }
-
 
 //Falls die Userin diese Seite auf einem anderen Weg als über das Formular erreicht hat, wird sie auf die Startseite verwiesen
 else { // if ($_SERVER["REQUEST_METHOD"] == "POST")

@@ -17,6 +17,7 @@
 
     echo 'Debugging: wrong_password: '.$_SESSION["wrong_password"].'';
     echo '    Korrektes Passwort: '.$static_password.'';
+    echo '    korrekter Username: MaxMustermann';
 
 ?>
 

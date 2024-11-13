@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION["pet3"])) {
         $pet += $_SESSION["pet1"];
     }
-    $pet = htmlspecialchars($pet);
+    $_SESSION["pet"] = htmlspecialchars($pet);
     
     $_SESSION["error_reservation"] = 0;
     /*0=kein Error, 
@@ -62,6 +62,6 @@ $reservation = [
 $_SESSION["reservierungen"][] = $reservation;
 
 
-header("Location:room_reservation.php");
+header("Location:profile.php");
 exit();
 ?>
