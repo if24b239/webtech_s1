@@ -4,6 +4,13 @@
     if (!isset($_SESSION["user_name"])) {
         $_SESSION["user_name"] = '';
     }
+    if(!isset($_SESSION["gender"])){
+        $_SESSION["gender"]='male';
+        $_SESSION["first_name"]='Max';
+        $_SESSION["last_name"]='Mustermann';
+        $_SESSION["email"]='muster@email.com';
+        $_SESSION["user_name"]='MaxMuster1';
+    }
 
 ?>
 
