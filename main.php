@@ -1,10 +1,4 @@
-<?php
-if(!isset($_SESSION)){
-    session_start();
-    $_SESSION["error_registration"]=0;
-}
-?>
-
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="de">

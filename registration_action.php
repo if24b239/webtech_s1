@@ -1,8 +1,11 @@
 <?php //weil reines PHP-File nur aufgemacht, nicht geschlossen
 
-if(!isset($_SESSION)){
-    session_start();
+session_start();
+
+if (!isset($_SESSION["user_name"])) {
+    $_SESSION["user_name"] = '';
 }
+
 
 //this file Should be in a private folder not in a public one for security reasons
 

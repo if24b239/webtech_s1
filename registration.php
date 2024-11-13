@@ -13,16 +13,6 @@
 <?php $title = "Registrierung"; include 'php_inserts\head.php'; 
     //Ausgabe wenn Passwörter nicht gleich sind
 
-    if(!isset($warning)) {
-        $warning = '';
-    }
-    if(!isset($_SESSION["password_ckeck"])){
-        $_SESSION["password_check"] = '';
-    }
-    if ($_SESSION["password_check"] == 'Error') {
-        $warning = 'Passwörter stimmen nicht überein';
-        $_SESSION["password_check"] = '';
-    }
     /*Test*/ echo 'Debugging: Status error_registration: '.$_SESSION["error_registration"].'';
 ?>
 

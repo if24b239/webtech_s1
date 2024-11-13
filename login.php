@@ -1,9 +1,12 @@
 <?php
 
     session_start();
-    $_SESSION["static_password"] ='Password_1234';
-    if(!isset($_SESSION["wrong_password"])){
-       $_SESSION["wrong_password"]=0;
+    $static_password ='Password_1234';
+    if(!isset($_SESSION["user_name"])){
+       $_SESSION["user_name"]='';
+    }
+    if (!isset($_SESSION["wrong_password"])) {
+        $_SESSION["wrong_password"] = 0;
     }
 ?>
 
@@ -13,7 +16,7 @@
 <?php $title = "Login"; include 'php_inserts\head.php';
 
     echo 'Debugging: wrong_password: '.$_SESSION["wrong_password"].'';
-    echo '    Korrektes Passwort: '.$_SESSION["static_password"].'';
+    echo '    Korrektes Passwort: '.$static_password.'';
 
 ?>
 

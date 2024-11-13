@@ -20,17 +20,13 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'';
     <?php include 'php_inserts\navigation.php' ?>
     
     <section>
-    <!--If Abfrage wenn, noch nicht login: dort hin verweisen -->
+        <!--If Abfrage wenn, noch nicht login: dort hin verweisen -->
 
-    <!--If Abfrage wenn schon Login, Formular anzeigen -->
-    <form class="col-12" action="roomReservation_action.php" target="_blank" method="Post"> 
+        <!--If Abfrage wenn schon Login, Formular anzeigen -->
+        <form class="col-12" action="room_reservation_action.php" method="Post"> 
             <h2>Zimmerreservierung</h2>
             <br>
             <!--Raumwahl-->
-        <?php
-        
-        if($_SESSION["logged_in"]==1){
-            echo'
             <div>
                 <div class="roomReservation_Rooms">
                     <label id="room1" for="room1">
@@ -53,13 +49,13 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'';
             <br>
             <!--Reservierungszeitraum (An- und Abreisedatum, Abreisedatum darf nicht <= Anreisedatum sein)-->
             <div class="form-element">
-               <label id="arrival"  for="arrival">Anreisedatum:</label><br>
-               <input type="date" name="arrival" id="arrival" required>
+                <label id="arrival"  for="arrival">Anreisedatum:</label><br>
+                <input type="date" name="arrival" id="arrival" required>
             </div>
             <br>
             <div>
-               <label id="departure"  for="departure">Anreisedatum:</label><br>
-               <input type="date" name="departure" id="departure" required>
+                <label id="departure"  for="departure">Anreisedatum:</label><br>
+                <input type="date" name="departure" id="departure" required>
             </div>
             <br>
 
@@ -84,11 +80,11 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'';
             <!--Mitnahme von Haustieren (individuelle Ausgestaltung möglich)-->
             <div>
                 <p>Folgende Haustiere kommen mit: </p>
-                <input type="checkbox" id="pet1" name="pet1" value="horse">
+                <input type="checkbox" id="pet1" name="pet1" value="1">
                 <label for="pet1">Pferd</label><br>
-                <input type="checkbox" id="pet2" name="pet2" value="dog">
+                <input type="checkbox" id="pet2" name="pet2" value="2">
                 <label for="pet2">Hund</label><br>
-                <input type="checkbox" id="pet3" name="pet3" value="chimera">
+                <input type="checkbox" id="pet3" name="pet3" value="4">
                 <label for="pet3">Chimäre</label><br>
             </div>
             <br>
@@ -101,15 +97,7 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'';
             <div>
                 <button type="submit">Reservierung abschließen</button>
             </div>
-        </form>';
-    }
-    else if($_SESSION["logged_in"]==0){
-        echo '
-            <p>Um eine Zimmerreservierung durchzuführen müssen Sie sich <a href="login.php">einloggen</a></p>
-        ';
-    }
-    
-    ?>
+        </form>
 
     </section>
     
