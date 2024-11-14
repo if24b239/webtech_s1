@@ -77,16 +77,17 @@
             <div class="col-4">
                 <label id="password" for="password">Passwort:</label><br>
                 <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                
                 <?php
                     if ($_SESSION["error_registration"] & 64) {
-                        /* Erst Freigeben wenn Abfrage in registration_action funktioniert.*/
-                        /*echo 'Das Passwort muss mindestes 1 Kleinbuchtsaben, 1 Großbuchstaben und eine Zahl enthalen.';*/
+                        
+                        echo 'Das Passwort muss mindestes 1 Kleinbuchtsaben, 1 Großbuchstaben und eine Zahl enthalen.';
                     }
                 ?>
             </div>
             <div class="col-4">
                 <label id="password_repitition" for="password_repitition">Passwortwiederholung:</label><br>
-                <input type="password" name="password_repitition" id="password_repitition" required>
+                <input type="password" name="password_repitition" id="password_repitition"  required>
                 <?php 
                     if ($_SESSION["error_registration"] & 2) {
                         echo 'Passwörter stimmen nicht überein.';

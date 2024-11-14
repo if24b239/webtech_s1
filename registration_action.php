@@ -82,10 +82,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["error_registration"] += 32;
     }
 
-    //Funktioniert noch nicht. Sollte prüfen pb die Variabele die folgenden Zeichen enthält, und wenn nicht: Fehlermeldung ausgeben. 
-    /*if (!preg_match('/^[0-9a-zA-Z]+$/i', $password)||(strlen($str)<8)){ 
+    //Funktioniert noch nicht. Sollte prüfen ob die Passwort Variabele die folgenden Zeichen enthält, und wenn nicht: Fehlermeldung ausgeben. 
+    if (strlen($_POST["password"]) <= '8'
+        ||!preg_match("#[a-z]+#",$password)
+        ||!preg_match("#[A-Z]+#",$password)
+        ||!preg_match("#[0-9]+#",$password)
+        ){
         $_SESSION["error_registration"] += 64;
-    }*/
+    }
 
     if ($_SESSION["error_registration"] > 0) {
         header("Location:$site_we_send_to_in_case_of_wrong_input");
