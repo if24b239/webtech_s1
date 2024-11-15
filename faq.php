@@ -13,10 +13,9 @@
 
     <?php include 'php_inserts\navigation.php' ?>
     
-    <section>
+    <section class="container-faq">
         <h1>FAQ's</h1>
-
-
+        <br>
         <details style="border-style: groove;">
             <summary> Wie kann ich eine Reservierung vornehmen? </summary>
             <br>
@@ -30,7 +29,7 @@
             <br>
             <p>Wir freuen uns auf Ihren Besuch!</p>
         </details>
-
+        <br>
         <details style="border-style: groove;">
             <summary> Warum bin ich hier gelandet?</summary>
             <br>
@@ -38,7 +37,7 @@
             <p>oder Sie haben versucht in den Developement-Tools die Methode, </p>
             <p>mit der Sie Daten abschicken zu ändern - was ein "Nein-Nein" ist. </p>
         </details>
-
+        <br>
         <details style="border-style: groove;">
             <summary> 3. FAQ </summary>
             <p>Antwort auf die dritthäufigste Frage</p>

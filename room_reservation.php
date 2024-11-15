@@ -21,17 +21,17 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
     <?php include 'php_inserts\header.php' ?>
 
     <?php include 'php_inserts\navigation.php' ?>
-    
+  <main class="main-reservation">
     <section>
         <!--If Abfrage wenn, noch nicht login: dort hin verweisen -->
 
         <!--If Abfrage wenn schon Login, Formular anzeigen -->
-        <form class="col-12" action="room_reservation_action.php" method="Post"> 
+        <form class="col-12 bordered" action="room_reservation_action.php" method="Post"> 
             <h2>Zimmerreservierung</h2>
             <br>
             <!--Raumwahl-->
-            <div>
-                <div class="roomReservation_Rooms">
+            <div class="row">
+                <div class="roomReservation_Rooms bordered">
                     <label id="room1" for="room1">
                         <p>Raum Typ A</p>
                         <input type="radio" name="room" id="room1" value="room1">
@@ -40,7 +40,7 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
 
                     </label>
                 </div>
-                <div class="roomReservation_Rooms">
+                <div class="roomReservation_Rooms bordered">
                     <label id="room2" for="room2">
                         <p>Raum Typ B</p>
                         <input type="radio" name="room" id="room2" value="room2">
@@ -51,67 +51,73 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
             </div>
             <br>
             <!--Reservierungszeitraum (An- und Abreisedatum, Abreisedatum darf nicht <= Anreisedatum sein)-->
-            <div class="form-element">
-                <label id="arrival"  for="arrival">Anreisedatum:</label><br>
-                <input type="date" name="arrival" id="arrival" required>
+            <div class="row">
+                <div class="halfScreenChild-reservation">
+                    <label id="arrival"  for="arrival">Anreisedatum:</label><br>
+                    <input type="date" name="arrival" id="arrival" required>
+                </div>
+                <br>
+                <div class="halfScreenChild-reservation">
+                    <label id="departure"  for="departure">Abreisedatum:</label><br>
+                    <input type="date" name="departure" id="departure" required>
+                </div>
             </div>
-            <br>
-            <div>
-                <label id="departure"  for="departure">Abreisedatum:</label><br>
-                <input type="date" name="departure" id="departure" required>
-            </div>
-            <br>
             <?php
-                if($_SESSION["error_reservation"] & 64){
-                    echo '
-                        <p class="warning">Das Abreisedatum muss hinter dem Anreisedatum liegen.</p>
-                        <br>
-                    ';
-                }
-            
+                    if($_SESSION["error_reservation"] & 64){
+                        echo '
+                            <p class="warning">Das Abreisedatum muss hinter dem Anreisedatum liegen.</p>
+                            <br>
+                        ';
+                    }
+                
             ?>
-            <!--mit oder ohne Frühstück-->
-            <div>
-                <label id="breakfast" for="breakfast">Frühstück:</label><br>
-                <select for="breakfast" id="breakfast" name="breakfast">
-                    <option value="without_breakfast">ohne Frühstück</option>
-                    <option value="with_breakfast">mit Frühstück (+7€/Nacht)</option>
-                </select>
-            </div>
             <br>
-            <!--mit oder ohne Parkplatz-->
-            <div>
-                <label id="parking" for="parking">Parkplatz:</label><br>
-                <select for="parking" id="parking" name="parking">
-                    <option value="without_parking">ohne Parkplatz</option>
-                    <option value="with_parking">mit Parkplatz (+2€/Nacht)</option>
-                </select>
+            <!--mit oder ohne Frühstück-->
+            <div class="row">
+                <div class="halfScreenChild-reservation">
+                    <label id="breakfast" for="breakfast">Frühstück:</label><br>
+                    <select for="breakfast" id="breakfast" name="breakfast">
+                        <option value="without_breakfast">ohne Frühstück</option>
+                        <option value="with_breakfast">mit Frühstück (+7€/Nacht)</option>
+                    </select>
+                </div>
+                <br>
+                <!--mit oder ohne Parkplatz-->
+                <div class="halfScreenChild-reservation">
+                    <label id="parking" for="parking">Parkplatz:</label><br>
+                    <select for="parking" id="parking" name="parking">
+                        <option value="without_parking">ohne Parkplatz</option>
+                        <option value="with_parking">mit Parkplatz (+2€/Nacht)</option>
+                    </select>
+                </div>
             </div>
             <br>
             <!--Mitnahme von Haustieren (individuelle Ausgestaltung möglich)-->
-            <div>
-                <p>Folgende Haustiere kommen mit: </p>
-                <input type="checkbox" id="pet1" name="pet1" value="1">
-                <label for="pet1">Pferd</label><br>
-                <input type="checkbox" id="pet2" name="pet2" value="2">
-                <label for="pet2">Hund</label><br>
-                <input type="checkbox" id="pet3" name="pet3" value="4">
-                <label for="pet3">Chimäre</label><br>
-            </div>
-            <br>
-            <div>
-                <label id="special_requests" for="special_requests">Gibt es etwas was wir beachten sollen?</label><br>
-                <input type="text" name="special_requests" id="special_requests">
-            </div>
+            <div class="row">
+                <div class="halfScreenChild-reservation">
+                    <p>Folgende Haustiere kommen mit: </p>
+                    <input type="checkbox" id="pet1" name="pet1" value="1">
+                    <label for="pet1">Pferd</label><br>
+                    <input type="checkbox" id="pet2" name="pet2" value="2">
+                    <label for="pet2">Hund</label><br>
+                    <input type="checkbox" id="pet3" name="pet3" value="4">
+                    <label for="pet3">Chimäre</label><br>
+                </div>
+                
+                <div class="halfScreenChild-reservation">
+                    <label id="special_requests" for="special_requests">Gibt es etwas was wir beachten sollen?</label><br>
+                    <input type="text" name="special_requests" id="special_requests">
+                </div>
 
-            <br>
+                <br>
             <div>
+                
+
                 <button type="submit">Reservierung abschließen</button>
-            </div>
         </form>
 
     </section>
-    
+    </main>  
     <?php include 'php_inserts\footer.php' ?>
 
 </body>

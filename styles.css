@@ -282,9 +282,6 @@ figure.impressum {
     width: auto;
     max-width: fit-content;
 }
-section.impressum {
-    background-color: var(--background-color); 
-}
 
 .p-wholeContainer{ /*aus irgendeinem grund habe ich allen paragraphen im impressum diese Klasse gegeben? ich glaube weil ich sie */
     /*Flex-Box Child Propertys*/
@@ -296,21 +293,6 @@ section.impressum {
     align-self: ;
     order: ;*/
 }
-
-.figure-impressum{
-        /*Flex-Box Child Propertys*/
-        width: 50%;
-        flex-grow: 1;
-        /*flex-shrink: ;*/
-        flex-basis: 50%;
-        /*flex: ;
-        align-self: ;
-        order: ;*/
-
-        /*Allgemeine CSS Propertys*/
-        display: inline;
-}
-
  /*STARTSEITE*/
 
 .section.main{
@@ -354,7 +336,14 @@ section.impressum {
     /*align-content: ;*/
     /*gap: ;*/
 }
+.container-faq{
+  padding:35px;  
+  min-height: 275px;
+}
 
+details {
+    max-width: 900px;
+}
 .section-mainLeft {
         /*Flex-Box Child Propertys*/
         width: 100%;
@@ -448,6 +437,18 @@ p.main{
     /*order: ;*/
 }
 /*RoomReservation*/
+.main-reservation{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+}
 .flex {
     display: flex;
     justify-content: center;
@@ -472,6 +473,14 @@ p.main{
     border: var(--accent-color);
     padding-top: 45px;   
     padding-bottom: 45px;
+}
+
+.halfScreenChild-reservation{
+    width: 45%;
+    flex-wrap: wrap;
+    min-width:fit-content;
+    max-width: 45%;
+    border: var(--accent-color);
 }
 
 .bordered{
@@ -509,6 +518,7 @@ p.main{
 .roomReservation_Rooms{
     display:inline-block;
     max-width: 330px;
+    padding:5px;
 }
 -roomReservations_Rooms p{
     display: inline;
