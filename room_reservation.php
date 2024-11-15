@@ -3,13 +3,16 @@
     if(!isset($_SESSION["user_name"])){
         $_SESSION["logged_in"] = 0;
     }
+    if (!isset($_SESSION["error_reservation"])) {
+        $_SESSION["error_reservation"] = 0;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="de">
 
 <?php $title = "Zimmerreservierung"; include 'php_inserts\head.php';
 
-echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'';
+echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_reservation"]: '.$_SESSION["error_reservation"].'';
 
 ?>
 
@@ -58,7 +61,12 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'';
                 <input type="date" name="departure" id="departure" required>
             </div>
             <br>
-
+            <?php
+                if($_SESSION["error_reservation"] & 64){
+                    echo 'Das Abreisedatum muss hinter dem Anreisedatum liegen.';
+                }
+            
+            ?>
             <!--mit oder ohne Frühstück-->
             <div>
                 <label id="breakfast" for="breakfast">Frühstück:</label><br>

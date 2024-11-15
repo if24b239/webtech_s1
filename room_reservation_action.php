@@ -5,6 +5,9 @@ session_start();
 if (!isset($_SESSION["reservierungen"])) {
     $_SESSION["reservierungen"] = array();
 }
+if (!isset($_SESSION["error_reservation"])) {
+    $_SESSION["error_reservation"] = 0;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -34,19 +37,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     4=arrival/departure wrong format,
     8=room not available
     16=pet currently not allowed
-    32=no parking free*/
+    32=no parking free
+    64=departure <= arrival*/
 
+    //1=Eine Eingabe ist leer
     if((empty($room))
     || (empty($arrival))
     || (empty($departure))
     || (empty($breakfast))
     || (empty($parking))
-    || (empty($special_requests))
-    || (empty($pet))
+    /*|| (empty($special_requests)) -- habe ich ausgeklammert weil die Leute ja auch keine Sonderwünsche haben dürfen*/
+    /*|| (empty($pet))  -- habe ich ausgeklammert weil die Möglichkeit besteht kein Tier mitzunehmen*/
     ){
         $_SESSION["error_reservation"] += 1;
     }
+    //2=room falsches format or existiert nicht
+    
+    //4=arrival/departure wrong format
 
+    //8=room not available
+
+    //16=pet currently not allowed
+
+    //32=no parking free
+
+    //64=departure <= arrival
+    $dateTimestampArrival = strtotime($arrival);
+    $dateTimestampDeparture = strtotime($departure);
+    if($dateTimestampDeparture < $dateTimestampArrival){
+        $_SESSION["error_reservation"] += 64;
+        
+    }
+    if($_SESSION["error_reservation"] > 0){
+        header("Location:room_reservation.php");
+        exit();
+    }
 }
 
 $reservation = [

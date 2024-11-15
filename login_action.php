@@ -2,6 +2,10 @@
 
 session_start();
 
+//TO-DO
+    //- Wenn Username nicht mit statischem übereinstimmt: Rückmelden dass User noch nicht angelegt ist
+    //
+
 // replace with databank retrieval
 $static_password = 'Password_1234';
 $static_user_name = 'MaxMustermann';
@@ -28,4 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location:login.php");
         exit();
     }
+}
+else {
+    header("Location:faq.php");
+    exit();
 }
