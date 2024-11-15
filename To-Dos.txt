@@ -24,6 +24,7 @@ NICHT Erledigt - Serverseitige Validierung Login - Empty usw.
 NICHT Erledigt - serverseite Passwort validation in der Registrierung wenn leer --> zurückschicken und beschweren
 
 ERLEDIGT - session start bei jeder seite oben
+ERLEDIGT- Begrüßung auf jeder Seite oben - Lena
 
 
 

@@ -4,7 +4,8 @@
     if (!isset($_SESSION["user_name"])) {
         $_SESSION["user_name"] = '';
     }
-    if(!isset($_SESSION["gender"])){
+    
+    if(!isset($_SESSION["email"])){
         $_SESSION["gender"]='male';
         $_SESSION["first_name"]='Max';
         $_SESSION["last_name"]='Mustermann';

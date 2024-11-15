@@ -128,9 +128,10 @@ nav li {
     text-align: center; 
     position: relative;
 }
-nav li:hover{/*Funktioniert nicht, weiß nicht warum*/
+nav li:hover{
     background-color: var(--accent-color);
 }
+
 nav ul a{
     height: 100%;
     width: 100%;
@@ -161,6 +162,12 @@ nav input[type="checkbox"]{
     width: 100%;
     background: var(--text-color);
     border-radius: 100px;
+}
+
+nav h1{
+    justify-self: flex-start;
+    padding-left:10px;
+    padding-right: 10px;
 }
 @media only screen and (max-width: 768px){
     .toggle_button_nav{

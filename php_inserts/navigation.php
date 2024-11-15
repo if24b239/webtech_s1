@@ -1,5 +1,18 @@
 <?php 
+    if(!isset($_SESSION["gender"])){
+        $_SESSION["gender"]='male';
+    }
+    if(!isset($_SESSION["first_name"])){
+        $_SESSION["first_name"]='Max';
+    }
+    if(!isset($_SESSION["last_name"])){
+        $_SESSION["last_name"]='Mustermann';
+    } 
 
+    if(!isset($_SESSION["logged_in"])){
+        $_SESSION["logged_in"] = 0;
+
+    }
 /* 
 USAGE: no special usage
 */
@@ -17,6 +30,22 @@ echo '
     </label>
 
     <ul>
+        <h1>';
+            if($_SESSION["logged_in"] == 1){
+                        if($_SESSION["gender"]=='female'){
+                            echo'Willkommen Frau '.$_SESSION["last_name"].'!';
+                        }
+                        if($_SESSION["gender"]=='male'){
+                            echo'Willkommen Herr '.$_SESSION["last_name"].'!';
+                        }
+                        if($_SESSION["gender"]=='other'){
+                            echo'Willkommen '.$_SESSION["first_name"].' '.$_SESSION["last_name"].'!';
+                        }
+            }
+        echo'
+        </h1>
+        
+        
         <li><a href="main.php">Startseite</a></li>
 ';
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == 1) {
