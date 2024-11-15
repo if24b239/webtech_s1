@@ -27,7 +27,7 @@
             <h2>Registrierung</h2>
             <?php 
                 if($_SESSION["error_registration"] & 1){
-                    echo 'Bitte alle Felder ausfüllen!';
+                    echo '<p class="warning">Bitte alle Felder ausfüllen!</p>';
                 }
             ?>
             <div class="col-4">
@@ -39,7 +39,7 @@
                 </select>
                 <?php 
                     if($_SESSION["error_registration"] & 32) {
-                        echo 'Nur Frau, Mann oder Other';
+                        echo '<p class="warning">Nur Frau, Mann oder Other</p>';
                     }
                 ?>
             </div>
@@ -48,7 +48,7 @@
                 <input type="text" name="first_name" id="first_name" required>
                 <?php 
                     if($_SESSION["error_registration"] & 8){
-                        echo 'Der Vorname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
+                        echo '<p class="warning">Der Vorname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.</p>';
                     }
                 ?>
             </div>
@@ -57,7 +57,7 @@
                 <input type="text" name="last_name" id="last_name" required>
                 <?php 
                     if($_SESSION["error_registration"] & 4){
-                        echo 'Der Nachname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.';
+                        echo '<p class="warning">Der Nachname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.</p>';
                     }
                 ?>
             </div>
@@ -66,7 +66,7 @@
                 <input type="email" name="email" id="email" required> 
                 <?php 
                     if($_SESSION["error_registration"] & 16){
-                        echo 'Die E-Mailadresse ist nicht valide!';
+                        echo '<p class="warning">Die E-Mailadresse ist nicht valide!</p>';
                     }
                 ?>
             </div>
@@ -81,7 +81,7 @@
                 <?php
                     if ($_SESSION["error_registration"] & 64) {
                         
-                        echo 'Das Passwort muss mindestes 1 Kleinbuchtsaben, 1 Großbuchstaben und eine Zahl enthalen.';
+                        echo '<p class="warning">Das Passwort muss mindestes 1 Kleinbuchtsaben, 1 Großbuchstaben und eine Zahl enthalen.</p>';
                     }
                 ?>
             </div>
@@ -90,7 +90,7 @@
                 <input type="password" name="password_repitition" id="password_repitition"  required>
                 <?php 
                     if ($_SESSION["error_registration"] & 2) {
-                        echo 'Passwörter stimmen nicht überein.';
+                        echo '<p class="warning">Passwörter stimmen nicht überein.</p>';
                     }
                 ?>
             </div>

@@ -40,7 +40,7 @@
             </div>
             <?php
                 if($_SESSION["wrong_password"]==1){
-                    echo 'falsches Passwort';
+                    echo '<p class="warning">falsches Passwort</p>';
                 }
             ?>
             <br>

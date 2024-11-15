@@ -515,5 +515,8 @@ p.main{
 }
 
 /*Start test*/
-
+.warning{
+    color: rgb(202, 41, 41);
+    font-size: 32;
+}
 /*Ende Test*/

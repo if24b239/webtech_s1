@@ -28,12 +28,7 @@
     
     <section class="flex">
         
-        <div>
-            <?php
-                echo '  Willkommen '.$_SESSION["user_name"].'!';
-            ?>
-            
-        </div>
+        <h1> Profil und Reservierungsverwaltung </h1>
         <br>
         <div class="halfScreen">
             <div class="halfScreenChild test1">
@@ -118,20 +113,21 @@
                             echo'Anrede: Herr '.$_SESSION["last_name"].'';
                         }
                         if($_SESSION["gender"]=='other'){
-                            echo'Anrede: '.$_SESSION["first_name"].' '.$_SESSION["last_name"].'';
+                            echo'Anrede:  '.$_SESSION["first_name"].' '.$_SESSION["last_name"].'';
                         }
-                        echo'
-                            <br>
-                            <br>
-                            E-Mail Adresse: '.$_SESSION["email"].'
-                        ';
+                        
 
                         echo'
                             <br>
                             <br>
                             Username: '.$_SESSION["user_name"].'
                         ';
-                        echo '';
+                        echo'
+                            <br>
+                            <br>
+                            E-Mail Adresse: '.$_SESSION["email"].'
+                        ';
+                        
                         ?>
 
                     </div>

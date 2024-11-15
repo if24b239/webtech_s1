@@ -63,7 +63,10 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
             <br>
             <?php
                 if($_SESSION["error_reservation"] & 64){
-                    echo 'Das Abreisedatum muss hinter dem Anreisedatum liegen.';
+                    echo '
+                        <p class="warning">Das Abreisedatum muss hinter dem Anreisedatum liegen.</p>
+                        <br>
+                    ';
                 }
             
             ?>
