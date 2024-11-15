@@ -244,9 +244,6 @@ form {
     margin:5px;
 }
 
-section.impressum {
-    background-color:var(--background-color); 
-}
 /*.section-mainRight{
     background-color: rgba(161, 138, 74, 0.69); 
 }
@@ -281,8 +278,9 @@ section.impressum {
 
 /* Impressum*/
 figure.impressum {
-    display: inline;
+    display: inline-block;
     width: auto;
+    max-width: fit-content;
 }
 section.impressum {
     background-color: var(--background-color); 
@@ -338,6 +336,7 @@ section.impressum {
 }
 
 .section-mainCenter{
+    padding:50px;
     /*Child Propertys*/
     width: 100%;
     /*flex-grow: ;
@@ -470,7 +469,9 @@ p.main{
     flex-wrap: wrap;
     min-width:fit-content;
     max-width: 45%;
-    border: var(--accent-color);     
+    border: var(--accent-color);
+    padding-top: 45px;   
+    padding-bottom: 45px;
 }
 
 .bordered{

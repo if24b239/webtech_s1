@@ -12,8 +12,8 @@
     <?php include 'php_inserts\header.php' ?>
 
     <?php include 'php_inserts\navigation.php' ?>
-    
-    <section class="section-mainLeft">
+<div class="halfScreen">
+    <section class="halfScreenChild">
         <h1>Impressum</h1>
                     
             <p class="p-wholeContainer">Hotel Maran-Gampenrieder GmbH.</p>
@@ -36,8 +36,9 @@
             <p class="p-wholeContainer"> </p>
     </section>
     
-    <section class="section-mainCenter" >
+    <section class="halfScreenChild" >
         <h2 class="p-wholeContainer">Mitglieder der Hotelverwaltung</h2>
+        
         <figure class="impressum">
             <img src="bild_lena.png" alt="Mitglied der Hotelverwaltung Lena Gampenrieder">
             <figcaption>Lena Gampenrieder</figcaption>
@@ -47,8 +48,9 @@
             <img src="bild_marold.png" alt="Mitglied der Hotelverwaltung Marold Meran">
             <figcaption>Marold Meran</figcaption>
         </figure>
-    </section>
 
+    </section>
+</div>
     <?php include 'php_inserts\footer.php' ?>
 
 </body>

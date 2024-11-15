@@ -32,9 +32,7 @@
             <?php
                 echo '  Willkommen '.$_SESSION["user_name"].'!';
             ?>
-            <br>  
-            <br>
-            <br>
+            
         </div>
         <br>
         <div class="halfScreen">
