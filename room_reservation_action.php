@@ -5,9 +5,7 @@ session_start();
 if (!isset($_SESSION["reservierungen"])) {
     $_SESSION["reservierungen"] = array();
 }
-if (!isset($_SESSION["error_reservation"])) {
-    $_SESSION["error_reservation"] = 0;
-}
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -64,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //64=departure <= arrival
     $dateTimestampArrival = strtotime($arrival);
     $dateTimestampDeparture = strtotime($departure);
-    if($dateTimestampDeparture < $dateTimestampArrival){
+    if($dateTimestampDeparture <= $dateTimestampArrival){
         $_SESSION["error_reservation"] += 64;
         
     }

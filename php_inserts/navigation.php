@@ -21,13 +21,13 @@ echo '
 ';
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == 1) {
     echo '
-        <li><a href="room_reservation.php">Zimmerreservierung</a></li>
         <li><a href="profile.php">Profil</a></li>
+        <li><a href="room_reservation.php">Zimmerreservierung</a></li>
     ';
 }
 echo '
-        <li><a href="login.php">Login</a></li>
         <li><a href="registration.php">Registrierung</a></li>
+        <li><a href="login.php">Login</a></li>
     </ul>
 
 </nav>
