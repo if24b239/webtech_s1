@@ -97,11 +97,11 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
                 <div class="roomReservation_Rooms">
                     <p>Folgende Haustiere kommen mit: </p>
                     <input type="checkbox" id="pet1" name="pet1" value="1">
-                    <label for="pet1">Pferd</label><br>
+                    <label id="pet1" for="pet1">Pferd</label><br>
                     <input type="checkbox" id="pet2" name="pet2" value="2">
-                    <label for="pet2">Hund</label><br>
+                    <label id="pet2" for="pet2">Hund</label><br>
                     <input type="checkbox" id="pet3" name="pet3" value="4">
-                    <label for="pet3">Chimäre</label><br>
+                    <label id="pet3" for="pet3">Chimäre</label><br>
                 </div>
                 
                 <div class="roomReservation_Rooms" style="max-width:285px;">

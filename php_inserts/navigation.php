@@ -32,15 +32,18 @@ echo '
     <ul>
         <h1>';
             if($_SESSION["logged_in"] == 1){
-                        if($_SESSION["gender"]=='female'){
-                            echo'Willkommen Frau '.$_SESSION["last_name"].'!';
-                        }
-                        if($_SESSION["gender"]=='male'){
-                            echo'Willkommen Herr '.$_SESSION["last_name"].'!';
-                        }
-                        if($_SESSION["gender"]=='other'){
-                            echo'Willkommen '.$_SESSION["first_name"].' '.$_SESSION["last_name"].'!';
-                        }
+                if($_SESSION["gender"]=='female'){
+                    echo'Willkommen Frau '.$_SESSION["last_name"].'!';
+                }
+                if($_SESSION["gender"]=='male'){
+                    echo'Willkommen Herr '.$_SESSION["last_name"].'!';
+                }
+                if($_SESSION["gender"]=='other'){
+                    echo'Willkommen '.$_SESSION["first_name"].' '.$_SESSION["last_name"].'!';
+                }
+                echo '
+                    <a href="logout_action.php">Logout</a>
+                ';
             }
         echo'
         </h1>
@@ -48,7 +51,7 @@ echo '
         
         <li><a href="main.php">Startseite</a></li>
 ';
-if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == 1) {
+if ($_SESSION["logged_in"] == 1) {
     echo '
         <li><a href="profile.php">Profil</a></li>
         <li><a href="room_reservation.php">Zimmerreservierung</a></li>

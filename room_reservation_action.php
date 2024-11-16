@@ -17,14 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $special_requests = htmlspecialchars($_POST["special_requests"]);
     
     $pet = 0;
-    if (isset($_SESSION["pet1"])) {
-        $pet += $_SESSION["pet1"];
+    if (isset($_POST["pet1"]) && $_POST["pet1"] == 1) {
+        $pet += $_POST["pet1"];
     }
-    if (isset($_SESSION["pet2"])) {
-        $pet += $_SESSION["pet2"];
+    if (isset($_POST["pet2"]) && $_POST["pet2"] == 2) {
+        $pet += $_POST["pet2"];
     }
-    if (isset($_SESSION["pet3"])) {
-        $pet += $_SESSION["pet1"];
+    if (isset($_POST["pet3"]) && $_POST["pet3"] == 4) {
+        $pet += $_POST["pet3"];
     }
     $_SESSION["pet"] = htmlspecialchars($pet);
     
@@ -83,8 +83,6 @@ $reservation = [
 ];
 
 $_SESSION["reservierungen"][] = $reservation;
-
-
 header("Location:profile.php");
 exit();
 ?>

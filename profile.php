@@ -44,58 +44,58 @@
                                 <br>
                                 <p>Frühstück: </p>
                         ';
-                                    if($x["breakfast"]=='with_breakfast'){
-                                        echo 'mit Frühstück
-                                            <br>
-                                        ';
-                                    }
-                                    else if ($x["breakfast"]=='without_breakfast'){
-                                        echo 'ohne Frühstück
-                                            <br>
-                                        ';
-                                    }
-                                echo '
-                                    <br>
-                                    <p>Parkplatz: </p> 
-                                ';
-                                if($x["parking"]=='with_parking'){
-                                    echo 'mit Parkplatz
-                                        <br>
-                                    ';
-                                }
-                                else if ($x["parking"]=='without_parking'){
-                                    echo 'ohne Parkplatz
-                                        <br>
-                                    ';
-                                }
+                        if($x["breakfast"]=='with_breakfast'){
+                            echo 'mit Frühstück
+                                <br>
+                            ';
+                        }
+                        else if ($x["breakfast"]=='without_breakfast'){
+                            echo 'ohne Frühstück
+                                <br>
+                            ';
+                        }
+                        echo '
+                            <br>
+                            <p>Parkplatz: </p> 
+                        ';
+                        if($x["parking"]=='with_parking'){
+                            echo 'mit Parkplatz
+                                <br>
+                            ';
+                        }
+                        else if ($x["parking"]=='without_parking'){
+                            echo 'ohne Parkplatz
+                                <br>
+                            ';
+                        }
 
-                                echo '
-                                    <br>
-                                    <p>welche Haustiere kommen mit?</p> 
-                                    <br>
-                                ';
-                                if($_SESSION["pet"] &1){
-                                    echo '
-                                        <p>Pferd</p>
-                                    ';
-                                }
-                                if($_SESSION["pet"] &2){
-                                    echo '
-                                        <p>Hund</p>
-                                    ';
-                                }
-                                if($_SESSION["pet"] &4){
-                                    echo '
-                                    <p>Chimäre</p>
-                                    ';
-                                }
+                        echo '
+                            <br>
+                            <p>welche Haustiere kommen mit?</p> 
+                            <br>
+                        ';
+                        if($x["pet"] & 1){
+                            echo '
+                                <p>Pferd</p>
+                            ';
+                        }
+                        if($x["pet"] & 2){
+                            echo '
+                                <p>Hund</p>
+                            ';
+                        }
+                        if($x["pet"] & 4){
+                            echo '
+                            <p>Chimäre</p>
+                            ';
+                        }
 
-                                echo '
-                                    <p>Anmerkungen: <br>'.$x["special_requests"].'</p>
-                                    <br>
-                                
+                        echo '
+                            <p>Anmerkungen: <br>'.$x["special_requests"].'</p>
+                            <br>
+                        
                             </div>
-                                    ';
+                        ';
                         
                     }
                 }
