@@ -31,7 +31,7 @@
                 }
             ?>
             <div class="col-4">
-                <label id="gender" for="gender">Anrede</label><br>
+                <label id="gender" for="gender">Anrede:</label><br>
                 <select for="gender" id="gender" name="gender">
                     <option value="female">Frau</option>
                     <option value="male">Herr</option>

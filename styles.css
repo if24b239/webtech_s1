@@ -197,6 +197,16 @@ nav h1{
     #toggle_button_nav:checked ~ ul{
         display: block;
     }
+
+    .text-inside-section p {
+        font-size: 15px;
+    }
+    .img-main{
+        width: 100%;
+        max-width: none;
+        max-height: none;
+    }
+    
 }
 
 /*Footer*/
@@ -400,7 +410,8 @@ details {
     order: ;*/
 
     /*Allgemeine CSS Propertys*/
-    max-height: 399px;
+    max-height: 360px;
+
 }
 
 .text-inside-section{
@@ -412,6 +423,7 @@ details {
     /*flex: ;
     align-self: ;
     order: ;*/
+    margin: 15px;
         
     /*Flex-Box Parent-Propertys*/
     display: flex;
