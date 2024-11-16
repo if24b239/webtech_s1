@@ -10,7 +10,7 @@ NICHT Erledigt - Eingeloggte User*innen können die eigenen Profildaten einsehen
 neu setzen, …).
 	//Registrierungsdaten in Array speichern und im Profil ausgeben
 
-NICHT Erledigt - Eingeloggte User*innen haben folgende Möglichkeiten (vorerst mit statischen Daten):
+FAST Erledigt - Eingeloggte User*innen haben folgende Möglichkeiten (vorerst mit statischen Daten):
 	ERLEDITGi. neue Zimmerreservierung anlegen
 	FAST ERLEDIGTii. eine Liste aller eigener Reservierungen einsehen (vorerst statische Werte)
 		Haustiere fehlen noch
@@ -21,9 +21,9 @@ NICHT Erledigt - Serverseitige Validierung room_reservation - Marold
 
 NICHT Erledigt - Serverseitige Validierung Login - Empty usw. 
 
-NICHT Erledigt - serverseite Passwort validation in der Registrierung wenn leer --> zurückschicken und beschweren
+Erledigt - serverseite Passwort validation in der Registrierung wenn leer --> zurückschicken und beschweren - Lena
 
-ERLEDIGT - session start bei jeder seite oben
+ERLEDIGT - session start bei jeder seite oben - Lena
 ERLEDIGT- Begrüßung auf jeder Seite oben - Lena
 ERLEDIGT - Room Reservation und Impressum responsive machen - Lena
 
