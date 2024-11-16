@@ -52,12 +52,12 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
             <br>
             <!--Reservierungszeitraum (An- und Abreisedatum, Abreisedatum darf nicht <= Anreisedatum sein)-->
             <div class="row">
-                <div class="halfScreenChild-reservation">
+                <div class="roomReservation_Rooms">
                     <label id="arrival"  for="arrival">Anreisedatum:</label><br>
                     <input type="date" name="arrival" id="arrival" required>
                 </div>
                 <br>
-                <div class="halfScreenChild-reservation">
+                <div class="roomReservation_Rooms">
                     <label id="departure"  for="departure">Abreisedatum:</label><br>
                     <input type="date" name="departure" id="departure" required>
                 </div>
@@ -74,7 +74,7 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
             <br>
             <!--mit oder ohne Frühstück-->
             <div class="row">
-                <div class="halfScreenChild-reservation">
+                <div class="roomReservation_Rooms">
                     <label id="breakfast" for="breakfast">Frühstück:</label><br>
                     <select for="breakfast" id="breakfast" name="breakfast">
                         <option value="without_breakfast">ohne Frühstück</option>
@@ -83,7 +83,7 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
                 </div>
                 <br>
                 <!--mit oder ohne Parkplatz-->
-                <div class="halfScreenChild-reservation">
+                <div class="roomReservation_Rooms">
                     <label id="parking" for="parking">Parkplatz:</label><br>
                     <select for="parking" id="parking" name="parking">
                         <option value="without_parking">ohne Parkplatz</option>
@@ -94,7 +94,7 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
             <br>
             <!--Mitnahme von Haustieren (individuelle Ausgestaltung möglich)-->
             <div class="row">
-                <div class="halfScreenChild-reservation">
+                <div class="roomReservation_Rooms">
                     <p>Folgende Haustiere kommen mit: </p>
                     <input type="checkbox" id="pet1" name="pet1" value="1">
                     <label for="pet1">Pferd</label><br>
@@ -104,16 +104,15 @@ echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_rese
                     <label for="pet3">Chimäre</label><br>
                 </div>
                 
-                <div class="halfScreenChild-reservation">
+                <div class="roomReservation_Rooms" style="max-width:285px;">
                     <label id="special_requests" for="special_requests">Gibt es etwas was wir beachten sollen?</label><br>
-                    <input type="text" name="special_requests" id="special_requests">
+                    <input type="text" name="special_requests" id="special_requests" style="min-width:285px;">
                 </div>
-
-                <br>
-            <div>
-                
-
+            </div>    
+          <br>  
+           <div class="row"> 
                 <button type="submit">Reservierung abschließen</button>
+            </div>
         </form>
 
     </section>

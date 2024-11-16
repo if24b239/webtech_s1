@@ -25,6 +25,6 @@ NICHT Erledigt - serverseite Passwort validation in der Registrierung wenn leer 
 
 ERLEDIGT - session start bei jeder seite oben
 ERLEDIGT- Begrüßung auf jeder Seite oben - Lena
-
+ERLEDIGT - Room Reservation und Impressum responsive machen - Lena
 
 
