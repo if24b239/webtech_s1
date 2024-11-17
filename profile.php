@@ -115,8 +115,6 @@
                         if($_SESSION["gender"]=='other'){
                             echo'Anrede:  '.$_SESSION["first_name"].' '.$_SESSION["last_name"].'';
                         }
-                        
-
                         echo'
                             <br>
                             <br>
@@ -127,8 +125,7 @@
                             <br>
                             E-Mail Adresse: '.$_SESSION["email"].'
                         ';
-                        echo'
-                            <br>
+                        /* <br>
                             <br>
                             <details style="border-style: groove;">
                                 <summary> Profildaten ändern - noch nicht formatiert oder funktionable </summary>
@@ -167,11 +164,11 @@
                                         <button type="submit">Änderungen bestätigen</button>
                                 </form>
                             </details>
-                            
+                        
                             
                             <br>
                             <br>
-                        ';
+                        */
                         
                         ?>
 
