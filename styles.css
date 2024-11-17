@@ -225,6 +225,10 @@ footer {
 
 }
 
+details{
+    border-style: groove;
+    border-color: var(--accent-color);
+}
 /*Formulare*/
 
 input {

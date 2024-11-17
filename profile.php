@@ -127,13 +127,55 @@
                             <br>
                             E-Mail Adresse: '.$_SESSION["email"].'
                         ';
+                        echo'
+                            <br>
+                            <br>
+                            <details style="border-style: groove;">
+                                <summary> Profildaten ändern - noch nicht formatiert oder funktionable </summary>
+                                <form style="display: flex" action="profile_change_action.php" method="Post">
+                                    <div style="width: 100%">
+                                        <label id="" for="">neuer Vorname:</label><br>
+                                        <input type="text" " id="">
+                                    </div>
+                                        <br>
+                                    <div>
+                                        <label id="" for="">neuer Nachname:</label><br>
+                                        <input type="text" " id="">
+                                    </div>
+                                        <br>
+                                    <div>
+                                        <label id="" for="">neue E-Mailadresse:</label><br>
+                                        <input type="text" " id="">
+                                    </div>
+                                        <br>
+                                    <div>
+                                        <label id="" for="">neuer Benutzername:</label><br>
+                                        <input type="text" " id="">
+                                    </div>
+                                        <br>
+                                    <div>
+                                        <label id="" for="">neues Passwort:</label><br>
+                                        <input type="text" " id="">
+                                    </div>
+                                        <br>
+                                    <div>
+                                        <label id="" for="">Passwortwiederholung:</label><br>
+                                        <input type="text" " id="">
+                                    </div>
+                                        <br>
+                                        <br>
+                                        <button type="submit">Änderungen bestätigen</button>
+                                </form>
+                            </details>
+                            
+                            
+                            <br>
+                            <br>
+                        ';
                         
                         ?>
 
                     </div>
-                <form action="profile_change_action.php" method="Post">
-                    
-                </form> 
             </div>
         </div>
         
