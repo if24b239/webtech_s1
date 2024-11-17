@@ -3,7 +3,9 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<?php $title = "Startseite"; include 'php_inserts\head.php' ?>
+<?php $title = "Startseite"; include 'php_inserts\head.php';
+
+?>
 
 <body>
     
