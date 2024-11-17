@@ -72,7 +72,6 @@
                         echo '
                             <br>
                             <p>welche Haustiere kommen mit?</p> 
-                            <br>
                         ';
                         if($x["pet"] & 1){
                             echo '
@@ -91,6 +90,7 @@
                         }
 
                         echo '
+                            <br>
                             <p>Anmerkungen: <br>'.$x["special_requests"].'</p>
                             <br>
                         
