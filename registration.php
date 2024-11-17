@@ -13,7 +13,7 @@
 <?php $title = "Registrierung"; include 'php_inserts\head.php'; 
     //Ausgabe wenn Passwörter nicht gleich sind
 
-    /*Test*/ echo 'Debugging: Status error_registration: '.$_SESSION["error_registration"].'';
+    /*Test echo 'Debugging: Status error_registration: '.$_SESSION["error_registration"].'';*/
 ?>
 
 <body>

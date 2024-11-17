@@ -15,10 +15,7 @@
 
 <?php $title = "Login"; include 'php_inserts\head.php';
 
-    echo 'Debugging: error_login: '.$_SESSION["error_login"].'';
-    echo '    Korrektes Passwort: '.$static_password.'';
-    echo '    korrekter Username: MaxMustermann';
-
+   /* echo 'Debugging: error_login: '.$_SESSION["error_login"].''; */
 ?>
 
 <body>
@@ -26,6 +23,11 @@
     <?php include 'php_inserts\header.php' ?>
 
     <?php include 'php_inserts\navigation.php' ?>
+
+    <?php
+        echo 'Username: MaxMustermann <br>';
+        echo 'Passwort: '.$static_password.'<br>';
+    ?>
 
     <section>
         <form class="col-12" action="login_action.php" method="Post"> <!--Daten werden an login_action.php geschickt mit der Methode Post-->

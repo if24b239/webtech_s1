@@ -10,11 +10,7 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<?php $title = "Zimmerreservierung"; include 'php_inserts\head.php';
-
-echo '$_SESSION["user_name"]: '.$_SESSION["user_name"].'   $_SESSION["error_reservation"]: '.$_SESSION["error_reservation"].'';
-
-?>
+<?php $title = "Zimmerreservierung"; include 'php_inserts\head.php';?>
 
 <body>
 
