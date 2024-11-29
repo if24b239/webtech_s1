@@ -26,7 +26,7 @@
 
     <?php
         echo 'Username: MaxMustermann <br>';
-        echo 'Passwort: '.$static_password.'<br>';
+        echo 'Passwort: '.$static_password.'<br>';  
     ?>
 
     <section>
