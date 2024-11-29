@@ -20,23 +20,53 @@
     <section class="section main">
 <!-- TO-DO dieses Formular soll nur angezeigt werden, wenn ein Admin eingeloggt ist-->
     <?php
+
+        
         if(isset($_SESSION["admin"])&&($_SESSION["admin"]==1)){
             echo'
                 <section class="p-wholeContainer">
 
-                    <form action="news_image_upload.php" method="post" enctype="multipart/form-data">
-                        <input type="file" name="fileToUpload" id="fileToUpload"> <br>
+                    <form class=" bordered" action="news_image_upload.php" method="post" enctype="multipart/form-data">
+                    <legend>Neues News-Beitrag anlegen:</legend>
+                    
+                    ';
+                
+                    if($_SESSION["error_news"]&1){
+                        echo'
+                            <p class="warning">Bitte wählen Sie ein Bild zum hochladen aus</p>
+                        ';
+                    }
+                    if($_SESSION["error_news"]&2){
+                        echo'
+                            <p class="warning">Sie können nur Bilder hochladen</p>
+                        ';
+                    }
+                    if($_SESSION["error_news"]&4){
+                        echo'
+                            <p class="warning">Bitte sowohl Headline und Content als auch den Alternativtext für das Bild ausfüllen</p>
+                        ';
+                    }
+                    echo'
+                        <div class="col-6">
+                            <label id="headline" for="headline">Enter Headline:</label><br>
+                            <input type="text" name="headline" id="headline" required style="width:95%; height:25px;">
+                            <br>
+                            <br>
+                            <label id="content" for="content">Enter Content:</label><br>
+                            <input type="text" name="content" id="content" required style="width:95%; height:150px;">
+                        </div>
 
-                        <label id="alt_image" for="alt_image">Enter alternative text for image:</label>
-                        <input type="text" name="alt_image" id="alt_image" required><br>
+                        <div class="col-6">
+                            <input type="file" name="fileToUpload" id="fileToUpload"> <br>
+                            <br>
+                            <br>
+                            <label id="alt_image" for="alt_image">Enter alternative text for image:</label><br>
+                            <input type="text" name="alt_image" id="alt_image" style="width:95%; height: 30px;" >
+                        </div>   
 
-                        <label id="headline" for="headline">Enter Headline:</label>
-                        <input type="text" name="headline" id="headline" required><br>
-
-                        <label id="content" for="content">Enter Content:</label>
-                        <input type="text" name="content" id="content" required><br>
-
-                        <input type="submit" value="Bild Hochladen" name="submit">
+                        <div class="col-12">
+                            <input type="submit" value="News-Beitrag Hochladen" name="submit">
+                        </div>
                     </form>
 
                 </section>

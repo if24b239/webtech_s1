@@ -253,6 +253,16 @@ form button:hover {
     background-color: var(--accent-color);
 }
 
+submit {
+    background-color: var(--darker-background-color);
+    color: var(--text-color);
+    padding: 6px;
+}
+
+submit:hover {
+    background-color: var(--accent-color);
+}
+
 /*Teil der nicht stetig ist, also nicht im Header, Navigation oder Footer*/
 form {
     background-color: var(--background-color);

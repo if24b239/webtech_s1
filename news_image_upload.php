@@ -1,6 +1,16 @@
 <?php
     session_start();
 
+    /*TO-DO:
+        Bild-Endungen prüfen + passende Rückmeldung
+        
+        Hochgeladenes Bild auf ein Quadrat croppen
+
+        News-Einträge Löschen als Admin
+
+    
+    */ 
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
@@ -10,8 +20,8 @@
         /*0=kein Error, 
         1=no image
         2=not a valid image
-        4=
-        8= 
+        4=alt, headline oder content sind leer
+        8= Bild nicht vom passenden Typ
         16=
         32=
         64=*/
@@ -32,6 +42,13 @@
                 
                 move_uploaded_file( $_FILES['fileToUpload']['tmp_name'], $target_file);
             }
+            if(empty($_POST["alt_image"])
+            ||empty($_POST["headline"])
+            ||empty($_POST["content"])
+            ){
+                $_SESSION["error_news"] += 4; 
+            }
+
         }
 
         // save image in ./pictures/news
@@ -51,9 +68,10 @@
             "content" => $content
         ];
          
-        if ($_SESSION["error_news"] == 0) {
-            
+        if ($_SESSION["error_news"] == 0) {  
             $_SESSION["news_articles"][] = $article;
-            header("Location:news.php");
         }
+
+        header("Location:news.php");
+        exit();
     }

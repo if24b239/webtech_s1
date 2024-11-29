@@ -102,7 +102,7 @@
                 
                 <div class="roomReservation_Rooms" style="max-width:285px;">
                     <label id="special_requests" for="special_requests">Gibt es etwas was wir beachten sollen?</label><br>
-                    <input type="text" name="special_requests" id="special_requests" style="min-width:285px;">
+                    <input type="text" name="special_requests" id="special_requests" style="min-width:285px; min-height:85px;">
                 </div>
             </div>    
           <br>  
