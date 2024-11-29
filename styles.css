@@ -267,7 +267,11 @@ form {
 } */
 
 
-
+.inbetween{
+    background-color: var(--accent-color);
+    min-height: 30px;
+    width:100%;
+}
 
 /*FLEXBOXPROPERTYS*/ /*--> Flexbox lässt sich eh einfach in die normalen CSS Anweisungn eintragen, ich war damals glaube ich von der Klassenzuweisung verwirrt :0  */
 

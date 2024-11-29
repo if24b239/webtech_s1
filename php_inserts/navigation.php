@@ -47,6 +47,7 @@ echo '
         
         
         <li><a href="main.php">Startseite</a></li>
+        <li><a href="news.php">News</a></li>
 ';
 if ($_SESSION["logged_in"] == 1) {
     echo '
