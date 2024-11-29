@@ -92,7 +92,7 @@ header {
 img.header{
     width: 200px;
     height: 100px; 
-    content: url("pictures/woodenLogo.png");
+    content: url("pictures/woodenLogo3.png");
 }
 
 /*Navigation*/ /*erstellt mit Video: https://youtu.be/QrTG4iu8cUk?si=NWcGc0uyOkB9yBuA  */
@@ -229,6 +229,7 @@ details{
     border-style: groove;
     border-color: var(--accent-color);
 }
+
 /*Formulare*/
 
 input {
