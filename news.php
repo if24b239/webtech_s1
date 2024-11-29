@@ -1,5 +1,9 @@
 <?php
     session_start();
+
+    if (!isset($_SESSION["error_news"])) {
+        $_SESSION["error_news"] = 0;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +25,17 @@
                 <section class="p-wholeContainer">
 
                     <form action="news_image_upload.php" method="post" enctype="multipart/form-data">
-                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="file" name="fileToUpload" id="fileToUpload"> <br>
+
+                        <label id="alt_image" for="alt_image">Enter alternative text for image:</label>
+                        <input type="text" name="alt_image" id="alt_image" required><br>
+
+                        <label id="headline" for="headline">Enter Headline:</label>
+                        <input type="text" name="headline" id="headline" required><br>
+
+                        <label id="content" for="content">Enter Content:</label>
+                        <input type="text" name="content" id="content" required><br>
+
                         <input type="submit" value="Bild Hochladen" name="submit">
                     </form>
 
@@ -30,8 +44,27 @@
         }    
     ?>
 <!-- Dies ist ein Statisch angelegter News-Beitrag-->
+        
+        <?php
+            if (isset($_SESSION["news_articles"])) {
+                foreach ($_SESSION["news_articles"] as $x) {
+                    echo '
         <section class="section-mainLeft bordered">
-            <img class="img-main" src="pictures/dungeon.webp" alt="Ein Bild des Fledermaus-Dungeons">
+            <img class="img-main" src='.$x["image"].' alt='.$x["alt_image"].'>
+            <section class="text-inside-section">
+                <h3 style="width:100%">'.$x["headline"].'</h3>
+                <br>
+                <br>
+                <p>'.$x["content"].'</p>
+            </section>
+        </section>
+        <div class="inbetween"></div>
+                    ';
+                }
+            }
+        ?>
+        <section class="section-mainLeft bordered">
+            <img class="img-main" src="pictures/news/dungeon.webp" alt="Ein Bild des Fledermaus-Dungeons">
             <section class="text-inside-section">
                 <p>Statischer Beitrag</p>
                 <h3>WARNUNG vor dem Betreten des Feldermaus-dungeons</h3>
@@ -44,9 +77,7 @@
             </section>
 
         </section>
-        <div class="inbetween">
-
-        </div>
+        <div class="inbetween"></div>
         
         <section>
             
