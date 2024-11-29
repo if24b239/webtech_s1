@@ -1,18 +1,32 @@
 <?php 
-    if(!isset($_SESSION["gender"])){
-        $_SESSION["gender"]='male';
-    }
-    if(!isset($_SESSION["first_name"])){
-        $_SESSION["first_name"]='Max';
-    }
-    if(!isset($_SESSION["last_name"])){
-        $_SESSION["last_name"]='Mustermann';
-    } 
-
+    
     if(!isset($_SESSION["logged_in"])){
         $_SESSION["logged_in"] = 0;
+        $_SESSION["admin"] = 0;
 
     }
+
+    if ($_SESSION["logged_in"] == 1) {
+        if ($_SESSION["admin"] == 1) {
+            $_SESSION["gender"] = 'other';
+            $_SESSION["first_name"] = "ad";
+            $_SESSION["last_name"] = "min";
+        } else {
+            $_SESSION["gender"] = 'male';
+            $_SESSION["first_name"] = 'Max';
+            $_SESSION["last_name"] = 'Mustermann';
+        }
+    }
+    
+    if(!isset($_SESSION["gender"])){
+        $_SESSION["gender"]='';
+    }
+    if(!isset($_SESSION["first_name"])){
+        $_SESSION["first_name"]='';
+    }
+    if(!isset($_SESSION["last_name"])){
+        $_SESSION["last_name"]='';
+    } 
 /* 
 USAGE: no special usage
 */
