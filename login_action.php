@@ -7,13 +7,38 @@ session_start();
     //
 
 // replace with databank retrieval
-$static_password = 'Password_1234';
-$static_user_name = 'MaxMustermann';
+global $static_users;
+$static_users = array(
+    'MaxMustermann' => 'Password_1234',
+    'admin' => 'admin');
 
-   
+$local_pwd='';
+
+function validUsername($name) {
+    global $static_users;
+    $found = false;
+    foreach ($static_users as $x => $ignore) {
+        if ($name == $x) {
+            $found = true;
+        }
+    }
+    return $found;
+}
+
+function validPassword($pwd) {
+    global $static_users;
+    $found = 0;
+    foreach ($static_users as $x) {
+        if ($pwd == $x) {
+            $found = 1;
+        }
+    }
+    return $found;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION["error_login"] = 0;
+    $_SESSION["admin"] = FALSE;
          /*0=kein Error, 
         1=Eine Eingabe ist leer, 
         2=Passwort stimmt nicht, 
@@ -23,25 +48,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         32=
         64=*/
 
-    if($_POST["password_login"] == $static_password && $_POST["user_name_login"] == $static_user_name){   
-        $_SESSION["user_name"] = htmlspecialchars($_POST["user_name_login"]);
-        $_SESSION["password"] = htmlspecialchars($_POST["password_login"]);
+    
+    foreach ($static_users as $user => $pwd) {
+        if($_POST["password_login"] == $pwd && $_POST["user_name_login"] == $user){   
+            $_SESSION["user_name"] = htmlspecialchars($_POST["user_name_login"]);
+            
+            $_SESSION["logged_in"] = 1;
 
-        
-        $_SESSION["logged_in"] = 1;
+            if ($user == 'admin') {
+                $_SESSION["admin"] = TRUE;
+            }
+        }
     }
+        
     //Eine Eingabe ist leer, 
-    if(empty($_POST["password_login"])||empty($_POST["user_name_login"])){
+    if(empty($_POST["password_login"]) || empty($_POST["user_name_login"])){
         $_SESSION["error_login"] += 1;
     }
 
     //Passwort stimmt nicht
-    if($_POST["password_login"] != $static_password){
+    if(!validPassword($_POST["password_login"])){
         $_SESSION["error_login"] += 2;
     }
 
     //User name stimmt nicht
-    if($_POST["user_name_login"] != $static_user_name){
+    if(!validUsername($_POST["user_name_login"])){
         $_SESSION["error_login"] += 4;
     }
 
