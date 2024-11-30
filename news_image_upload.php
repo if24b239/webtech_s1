@@ -30,7 +30,7 @@
         $target_dir = "./pictures/news/";
         $target_file = '';
 
-        if (!isset($_FILES["fileToUpload"])) {
+        if ($_FILES["fileToUpload"]["tmp_name"] == '' || $_FILES["fileToUpload"]["name"] == '') {
             $_SESSION["error_news"] += 1; 
         } else {
             // check if uploaded file is an image
@@ -42,13 +42,13 @@
                 
                 move_uploaded_file( $_FILES['fileToUpload']['tmp_name'], $target_file);
             }
-            if(empty($_POST["alt_image"])
+        }
+
+        if (empty($_POST["alt_image"])
             ||empty($_POST["headline"])
             ||empty($_POST["content"])
-            ){
-                $_SESSION["error_news"] += 4; 
-            }
-
+        ){
+            $_SESSION["error_news"] += 4; 
         }
 
         // save image in ./pictures/news
