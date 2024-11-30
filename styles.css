@@ -236,6 +236,23 @@ input {
     color: var(--darker-background-color);
 }
 
+input[type="file"] {
+    color: var(--text-color);
+}
+
+input::file-selector-button {  
+    background-color: var(--darker-background-color);
+    color: var(--text-color);
+    padding: 6px;
+}
+input::file-selector-button:hover{
+    background-color: var(--accent-color);
+}
+
+textarea{
+    color: var(--darker-background-color);
+}
+
 select {
     color: var(--darker-background-color);
 }

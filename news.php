@@ -34,43 +34,50 @@
                     if($_SESSION["error_news"]&1){
                         echo'
                             <p class="warning">Bitte wählen Sie ein Bild zum hochladen aus</p>
+                            <br>
                         ';
                     }
                     if($_SESSION["error_news"]&2){
                         echo'
                             <p class="warning">Sie können nur Bilder hochladen</p>
+                            <br>
                         ';
                     }
                     if($_SESSION["error_news"]&4){
                         echo'
                             <p class="warning">Bitte sowohl Headline und Content als auch den Alternativtext für das Bild ausfüllen</p>
+                            <br>
                         ';
                     }
                     if($_SESSION["error_news"]&8){
                         echo'
                             <p class="warning">Momentan sind nur jpg Bilder erlaubt</p>
+                            <br>
                         ';
                     }
                     echo'
                         <div class="col-6">
-                            <label id="headline" for="headline">Enter Headline:</label><br>
+                            <label id="headline" for="headline">Überschrift:</label><br>
                             <input type="text" name="headline" id="headline" required style="width:95%; height:25px;">
                             <br>
                             <br>
-                            <label id="content" for="content">Enter Content:</label><br>
-                            <input type="text" name="content" id="content" required style="width:95%; height:150px;">
+
+                            <label id="content" for="content">Beitragsinhalt:</label><br>
+                            <textarea name="content" id="content" style="min-width:95%; max-width:95%; min-height:150px;" ></textarea>
                         </div>
 
                         <div class="col-6">
+                            <br>
                             <input type="file" name="fileToUpload" id="fileToUpload"> <br>
                             <br>
                             <br>
-                            <label id="alt_image" for="alt_image">Enter alternative text for image:</label><br>
+                            <label id="alt_image" for="alt_image">Alternativtext für das Bild:</label><br>
                             <input type="text" name="alt_image" id="alt_image" style="width:95%; height: 30px;" >
+                            
                         </div>   
 
                         <div class="col-12">
-                            <input type="submit" value="News-Beitrag Hochladen" name="submit">
+                            <button type="submit" value="News-Beitrag Hochladen" name="submit">News-Beitrag anlegen</button>
                         </div>
                     </form>
 
@@ -101,8 +108,8 @@
         <section class="section-mainLeft bordered">
             <img class="img-main" src="pictures/news/dungeon.webp" alt="Ein Bild des Fledermaus-Dungeons">
             <section class="text-inside-section">
-                <p>Statischer Beitrag</p>
-                <h3>WARNUNG vor dem Betreten des Feldermaus-dungeons</h3>
+                
+                <h3> Warnung vor dem Betreten des Feldermaus-dungeons</h3>
                 <br>
                 <br>
                 <p>Der lokale Magier warnt, dass im Fledermaus-Dungeon eine riesen Fledermaus gesichtet wurde. 

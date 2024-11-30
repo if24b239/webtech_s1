@@ -12,8 +12,8 @@
     if ($_SESSION["logged_in"] == 1) {
         if ($_SESSION["admin"] == 1) {
             $_SESSION["gender"] = 'other';
-            $_SESSION["first_name"] = "ad";
-            $_SESSION["last_name"] = "min";
+            $_SESSION["first_name"] = "Ad";
+            $_SESSION["last_name"] = "Min";
         } else {
             $_SESSION["gender"] = 'male';
             $_SESSION["first_name"] = 'Max';

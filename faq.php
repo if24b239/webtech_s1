@@ -31,16 +31,14 @@
         </details>
         <br>
         <details style="border-style: groove;">
-            <summary> Warum bin ich hier gelandet?</summary>
+            <summary> 2.FAQ</summary>
             <br>
-            <p>entweder Sie haben auf "FAQs" im Footer der Webiste geklickt, </p>
-            <p>oder Sie haben versucht in den Developement-Tools die Methode, </p>
-            <p>mit der Sie Daten abschicken zu ändern - was ein "Nein-Nein" ist. </p>
+            <p></p>
         </details>
         <br>
         <details style="border-style: groove;">
             <summary> 3. FAQ </summary>
-            <p>Antwort auf die dritthäufigste Frage</p>
+            <p>Antwort auf die zweithäufigste Frage</p>
         </details>
 
     </section>
