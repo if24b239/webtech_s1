@@ -73,10 +73,10 @@ if ($_SESSION["logged_in"] == 1) {
         <li><a href="logout_action.php">Logout</a></li>
     ';
 }
-echo '
-        <li><a href="registration.php">Registrierung</a></li> ';
+
 if($_SESSION["logged_in"] == 0){
     echo'
+        <li><a href="registration.php">Registrierung</a></li>
         <li><a href="login.php">Login</a></li>
     ';
 }

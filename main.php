@@ -25,7 +25,7 @@
         <section class="section-mainRight">
             <img class="img-main" style="float: right;" src="pictures/garden.jpg" alt="Ein Foto unseres Gartens.">
             <section class="text-inside-section">
-                <p>Entspannen Sie in unserem Garten. Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text TexText Text Text Text Text Text Text Text Text Text Text Text t Text Text Text Text Text Text Text Text Text Text Text Text Text </p>
+                <p>Entspannen Sie in unserem Garten.  Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text TexText Text Text Text Text Text Text Text Text Text Text Text t Text Text Text Text Text Text Text Text Text Text Text Text Text </p>
             </section>
         </section>
     </section>
