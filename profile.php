@@ -17,8 +17,8 @@
     if ($_SESSION["logged_in"] == 1) {
         if ($_SESSION["admin"] == 1) {
             $_SESSION["gender"] = 'other';
-            $_SESSION["first_name"] = "ad";
-            $_SESSION["last_name"] = "min";
+            $_SESSION["first_name"] = "Adminigtion";
+            $_SESSION["last_name"] = "Min";
             $_SESSION["email"]='admin@admin.admin';
         } else {
             $_SESSION["gender"] = 'male';

@@ -40,7 +40,14 @@
             } else {
                 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
                 
-                move_uploaded_file( $_FILES['fileToUpload']['tmp_name'], $target_file);
+                
+
+                //überprüfung ob Format von Bild in ordnung
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                if($imageFileType != "jpg") {
+                    $_SESSION["error_news"] += 8; 
+                }
+                
             }
         }
 
@@ -50,9 +57,6 @@
         ){
             $_SESSION["error_news"] += 4; 
         }
-
-        // save image in ./pictures/news
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
         // TODO: checks for _POST variables
         $image = $target_file;
@@ -69,7 +73,9 @@
         ];
          
         if ($_SESSION["error_news"] == 0) {  
+            move_uploaded_file( $_FILES['fileToUpload']['tmp_name'], $target_file);
             $_SESSION["news_articles"][] = $article;
+
         }
 
         header("Location:news.php");

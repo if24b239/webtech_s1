@@ -46,6 +46,11 @@
                             <p class="warning">Bitte sowohl Headline und Content als auch den Alternativtext für das Bild ausfüllen</p>
                         ';
                     }
+                    if($_SESSION["error_news"]&8){
+                        echo'
+                            <p class="warning">Momentan sind nur jpg Bilder erlaubt</p>
+                        ';
+                    }
                     echo'
                         <div class="col-6">
                             <label id="headline" for="headline">Enter Headline:</label><br>
@@ -107,11 +112,7 @@
             </section>
 
         </section>
-        <div class="inbetween"></div>
         
-        <section>
-            
-        </section>
     </section>    
     
     <?php include 'php_inserts\footer.php' ?>
