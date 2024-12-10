@@ -5,6 +5,10 @@
         $_SESSION["error_news"] = 0;
     }
 ?>
+<!--TO-DOS
+    -Daten sollten im Formular bleiben bei Fehlern.
+    -Datum des Beitrages soll angezeigt werden.
+-->
 
 <!DOCTYPE html>
 <html lang="de">
@@ -74,7 +78,7 @@
                             <label id="alt_image" for="alt_image">Alternativtext für das Bild:</label><br>
                             <input type="text" name="alt_image" id="alt_image" style="width:95%; height: 30px;" >
                             
-                        </div>   
+                        </div>
 
                         <div class="col-12">
                             <button type="submit" value="News-Beitrag Hochladen" name="submit">News-Beitrag anlegen</button>

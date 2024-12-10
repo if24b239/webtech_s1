@@ -222,7 +222,8 @@ a.footer:hover {
 
 footer {
     background-color: var(--darker-background-color);
-
+    bottom:0;
+    position:sticky;
 }
 
 details{

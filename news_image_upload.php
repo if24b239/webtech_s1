@@ -2,12 +2,20 @@
     session_start();
 
     /*TO-DO:
-        Bild-Endungen prüfen + passende Rückmeldung
+        Bild-Endungen prüfen + passende Rückmeldung - Ereldigt
         
-        Hochgeladenes Bild auf ein Quadrat croppen
+        Hochgeladenes Bild auf 720x480 Pixel croppen
 
         News-Einträge Löschen als Admin
 
+        Bild soll auch das aktuelle Datum (sysdate) speichern - ohne Uhrzeit
+
+        Bewertungsmatrix:
+        a) Beiträge werden öffentlich in eigenem Bereich angezeigt, Bilder sind gut sichtbar, neuester Beitrag ganz oben 
+        b) Für den Upload sind nur Bilddateien erlaubt, Bilder landen in "uploads/news" 
+            b) i) Bilder werden serverseitig verkleinert und als Thumbnails konstanter Größe dargestellt
+        c) Übersichtliche Darstellung (Beiträge klar voneinander getrennt)
+        d) Datum des Beitrags soll angezeigt werden
     
     */ 
 

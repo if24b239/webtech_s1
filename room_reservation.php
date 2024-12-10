@@ -10,6 +10,12 @@
 <!DOCTYPE html>
 <html lang="de">
 
+<!-- TO-Dos
+    -Gesammtpreis der Reservierung anzeigen sowie Zuschläge durch Frühstück, Parkplatz und Tiere
+
+
+-->
+
 <?php $title = "Zimmerreservierung"; include 'php_inserts\head.php';?>
 
 <body>

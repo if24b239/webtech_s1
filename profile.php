@@ -33,6 +33,12 @@
 <!DOCTYPE html>
 <html lang="de">
 
+<!-- 
+Bewertungsmatrix:
+    a) eingeloggte User können Profildaten einsehen und bearbeiten 
+    b) Passwörter werden nicht angezeigt und beim Ändern des Passwortes muss das alte PW eingegeben werden 
+-->
+
 <?php $title = "Profilverwaltung"; include 'php_inserts\head.php' ?>
 
 <body>

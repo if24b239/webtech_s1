@@ -7,14 +7,11 @@ if (!isset($_SESSION["user_name"])) {
 }
 
 
-//this file Should be in a private folder not in a public one for security reasons
+
 
 //TO-DOS
-//erledigt E-Mail muss ein @ enthalten darf keine Leerzeichen enthalten - Lena
-//erledigt Nachname und Vorname dürfen nur Buchstaben - und Leerzeichen enthalten - Lena
-//Passwort  muss funktionieren lol - Marold 
-//Anrede auf gültige eingaben limitieren - Marold
-//doch einzelne SESSION Variablen für jede Fehlermeldung anlegen, damit mehr als eine Warnung gleichzeig gegeben werden kann? nein habe nur für Vorname, Nachname noch eine ergänzt weil alle anderen Eingaben eh nur via illegaler F12 betätigung erreicht werden können
+//this file Should be in a private folder not in a public one for security reasons
+//c) Passwort muss zweimal eingegeben werden und wird in DB verschlüsselt
 
 
 //Kontrolle ob Input mit der Methode "Post" geschickt wurde 

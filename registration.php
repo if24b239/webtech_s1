@@ -7,6 +7,10 @@
 
 ?>
 
+<!--TO-DOS
+    -Daten sollten im Formular bleiben bei Fehlern.
+-->
+
 <!DOCTYPE html>
 <html lang="de">
 
@@ -95,7 +99,7 @@
                 ?>
             </div>
             <br>
-            <div class="col-12">
+            <div class="col-4">
                 <button type="submit">Bestätigen</button>
             </div>
 
