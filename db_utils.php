@@ -1,7 +1,5 @@
 <?php
 
-
-
 function db_connect() {
     
     global $db;
@@ -24,7 +22,20 @@ function db_connect() {
 
 }
 
+function db_conn_check() {
+    
+    global $db
+    
+    if ($db) {
+        return;
+    }
+    
+    db_connect();
+}
+
 function db_login_check($username, $password) {
+    global $db;
+    db_conn_check();
 
     $sql = $mysqli->prepare("SELECT username, passwort
         FROM person
@@ -42,6 +53,26 @@ function db_login_check($username, $password) {
     }
 
     return false;
+}
+
+function db_registration_check() {
+    global $db;
+    db_conn_check();
+}
+
+function db_registration_add() {
+    global $db;
+    db_conn_check();
+}
+
+function db_news_get() {
+    global $db;
+    db_conn_check();
+}
+
+function db_news_add() {
+    global $db;
+    db_conn_check();
 }
 
 ?>
