@@ -2,20 +2,20 @@
     session_start();
 
     /*TO-DO:
-        Bild-Endungen prüfen + passende Rückmeldung - Ereldigt
+        ERLEDIGT Bild-Endungen prüfen + passende Rückmeldung 
         
-        Hochgeladenes Bild auf 720x480 Pixel croppen
+        - Hochgeladenes Bild auf fixe Größe croppen
 
-        News-Einträge Löschen als Admin
-
-        Bild soll auch das aktuelle Datum (sysdate) speichern - ohne Uhrzeit
+        - Beim hochladen Admin nicht hardcoden, sondern Admin-Id der Admin, die angemeldet ist, hochladen
+        
+        ERLEDIGT Bild soll auch das aktuelle Datum (sysdate) speichern - ohne Uhrzeit
 
         Bewertungsmatrix:
-        a) Beiträge werden öffentlich in eigenem Bereich angezeigt, Bilder sind gut sichtbar, neuester Beitrag ganz oben 
+        ERLEDIGT a) Beiträge werden öffentlich in eigenem Bereich angezeigt, Bilder sind gut sichtbar, neuester Beitrag ganz oben 
         b) Für den Upload sind nur Bilddateien erlaubt, Bilder landen in "uploads/news" 
             b) i) Bilder werden serverseitig verkleinert und als Thumbnails konstanter Größe dargestellt
-        c) Übersichtliche Darstellung (Beiträge klar voneinander getrennt)
-        d) Datum des Beitrags soll angezeigt werden
+        ERLEDIGT c) Übersichtliche Darstellung (Beiträge klar voneinander getrennt)
+        ERLEDIGT d) Datum des Beitrags soll angezeigt werden
     
     */ 
 
@@ -72,26 +72,15 @@
         $headline = htmlspecialchars($_POST["headline"]);
         $content = htmlspecialchars($_POST["content"]);
 
-        // TODO: replace with db entry
-
-        /*$article = [
-            "image" => $image,
-            "alt_image" => $alt_image,
-            "headline" => $headline,
-            "content" => $content
-        ];*/
-        
-
-
          
-        if ($_SESSION["error_news"] == 0) {  
+        if ($_SESSION["error_news"] == 0) { 
+        ///////BILDER Im Pictures Ordner SPEICHERN 
             move_uploaded_file( $_FILES['fileToUpload']['tmp_name'], $target_file);
 
-        ///////VERSUCH NEUE NEWSBEITRÄGE IN DIE DATENBANK HOCH ZU LADEN////////////////////
+        ///////NEWSBEITRÄGE IN DIE DATENBANK HOCHLADEN////////////////////
             /*Datenverbindung aufbauen*/ 
             include 'db_utils.php';
             db_conn_check();
-
             /*SQL-Statement erstellen*/ 
             $sql ="INSERT INTO newsbeitrag (
                     Ueberschrift, Inhalt, Datum, img_alt, img_path, FK_Admin_ID)

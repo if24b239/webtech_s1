@@ -300,7 +300,10 @@ form {
     min-height: 30px;
     width:100%;
 }
-
+.reversed_orientation{
+    display: flex;
+    flex-direction: column-reverse;
+}
 /*FLEXBOXPROPERTYS*/ /*--> Flexbox lässt sich eh einfach in die normalen CSS Anweisungn eintragen, ich war damals glaube ich von der Klassenzuweisung verwirrt :0  */
 
 
