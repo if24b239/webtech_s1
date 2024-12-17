@@ -73,19 +73,39 @@
         $content = htmlspecialchars($_POST["content"]);
 
         // TODO: replace with db entry
-        $article = [
+
+        /*$article = [
             "image" => $image,
             "alt_image" => $alt_image,
             "headline" => $headline,
             "content" => $content
-        ];
+        ];*/
+        
+
+
          
         if ($_SESSION["error_news"] == 0) {  
             move_uploaded_file( $_FILES['fileToUpload']['tmp_name'], $target_file);
-            $_SESSION["news_articles"][] = $article;
 
+        ///////VERSUCH NEUE NEWSBEITRÄGE IN DIE DATENBANK HOCH ZU LADEN////////////////////
+            /*Datenverbindung aufbauen*/ 
+            include 'db_utils.php';
+            db_conn_check();
+
+            /*SQL-Statement erstellen*/ 
+            $sql ="INSERT INTO newsbeitrag (
+                    Ueberschrift, Inhalt, Datum, img_alt, img_path, FK_Admin_ID)
+                    VALUES (?, ?, NOW(), ?, ?, ?)";
+            /*SQL-Statement 'vorbereiten'*/ 
+            $stmt = $db->prepare($sql);
+            /*Parameter binden*/
+            $stmt->bind_param("ssssi", $headline, $content, $alt_image, $image, $admin);
+            /*Variablen mit Werten versehen*/
+            $admin = 3; /*Im Moment habe ich Ad Min hier noch hardgecodet, weil ich nicht ganz sicher bin, wie ich die ID als Integer übergeben kann*/         
+            /*Statement ausführen*/ 
+            $stmt->execute();
+        ////////////////////////////////////////////////////////////////////////////////////
         }
-
         header("Location:news.php");
         exit();
     }

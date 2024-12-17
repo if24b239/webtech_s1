@@ -42,7 +42,7 @@ function db_login_check($username, $password) {
         WHERE username = ?
         AND passwort = ?;");
 
-    $sql->bind_param("ss", $username, $password); // TODO: MAKE SURE ITS INJECTION SAFE
+    $sql->bind_param("ss", $username, $password);
 
     $sql->execute();
 

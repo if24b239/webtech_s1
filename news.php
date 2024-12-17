@@ -22,7 +22,7 @@
     <?php include 'php_inserts\navigation.php' ?>
     
     <section class="section main">
-<!-- TO-DO dieses Formular soll nur angezeigt werden, wenn ein Admin eingeloggt ist-->
+<!--FORMULAR FÜR ADMINS ZUM ANLEGEN NEUER BEITRÄGE-->
     <?php
 
         
@@ -89,95 +89,36 @@
             ';
         }    
     ?>
-<!-- Dies ist ein Statisch angelegter News-Beitrag-->
-        
-        <?php
-            if (isset($_SESSION["news_articles"])) {
-                foreach ($_SESSION["news_articles"] as $x) {
-                    echo '
-        <section class="section-mainLeft bordered">
-            <img class="img-main" src='.$x["image"].' alt='.$x["alt_image"].'>
-            <section class="text-inside-section">
-                <h3 style="width:100%">'.$x["headline"].'</h3>
-                <br>
-                <br>
-                <p>'.$x["content"].'</p>
-            </section>
-        </section>
-        <div class="inbetween"></div>
-                    ';
-                }
-            }
-        ?>
-        <?php include 'db_utils.php' ;
-        db_connect();    
-        ?>
-       <!-- AUSGABE DES NEWSBEITRAGS MIT DER ID 1 AUS DER DB--> 
-        <section class="section-mainLeft bordered">
-            <img class="img-main" 
-            src="
-                <?php
-                    $sql = "SELECT * FROM newsbeitrag WHERE Beitrags_ID = 1"; 
-                    $result = $db->query($sql);
-                    if ($result->num_rows > 0) {
-                        $row = $result->fetch_assoc();
-                        echo' '.$row["img-path"].' ';
-                    }
-                ?>          
-            " 
-            alt="
-            <?php
-                    $sql = "SELECT * FROM newsbeitrag WHERE Beitrags_ID = 1"; 
-                    $result = $db->query($sql);
-                    if ($result->num_rows > 0) {
-                        $row = $result->fetch_assoc();
-                        echo' '.$row["img-alt"].' ';
-                    }
-                    ?>      
-            ">
-            <section class="text-inside-section">
-                
-                <h3>
-                <?php
-                    $sql = "SELECT * FROM newsbeitrag WHERE Beitrags_ID = 1"; 
-                    $result = $db->query($sql);
-                    if ($result->num_rows > 0) {
-                        $row = $result->fetch_assoc();
-                        echo' '.$row["Ueberschrift"].' ';
-                    }
-                    ?>
-                </h3>
-                <br>
-                <br>
-                <p>
-                    <?php
-                    $sql = "SELECT * FROM newsbeitrag WHERE Beitrags_ID = 1"; 
-                    $result = $db->query($sql);
-                    if ($result->num_rows > 0) {
-                        $row = $result->fetch_assoc();
-                        echo' '.$row["Inhalt"].' ';
-                    }
-                    ?>
-                </p>
-                <br>
-                <br>
-                <p style="font-size: 18px; align-self: right"> <!--geht nicht-->
-                    erstellt am 
-                    <?php
-                    $sql = "SELECT date_format(Datum, '%d.%m.%Y') AS 'Datum_formatiert' FROM newsbeitrag WHERE Beitrags_ID = 1"; 
-                    $result = $db->query($sql);
-                    if ($result->num_rows > 0) {
-                        $row = $result->fetch_assoc();
-                        echo' '.$row["Datum_formatiert"].' ';
-                    }
-                    ?>
-                    von 
-                </p>
-            </section>
+<!--ENDE FORMULAR FÜR ADMINS ZUM ANLEGEN NEUER BEITRÄGE-->
 
-        </section>
-        <!-- ENDER DER AUSGABE DES NEWSBEITRAGS MIT DER ID 1 AUS DER DB--> 
-        
+<!--AUSGABE DER NEWSBEITRÄGE -->
+        <!--Versuch alle Beiträge auszugeben: -->
+        <?php include 'db_utils.php' ;
+        db_connect();   
+        $sql2 = "SELECT n.Ueberschrift, n.Inhalt, date_format(Datum, '%d.%m.%Y') AS 'Datum_formatiert', n.img_alt, n.img_path, n.FK_Admin_ID, p.vorname, p.nachname, p.Gender
+                FROM newsbeitrag n JOIN person p
+                    ON n.FK_Admin_ID = p.Person_ID;"
+        ;
+        $result2 = $db->query($sql2);
+        while ($row = $result2->fetch_array()) {
+            echo'
+                <div class="inbetween"> </div>
+                <section class="section-mainLeft bordered">
+                    <img class="img-main" src="' . $row['img_path'] . '" alt="' . $row['img_alt'] . '">
+                    <section class="text-inside-section"> 
+                        <h3> ' . $row['Ueberschrift'] . ' </h3>
+                        <br>
+                        <p> ' . $row['Inhalt'] . ' </p>
+                        <br>
+                        <br>
+                        <p style="font-size: 18px; align-self: right"> <!--geht nicht-->
+                            erstellt am ' . $row['Datum_formatiert'] . ' von ' . $row['vorname'] . ' ' . $row['nachname'] . '
+                        </p>
+                    </section> 
+                </section>  
+            ';
+        }
+        ?>              
     </section>    
     
     <?php include 'php_inserts\footer.php' ?>
