@@ -24,7 +24,7 @@ function db_connect() {
 
 function db_conn_check() {
     
-    global $db
+    global $db;
     
     if ($db) {
         return;

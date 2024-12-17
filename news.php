@@ -13,7 +13,7 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<?php $title = "FAQ und Impressum"; include 'php_inserts\head.php' ?>
+<?php $title = "News"; include 'php_inserts\head.php' ?>
 
 <body>
 
@@ -109,20 +109,74 @@
                 }
             }
         ?>
+        <?php include 'db_utils.php' ;
+        db_connect();    
+        ?>
+       <!-- AUSGABE DES NEWSBEITRAGS MIT DER ID 1 AUS DER DB--> 
         <section class="section-mainLeft bordered">
-            <img class="img-main" src="pictures/news/dungeon.webp" alt="Ein Bild des Fledermaus-Dungeons">
+            <img class="img-main" 
+            src="
+                <?php
+                    $sql = "SELECT * FROM newsbeitrag WHERE Beitrags_ID = 1"; 
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        echo' '.$row["img-path"].' ';
+                    }
+                ?>          
+            " 
+            alt="
+            <?php
+                    $sql = "SELECT * FROM newsbeitrag WHERE Beitrags_ID = 1"; 
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        echo' '.$row["img-alt"].' ';
+                    }
+                    ?>      
+            ">
             <section class="text-inside-section">
                 
-                <h3> Warnung vor dem Betreten des Feldermaus-dungeons</h3>
+                <h3>
+                <?php
+                    $sql = "SELECT * FROM newsbeitrag WHERE Beitrags_ID = 1"; 
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        echo' '.$row["Ueberschrift"].' ';
+                    }
+                    ?>
+                </h3>
                 <br>
                 <br>
-                <p>Der lokale Magier warnt, dass im Fledermaus-Dungeon eine riesen Fledermaus gesichtet wurde. 
-                    Das Betreten des Dungeons wird Abenteurer*Innen unter Level 25 nicht empfohlen!
-                    Auch erfahrene Abenteurer*Innen-Gruppen sollten sich mit außreichend Heiltränken
-                    und Wiederbelebungs-Steinen ausstatten bevor sie sich in den Fledermaus-Dungeon wagen.</p>
+                <p>
+                    <?php
+                    $sql = "SELECT * FROM newsbeitrag WHERE Beitrags_ID = 1"; 
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        echo' '.$row["Inhalt"].' ';
+                    }
+                    ?>
+                </p>
+                <br>
+                <br>
+                <p style="font-size: 18px; align-self: right"> <!--geht nicht-->
+                    erstellt am 
+                    <?php
+                    $sql = "SELECT date_format(Datum, '%d.%m.%Y') AS 'Datum_formatiert' FROM newsbeitrag WHERE Beitrags_ID = 1"; 
+                    $result = $db->query($sql);
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        echo' '.$row["Datum_formatiert"].' ';
+                    }
+                    ?>
+                    von 
+                </p>
             </section>
 
         </section>
+        <!-- ENDER DER AUSGABE DES NEWSBEITRAGS MIT DER ID 1 AUS DER DB--> 
         
     </section>    
     
