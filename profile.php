@@ -1,32 +1,5 @@
 <?php
-    session_start();
-
-    if (!isset($_SESSION["user_name"])) {
-        $_SESSION["user_name"] = '';
-    }
-    
-    if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] == 0 ){
-        $_SESSION["logged_in"] = 0;
-        $_SESSION["admin"] = 0;
-        $_SESSION["gender"]='male';
-        $_SESSION["first_name"]='Max';
-        $_SESSION["last_name"]='Mustermann';
-        $_SESSION["email"]='muster@email.com';
-    }
-
-    if ($_SESSION["logged_in"] == 1) {
-        if ($_SESSION["admin"] == 1) {
-            $_SESSION["gender"] = 'other';
-            $_SESSION["first_name"] = "Adminigtion";
-            $_SESSION["last_name"] = "Min";
-            $_SESSION["email"]='admin@admin.admin';
-        } else {
-            $_SESSION["gender"] = 'male';
-            $_SESSION["first_name"] = 'Max';
-            $_SESSION["last_name"] = 'Mustermann';
-            $_SESSION["email"]='muster@email.com';
-        }
-    }
+    session_start();  
 
 ?>
 
@@ -125,28 +98,43 @@ Bewertungsmatrix:
             
             <div class="halfScreenChild right test2">
                 <h1>Profildaten</h1>
+
                     <div class="bordered">
                     <?php
-                        if($_SESSION["gender"]=='female'){
-                            echo'Anrede: Frau '.$_SESSION["last_name"].'';
+                        echo'
+                        Anrede: ';
+                        if($_SESSION["gender"]== "female"){
+                            echo'Frau';
                         }
                         if($_SESSION["gender"]=='male'){
-                            echo'Anrede: Herr '.$_SESSION["last_name"].'';
+                            echo'Herr';
                         }
                         if($_SESSION["gender"]=='other'){
-                            echo'Anrede:  '.$_SESSION["first_name"].' '.$_SESSION["last_name"].'';
+                            echo'Vorname Nachname';
                         }
                         echo'
                             <br>
                             <br>
-                            Username: '.$_SESSION["user_name"].'
+                            Vorname:  '.$_SESSION["first_name"].'
                         ';
                         echo'
                             <br>
                             <br>
-                            E-Mail Adresse: '.$_SESSION["email"].'
+                            Nachname:  '.$_SESSION["last_name"].'
                         ';
-                        /* <br>
+                            echo'
+                                <br>
+                                <br>
+                                Username:  '.$_SESSION["user"].'
+                            ';
+                        echo'
+                            <br>
+                            <br>
+                            E-Mail Adresse:  '.$_SESSION["email"].'
+                        ';
+        ?>
+                        <!--
+                        <br>
                             <br>
                             <details style="border-style: groove;">
                                 <summary> Profildaten ändern - noch nicht formatiert oder funktionable </summary>
@@ -189,9 +177,9 @@ Bewertungsmatrix:
                             
                             <br>
                             <br>
-                        */
+                    -->
                         
-                        ?>
+                
 
                     </div>
             </div>
