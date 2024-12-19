@@ -39,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if($row['username']==$username_input){
                 if(password_verify($password_input, $row["passwort"])){
                     $_SESSION["logged_in"] = 1;
+                    $_SESSION["user"] = $username_input;
 
                     //Wenn die person, die sich einloggt ein Admin ist, hat sie einen Eintrag in der Spalte Admin_ID wir setzten die Session Variable diesbezüglich auf 1, damit Admin spezifische Dinge freigeschaltet werden.
                     if($row['Admin_ID']!=NULL){

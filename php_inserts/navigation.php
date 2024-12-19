@@ -8,21 +8,7 @@
         $_SESSION["admin"] = 0;
 
     }
-
-    /* Ersatz für Datenbank? */
-        if ($_SESSION["logged_in"] == 1) {
-        if ($_SESSION["admin"] == 1) {
-            $_SESSION["gender"] = 'other';
-            $_SESSION["first_name"] = "Ad";
-            $_SESSION["last_name"] = "Min";
-        } else {
-            $_SESSION["gender"] = 'male';
-            $_SESSION["first_name"] = 'Max';
-            $_SESSION["last_name"] = 'Mustermann';
-        }
-    }
-
-
+    
     
     if(!isset($_SESSION["gender"])){
         $_SESSION["gender"]='';
@@ -33,6 +19,48 @@
     if(!isset($_SESSION["last_name"])){
         $_SESSION["last_name"]='';
     } 
+
+    /* Ersatz für Datenbank? 
+        if ($_SESSION["logged_in"] == 1) {
+        if ($_SESSION["admin"] == 1) {
+            $_SESSION["gender"] = 'other';
+            $_SESSION["first_name"] = "Ad";
+            $_SESSION["last_name"] = "Min";
+        } else {
+            $_SESSION["gender"] = 'male';
+            $_SESSION["first_name"] = 'Max';
+            $_SESSION["last_name"] = 'Mustermann';
+        }
+    }*/
+
+//////////////Versuch mit DB/////////////
+    include 'db_utils.php';
+    db_conn_check();
+ // SQL-Abfrage, um die Daten aus der 'person'-Tabelle zu holen
+    $sql = "SELECT vorname, nachname, gender FROM person WHERE username = ?";
+
+// Bereite die SQL-Anweisung vor (um SQL-Injektionen zu verhindern)
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param("s", $_SESSION["user"]); // Bindet den Session-Wert (Benutzername) an die Abfrage
+
+// Führe die Abfrage aus
+    $stmt->execute();
+
+// Hole das Ergebnis
+    $stmt->bind_result($first_name, $last_name, $gender);
+
+// Wenn es ein Ergebnis gibt, setze die Session-Variablen
+    if ($stmt->fetch()) {
+        $_SESSION["first_name"] = $first_name;
+        $_SESSION["last_name"] = $last_name;
+        $_SESSION["gender"] = $gender;
+    }
+
+// Schließe die vorbereitete Anweisung
+    $stmt->close();
+
+////////////////////////////////////////
+
 /* 
 USAGE: no special usage
 */

@@ -30,7 +30,7 @@
             echo'
                 <section class="p-wholeContainer">
 
-                    <form action="news_image_upload.php" method="post" enctype="multipart/form-data">
+                    <form class="bordered" action="news_image_upload.php" method="post" enctype="multipart/form-data">
                     <legend>Neues News-Beitrag anlegen:</legend>
                     <br>
                     <p>Es sind nur Bilder vom Format jpg, gif, png, webp erlaubt.</p>
@@ -101,8 +101,8 @@
 <!--AUSGABE DER NEWSBEITRÄGE -->
     <!-- TO-DO: das ganze in eine Funktion in db_utils.php auslagern -->
     <section class="reversed_orientation">
-        <?php include 'db_utils.php' ;
-        db_connect();   
+        <?php
+        db_conn_check(); 
         $sql2 = "SELECT n.Ueberschrift, n.Inhalt, date_format(Datum, '%d.%m.%Y') AS 'Datum_formatiert', n.img_alt, n.img_path, n.FK_Admin_ID, p.vorname, p.nachname, p.Gender
                 FROM newsbeitrag n JOIN person p
                     ON n.FK_Admin_ID = p.Person_ID;"

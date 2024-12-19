@@ -1,7 +1,6 @@
 <?php
 ////////// wird nicht alleine verwendent -> db_conn_check //////////
-function db_connect() {
-    
+function db_connect() {    
     global $db;
     
     if (isset($db)) {
@@ -19,7 +18,6 @@ function db_connect() {
         echo "Connection Error" . $db->connection_error;
         exit();
     }
-
 }
 
 ////////////Funktion um Verbindung aufzubauen /////////////////
