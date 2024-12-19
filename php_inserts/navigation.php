@@ -9,7 +9,8 @@
 
     }
 
-    if ($_SESSION["logged_in"] == 1) {
+    /* Ersatz für Datenbank? */
+        if ($_SESSION["logged_in"] == 1) {
         if ($_SESSION["admin"] == 1) {
             $_SESSION["gender"] = 'other';
             $_SESSION["first_name"] = "Ad";
@@ -20,6 +21,8 @@
             $_SESSION["last_name"] = 'Mustermann';
         }
     }
+
+
     
     if(!isset($_SESSION["gender"])){
         $_SESSION["gender"]='';

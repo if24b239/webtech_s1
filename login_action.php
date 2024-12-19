@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          /*0=kein Error, 
         1=Eine Eingabe ist leer, 
         2=Passwort stimmt nicht, 
-        4=User name stimmt nicht
+        4=User name stimmt nicht -> wir brauchen eigentlich keine Zwei unterschiedlichen Rückmeldungen
         8=
         16=
         32=
@@ -75,6 +75,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(!validUsername($_POST["user_name_login"])){
         $_SESSION["error_login"] += 4;
     }
+
+    //Über Datenbank abfragen ob Passwort und Benutzername in Datenbank sind. 
+        //Datenbankverbindungaufbauen 
+        include 'db_utils.php';
+        db_conn_check();
+        //Alle Usernamen und Passwörter aus der DB abfragen
+        $sql ="SELECT username, passwort FROM person;";
+        $result = $db->query($sql);
+
+        //Eingabewerte vorbereiten
+        $username_input = htmlspecialchars($_POST["user_name_login"]);
+        $hashed_password = password_hash($_POST["password_login"], PASSWORD_DEFAULT);
+
+        //Abfrage an die DB ob passwort und username in einer Abfrage vorkommen
+        while ($row = $result->fetch_array()) {
+            if($row['username']==$username_input && $hashed_password==$row['passwort']){
+                header("Location:profile.php");
+                exit();
+            }
+        }
 
     if($_SESSION["error_login"]>0){
         header("Location:login.php"); //wenn das Login nicht erfolgreich war schicken wir mit Fehlermeldung zurück zum Login

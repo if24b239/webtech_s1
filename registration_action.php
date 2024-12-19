@@ -79,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["error_registration"] += 32;
     }
 
-    //Funktioniert noch nicht. Sollte prüfen ob die Passwort Variabele die folgenden Zeichen enthält, und wenn nicht: Fehlermeldung ausgeben. 
+    //Prüft ob die Passwort Variabele die folgenden Zeichen enthält. 
     if (strlen($_POST["password"]) <= '8'
         ||!preg_match("#[a-z]+#",$password)
         ||!preg_match("#[A-Z]+#",$password)
@@ -92,6 +92,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location:$site_we_send_to_in_case_of_wrong_input");
         exit();
     }
+
+
+    //INSERT INTO DB
+    //Datenbankverbindungaufbauen 
+    include 'db_utils.php';
+    db_conn_check();
+    //SQL-Statement erstellen 
+    $sql = "INSERT INTO person (vorname, nachname, e_mail, Gender, username, passwort)
+            VALUES (?, ?, ?, ?, ?, ?);
+            ";
+    //SQL-Statement „vorbereiten” 
+    $stmt = $db->prepare($sql);
+    //Parameter binden
+    $stmt-> bind_param("ssssss", $first_name, $last_name, $email, $gender, $user_name_registration, $hashedpassword);
+    //VariablenmitWerteversehen 
+    $hashedpassword = password_hash($password, PASSWORD_DEFAULT); /*Erklärung: In der PHP-Funktion password_hash($passwordplaintext, PASSWORD_DEFAULT) wird der Parameter PASSWORD_DEFAULT verwendet, um anzugeben, dass die Funktion den "besten" (aktuellsten) verfügbaren Hashing-Algorithmus für die Passwortsicherung verwenden soll. Im Moment (Stand Dezember 2024) ist dies der BCRYPT-Algorithmus, der als sicher gilt.*/
+    //Statement ausführen
+    $stmt->execute();
 
     //Session_Variablen für die Ausgabe der Reservierungsdaten beim Profil - kann gelöscht werden wenn Datenbank inkludiert
     $_SESSION["gender"]=$gender;

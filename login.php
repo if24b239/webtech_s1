@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    $static_password ='Password_1234';
+
     if(!isset($_SESSION["user_name"])){
        $_SESSION["user_name"]='';
     }
@@ -12,6 +12,7 @@
 
 <!--TO-DOS
     -Daten sollten im Formular bleiben bei Fehlern.
+    -required nach Debugging wieder hinzufügen.
 -->
 
 <!DOCTYPE html>
@@ -30,33 +31,31 @@
 
     <?php
         echo 'Username: MaxMustermann <br>';
-        echo 'Passwort: '.$static_password.'<br>';  
+        echo 'Passwort: Password_1234 <br><br>';  
+        
+        echo 'Username: AdMina <br>';
+        echo 'Passwort: Admina_12 <br>';
     ?>
 
     <section>
-        <form class="col-12" action="login_action.php" method="Post"> <!--Daten werden an login_action.php geschickt mit der Methode Post-->
+        <form class="col-12" action="login_action_db.php" method="POST"> <!--Daten werden an login_action_db.php geschickt mit der Methode Post-->
             <h2>Login</h2>
             <div class="col-12">
-                <?php
+                <?php /*Fehlermeldung leere Eingabe*/
                     if($_SESSION["error_login"] & 1){
                         echo '<p class="warning">bitte alle Felder ausfüllen</p>';
                     }
                 ?>
                 <label id="user_name_login" for="user_name_login">Username:</label><br>
-                <input type="text" name="user_name_login" id="user_name_login" required>
+                <input type="text" name="user_name_login" id="user_name_login"> <!--required fürs DEBUGGEN entfernt-->
             </div>
-            <?php
-                if($_SESSION["error_login"] & 4){
-                    echo '<p class="warning">User Name stimmt nicht</p>';
-                }
-            ?>
             <div class="col-12">
                 <label id="password_login" for="password_login">Passwort:</label><br>
-                <input type="password" name="password_login" id="password_login" required>
+                <input type="password" name="password_login" id="password_login"> <!--required fürs DEBUGGEN entfernt-->
             </div>
-            <?php
+            <?php /*Fehlermeldung Benutzername und Passwort nicht in einem Datensatz in DB*/
                 if($_SESSION["error_login"] & 2){
-                    echo '<p class="warning">falsches Passwort</p>';
+                    echo '<p class="warning">Benutzername oder Passwort falsch</p>';
                 }
             ?>
             <br>

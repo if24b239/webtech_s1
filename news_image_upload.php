@@ -12,7 +12,7 @@
 
         Bewertungsmatrix:
         ERLEDIGT a) Beiträge werden öffentlich in eigenem Bereich angezeigt, Bilder sind gut sichtbar, neuester Beitrag ganz oben 
-        b) Für den Upload sind nur Bilddateien erlaubt, Bilder landen in "uploads/news" 
+        b) Für den Upload sind nur Bilddateien erlaubt, Bilder landen in "uploads/news" (target_dir ändern)
             b) i) Bilder werden serverseitig verkleinert und als Thumbnails konstanter Größe dargestellt
         ERLEDIGT c) Übersichtliche Darstellung (Beiträge klar voneinander getrennt)
         ERLEDIGT d) Datum des Beitrags soll angezeigt werden
@@ -35,7 +35,7 @@
         64=*/
 
         
-        $target_dir = "./pictures/news/";
+        $target_dir = "./pictures/news/"; 
         $target_file = '';
 
         if ($_FILES["fileToUpload"]["tmp_name"] == '' || $_FILES["fileToUpload"]["name"] == '') {
@@ -90,7 +90,7 @@
             /*Parameter binden*/
             $stmt->bind_param("ssssi", $headline, $content, $alt_image, $image, $admin);
             /*Variablen mit Werten versehen*/
-            $admin = 3; /*Im Moment habe ich Ad Min hier noch hardgecodet, weil ich nicht ganz sicher bin, wie ich die ID als Integer übergeben kann*/         
+            $admin = 5; /*Im Moment habe ich Ad Min hier noch hardgecodet, weil ich nicht ganz sicher bin, wie ich die ID als Integer übergeben kann*/         
             /*Statement ausführen*/ 
             $stmt->execute();
         ////////////////////////////////////////////////////////////////////////////////////
