@@ -13,9 +13,13 @@
 
     <?php include 'php_inserts\navigation.php' ?>
     
-    <section>
+    <section> <!--Alle UserInnen nach Nachname alphabet ausgeben -->
+
 
     </section>
+    <!--UserInnen über ID verändern -->
+
+    <!--User*Innenstatus in der DB anlegen und verändern können -->
     
     <?php include 'php_inserts\footer.php' ?>
 
