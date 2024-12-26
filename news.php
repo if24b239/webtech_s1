@@ -26,7 +26,7 @@
     <?php
 
         
-        if(isset($_SESSION["admin"])&&($_SESSION["admin"]==1)){
+        if(isset($_SESSION["admin"])&&($_SESSION["admin"]==1)){ //eventuell sollte die Bedingung eine Abfrage an die Datenbank sein, ob die Admin-ID != NULL? sonst kann man auf den Bereich ja einfach durch änderung des Codes in den Developertool zugreifen, oder?
             echo'
                 <section class="p-wholeContainer">
 

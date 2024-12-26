@@ -100,40 +100,41 @@ Bewertungsmatrix:
                 <h1>Profildaten</h1>
 
                     <div class="bordered">
-                    <?php //Warum habe ich das hier in php gegeben? kann ich sonst die Session Variablen nicht verwenden?
-                        echo'
-                        Anrede: ';
-                        if($_SESSION["gender"]== "female"){
-                            echo'Frau';
-                        }
-                        if($_SESSION["gender"]=='male'){
-                            echo'Herr';
-                        }
-                        if($_SESSION["gender"]=='other'){
-                            echo'Vorname Nachname';
-                        }
-                        echo'
-                            <br>
-                            <br>
-                            Vorname:  '.$_SESSION["first_name"].'
-                        ';
-                        echo'
-                            <br>
-                            <br>
-                            Nachname:  '.$_SESSION["last_name"].'
-                        ';
+                        <div class="col-6">
+                            <?php
+                            echo'
+                            Anrede: ';
+                            if($_SESSION["gender"]== "female"){
+                                echo'Frau';
+                            }
+                            if($_SESSION["gender"]=='male'){
+                                echo'Herr';
+                            }
+                            if($_SESSION["gender"]=='other'){
+                                echo'Vorname Nachname';
+                            }
                             echo'
                                 <br>
                                 <br>
-                                Username:  '.$_SESSION["user"].'
+                                Vorname:  '.$_SESSION["first_name"].'
                             ';
-                        echo'
-                            <br>
-                            <br>
-                            E-Mail Adresse:  '.$_SESSION["email"].'
-                        ';
-                    ?>
-                        
+                            echo'
+                                <br>
+                                <br>
+                                Nachname:  '.$_SESSION["last_name"].'
+                            ';
+                                echo'
+                                    <br>
+                                    <br>
+                                    Username:  '.$_SESSION["user"].'
+                                ';
+                            echo'
+                                <br>
+                                <br>
+                                E-Mail Adresse:  '.$_SESSION["email"].'
+                            ';
+                        ?>
+                        </div>   
                     </div>
                     <br>    
                 <a href="profile_change.php">Profildaten ändern</a> 
