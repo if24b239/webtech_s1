@@ -37,7 +37,7 @@
     include 'db_utils.php';
     db_conn_check();
  // SQL-Abfrage, um die Daten aus der 'person'-Tabelle zu holen
-    $sql = "SELECT vorname, nachname, gender, E_Mail FROM person WHERE username = ?";
+    $sql = "SELECT vorname, nachname, gender, E_Mail, Admin_ID FROM person WHERE username = ?";
 
 // Bereite die SQL-Anweisung vor (um SQL-Injektionen zu verhindern)
     $stmt = $db->prepare($sql);
@@ -47,7 +47,7 @@
     $stmt->execute();
 
 // Hole das Ergebnis
-    $stmt->bind_result($first_name, $last_name, $gender, $email);
+    $stmt->bind_result($first_name, $last_name, $gender, $email, $admin);
 
 // Wenn es ein Ergebnis gibt, setze die Session-Variablen
     if ($stmt->fetch()) {
@@ -55,6 +55,7 @@
         $_SESSION["last_name"] = $last_name;
         $_SESSION["gender"] = $gender;
         $_SESSION["email"] = $email;
+        $_SESSION["admin"] = $admin;
     }
 
 // Schließe die vorbereitete Anweisung
@@ -98,6 +99,13 @@ echo '
         <li><a href="main.php">Startseite</a></li>
         <li><a href="news.php">News</a></li>
 ';
+/*Versuch etwas nur anzuzeigen wenn ein Admin eingeloggt ist*/
+if($_SESSION["admin"] != NULL){
+    echo'
+        <li><a href="user_administration.php">User-Verwaltung</a></li>
+    ';
+}
+
 if ($_SESSION["logged_in"] == 1) {
     echo '
         <li><a href="profile.php">Profil</a></li>
