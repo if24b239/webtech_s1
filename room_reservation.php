@@ -111,11 +111,11 @@
                 <div class="roomReservation_Rooms">
                     <p>Folgende Haustiere kommen mit: </p>
                     <input type="checkbox" id="pet1" name="pet1" value="1">
-                    <label id="pet1" for="pet1">Pferd</label><br>
+                    <label id="pet1" for="pet1">Pferd (+4€/Nacht)</label><br>
                     <input type="checkbox" id="pet2" name="pet2" value="2">
-                    <label id="pet2" for="pet2">Hund</label><br>
+                    <label id="pet2" for="pet2">Hund (+2€/Nacht)</label><br>
                     <input type="checkbox" id="pet3" name="pet3" value="4">
-                    <label id="pet3" for="pet3">Chimäre</label><br>
+                    <label id="pet3" for="pet3">Chimäre (+8€/Nacht)</label><br>
                 </div>
                 
                 <div class="roomReservation_Rooms" style="max-width:285px;">

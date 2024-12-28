@@ -34,6 +34,11 @@
     [class*="col-"] {
         width: 100%;
     }
+    
+    .halfScreenChild {
+        width: 100%;
+        margin-bottom: 20px;
+    }
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 769px) {
@@ -522,13 +527,13 @@ p.main{
     justify-content: space-around;
 }
 .halfScreenChild{
-    width: 45%;
     flex-wrap: wrap;
     min-width:fit-content;
     max-width: 45%;
     border: var(--accent-color);
     padding-top: 45px;   
     padding-bottom: 45px;
+    margin-bottom: 20px;
 }
 
 .halfScreenChild-reservation{
@@ -580,9 +585,16 @@ p.main{
     display: inline;
 }
 
-/*Start test*/
+
 .warning{
     color: rgb(202, 41, 41);
     font-size: 32;
+
 }
+
+/*Start test*/
+.stopBeeingSoDamnWide{
+    width:100%;
+}
+
 /*Ende Test*/

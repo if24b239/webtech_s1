@@ -25,20 +25,104 @@ Bewertungsmatrix:
         <h1> Profil und Reservierungsverwaltung </h1>
         <br>
         <div class="halfScreen">
-            <div class="halfScreenChild test1">
+            <div class="halfScreenChild" style="border: var(--accent-color); border-style: double;"">
                 <h1>Reservierungsdetails</h1>
+                <br>
                 
-            <!--AUSGABE DER RESERVIERUNGEN -->
+ 
+            <?php
+////////////////////////////////////////////////////////////////
+///////////////////AUSGABE DER RESERVIERUNGEN///////////////////
+////////////////////////////////////////////////////////////////
 
-            <!--SQL Abfrage über alle Reservierungen mit der person ID der eingeloggten Person-->
-            <p>Alle reservierungen ausgeben sobald neue angelegt werden können</p>
-            <!-- -->
+                //SQL Abfrage über alle Reservierungen mit der person ID der eingeloggten Person
+                db_conn_check();
 
-            <!-- -->
-            
+                $sql = "SELECT r.Abreisedatum, date_format(Anreisedatum, '%d.%m.%Y') AS 'Anreisedatum', 
+                               r.Fruehstueck, r.Parkplatz, r.Haustier, r.FK_Zimmer_ID, r.status, r.Sonderwuensche, 
+                               (DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht) AS 'GesammtpreisOhneZulagen',
+                                ((DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Fruehstueck)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Parkplatz)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Haustier)) AS 'GesammtpreisMitZulagen'        
+                        FROM reservierung r JOIN zimmer z
+                            ON r.FK_Zimmer_ID = z.Zimmer_ID
+                        WHERE FK_KundInnen_ID = " . $_SESSION['ID'] . " 
+                        ";
+                $result = $db->query($sql);
+
+                //Alle Einträge ausgeben
+                while ($row = $result->fetch_array()) {
+                    echo'
+                        <p style="font-weight: bold;"> Reservierung vom ' . $row['Anreisedatum'] . ' bis ' . $row['Abreisedatum'] . '</p>
+                        Raum: ' . $row['FK_Zimmer_ID'] . '
+                        <br>
+                        Frühstück:
+                    ';
+                        if($row['Fruehstueck'] == 1){
+                            echo'Ohne Frühstück';
+                        }
+                        if($row['Fruehstueck'] == 2){
+                            echo'Mit Frühstück';
+                        }
+
+                    echo'
+                        <br>
+                        Haustiere:
+                    ';
+                        if($row['Haustier'] < 1){
+                            echo'keine Tiere kommen mit';
+                        }
+                        if($row['Haustier'] & 8){
+                            echo' Pferd';
+                        }
+                        if($row['Haustier'] & 4){
+                            echo' Hund';
+                        }
+                        if($row['Haustier'] & 16){
+                            echo' Chimäre';
+                        }
+                    echo'
+                        <br>
+                          Parkplatz:
+                    ';
+                        if($row['Parkplatz'] == 1){
+                            echo'ohne Parkplatz';
+                        }
+                        if($row['Parkplatz'] == 2){
+                            echo'mit Parkplatz';
+                        }
+                    echo'   
+                        <br>
+                        Anmerkungen: ' . $row['Sonderwuensche'] . '        
+                    ';
+                    echo'
+                       <br> 
+                       Gesammtpreis ohne Zulagen: ' . $row['GesammtpreisOhneZulagen'] . ' €
+                    ';
+                    echo'
+                        <br>
+                        Gesammtpreis mit Zulagen: ' . $row['GesammtpreisMitZulagen'] . ' €
+                    ';
+                    echo'
+                        <br>
+                        Status: ' . $row['status'] . '
+                    ';
+
+                    echo'
+             
+                        <br>
+                        <br>
+
+                    ';
+                }
+            ?>
             </div>
+
+<?php
+////////////////////////////////////////////////////////////////
+///////////////////AUSGABE DER PROFILDATEN//////////////////////
+////////////////////////////////////////////////////////////////
+?>
             
-            <div class="halfScreenChild right test2" style="border: var(--accent-color); border-style: double;">
+            <div class="halfScreenChild right" style="border: var(--accent-color); border-style: double;">
                 <h1>Profildaten</h1>
 
                     <div>

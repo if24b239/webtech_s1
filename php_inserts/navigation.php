@@ -81,7 +81,7 @@ echo '
     </label>
 
     <ul>
-        <h1>';
+        <p style="font-weight: bold;">';
             if($_SESSION["logged_in"] == 1){
                 if($_SESSION["gender"]=='female'){
                     echo'Willkommen Frau '.$_SESSION["last_name"].'!';
@@ -94,7 +94,7 @@ echo '
                 }
             }
         echo'
-        </h1>
+        </p>
         
         
         <li><a href="main.php">Startseite</a></li>

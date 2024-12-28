@@ -18,13 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $special_requests = htmlspecialchars($_POST["special_requests"]);
     $pet = 0;
         if (isset($_POST["pet1"]) && $_POST["pet1"] == 1) {
-            $pet += $_POST["pet1"];
+            $pet += 4;
         }
         if (isset($_POST["pet2"]) && $_POST["pet2"] == 2) {
-            $pet += $_POST["pet2"];
+            $pet += 2;
         }
         if (isset($_POST["pet3"]) && $_POST["pet3"] == 4) {
-            $pet += $_POST["pet3"];
+            $pet += 8;
         }
 
     /*$_SESSION["pet"] = htmlspecialchars($pet);*/
@@ -100,10 +100,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //Parameter binden
         $stmt2->bind_param("ssiiisii", $arrival, $departure, $parking, $breakfast, $pet, $special_requests, $room, $customer);
         //VariablenmitWerteversehen
-            /*die Werte für arrival, departure, parking, breakfast, pet, special_requests und room haben wir oben bei der validierung schon festgelegt*/
+            /*die Werte für arrival, departure, special_requests und room haben wir oben bei der validierung schon festgelegt*/
             /*Was noch fehlt ist die Kund*In  von der die Reservierung durchgeführt wurde, diese ist in der Session gespeichert*/
         $customer = $_SESSION["ID"];
-        //Statement ausführen
+            /*parking, breakfast und Haustiere wird angepasst, damit die Berechnung des Gesammtpreises später einfacher wird*/
+      
+            if($parking == 1){
+                $parking = 0;
+            }/*Wenn parking ausgewählt ist, ist es bereits 2 was dem Preis für Parking entspricht, daher kein else if statement notwendig*/
+
+            if($breakfast == 1){
+                $breakfast = 1;
+            }
+            else if($breakfast == 2){
+                $breakfast = 7;
+            }/*da 7€/Nacht der Preis für Frühstück ist, kann es so später einfach berechnet werden*/
+
+            if($pet == NULL){
+                $pet = 0;
+            }
+        
+            //Statement ausführen
         $stmt2->execute();
 
         header("Location:profile.php");
