@@ -287,6 +287,10 @@ form {
     margin:5px;
 }
 
+.profile_change {
+    border: none;
+}
+
 /*.section-mainRight{
     background-color: rgba(161, 138, 74, 0.69); 
 }

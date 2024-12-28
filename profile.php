@@ -27,118 +27,90 @@ Bewertungsmatrix:
         <div class="halfScreen">
             <div class="halfScreenChild test1">
                 <h1>Reservierungsdetails</h1>
-                <?php 
-                if (isset($_SESSION["reservierungen"])) {
-                    foreach ($_SESSION["reservierungen"] as $x) {
-                        echo '
-                            <div class="bordered">
-                                <p>Reservierung vom '.$x["arrival"].' bis zum '.$x["departure"].':</p>  
-                                <br>
-                                <p>gewähltes Zimmer: <br>'.$x["room"].'</p>
-                                <br>
-                                <p>Frühstück: </p>
-                        ';
-                        if($x["breakfast"]=='with_breakfast'){
-                            echo 'mit Frühstück
-                                <br>
-                            ';
-                        }
-                        else if ($x["breakfast"]=='without_breakfast'){
-                            echo 'ohne Frühstück
-                                <br>
-                            ';
-                        }
-                        echo '
-                            <br>
-                            <p>Parkplatz: </p> 
-                        ';
-                        if($x["parking"]=='with_parking'){
-                            echo 'mit Parkplatz
-                                <br>
-                            ';
-                        }
-                        else if ($x["parking"]=='without_parking'){
-                            echo 'ohne Parkplatz
-                                <br>
-                            ';
-                        }
+                
+            <!--AUSGABE DER RESERVIERUNGEN -->
 
-                        echo '
-                            <br>
-                            <p>welche Haustiere kommen mit?</p> 
-                        ';
-                        if($x["pet"] & 1){
-                            echo '
-                                <p>Pferd</p>
-                            ';
-                        }
-                        if($x["pet"] & 2){
-                            echo '
-                                <p>Hund</p>
-                            ';
-                        }
-                        if($x["pet"] & 4){
-                            echo '
-                            <p>Chimäre</p>
-                            ';
-                        }
+            <!--SQL Abfrage über alle Reservierungen mit der person ID der eingeloggten Person-->
+            <p>Alle reservierungen ausgeben sobald neue angelegt werden können</p>
+            <!-- -->
 
-                        echo '
-                            <br>
-                            <p>Anmerkungen: <br>'.$x["special_requests"].'</p>
-                            <br>
-                        
-                            </div>
-                        ';
-                        
-                    }
-                }
-                ?>
+            <!-- -->
+            
             </div>
             
-            <div class="halfScreenChild right test2">
+            <div class="halfScreenChild right test2" style="border: var(--accent-color); border-style: double;">
                 <h1>Profildaten</h1>
 
-                    <div class="bordered">
-                        <div class="col-6">
+                    <div>
+                        <div class="col-12">
                             <?php
-                            echo'
-                            Anrede: ';
-                            if($_SESSION["gender"]== "female"){
-                                echo'Frau';
-                            }
-                            if($_SESSION["gender"]=='male'){
-                                echo'Herr';
-                            }
-                            if($_SESSION["gender"]=='other'){
-                                echo'Vorname Nachname';
-                            }
-                            echo'
-                                <br>
-                                <br>
-                                Vorname:  '.$_SESSION["first_name"].'
-                            ';
-                            echo'
-                                <br>
-                                <br>
-                                Nachname:  '.$_SESSION["last_name"].'
-                            ';
+                                echo'
+                                Anrede: ';
+                                if($_SESSION["gender"]== "female"){
+                                    echo'Frau';
+                                }
+                                if($_SESSION["gender"]=='male'){
+                                    echo'Herr';
+                                }
+                                if($_SESSION["gender"]=='other'){
+                                    echo'Vorname Nachname';
+                                }
                                 echo'
                                     <br>
                                     <br>
-                                    Username:  '.$_SESSION["user"].'
+                                    Vorname:  '.$_SESSION["first_name"].'
                                 ';
-                            echo'
-                                <br>
-                                <br>
-                                E-Mail Adresse:  '.$_SESSION["email"].'
-                            ';
-                        ?>
+                                echo'
+                                    <br>
+                                    <br>
+                                    Nachname:  '.$_SESSION["last_name"].'
+                                ';
+                                    echo'
+                                        <br>
+                                        <br>
+                                        Username:  '.$_SESSION["user"].'
+                                    ';
+                                echo'
+                                    <br>
+                                    <br>
+                                    E-Mail Adresse:  '.$_SESSION["email"].'
+                                ';
+                            ?>
+                        <br>
+                        <br>
                         </div>   
                     </div>
-                    <br>    
-                <a href="profile_change.php">Profildaten ändern</a> 
-            </div>
+                    <br>  
+                    <div>
+                        <h1>Profildaten ändern</h1>
+                        <details class="profile_change">
+                            <summary>Formular öffnen</summary>
+                            <br>
+                            <form class="col-4" action="profile_change_action.php" method="POST">
+                                <select for="gender" id="gender" name="gender">
+                                    <option <?php if($_SESSION["gender"]== "female"){echo'selected="selected"';}?> value="female">Frau</option>
+                                    <option <?php if($_SESSION["gender"]== "male"){echo'selected="selected"';}?> value="male">Herr</option>
+                                    <option <?php if($_SESSION["gender"]== "other"){echo'selected="selected"';}?>value="other">Vorname Nachname</option>
+                                </select>
+                                <br>
+                                <input type="text" name="first_name" id="first_name" placeholder="<?php echo''.$_SESSION["first_name"].'';?>">
+                                <br>
+                                <input type="text" name="last_name" id="last_name" placeholder="<?php echo''.$_SESSION["last_name"].'';?>">
+                                <br>
+                                <input type="text" name="user" id="user" placeholder="<?php echo''.$_SESSION["user"].'';?>">
+                                <br>
+                                <input type="text" name="email" id="email" placeholder="<?php echo''.$_SESSION["email"].'';?>">
+                                <br>
+                                <input type="new_password" name="new_password" id="new_password" placeholder="neues Passwort" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                                <br>
+                                <input type="old_password" name="old_password" id="old_password" placeholder="altes Passwort" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                                <br>
+                                <br>
+                                <button type="submit">Bestätigen</button>
+                            </form>
+                        </details>
+                    </div>
+            </div>        
         </div>
         
     </section>

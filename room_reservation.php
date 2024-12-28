@@ -25,9 +25,10 @@
     <?php include 'php_inserts\navigation.php' ?>
   <main class="main-reservation">
     <section>
-        <!--If Abfrage wenn, noch nicht login: dort hin verweisen -->
+  
 
-        <!--If Abfrage wenn schon Login, Formular anzeigen -->
+        <?php echo' error_reservation: '.$_SESSION["error_reservation"].' '?>
+
         <form class="col-12 bordered" action="room_reservation_action.php" method="Post"> 
             <h2>Zimmerreservierung</h2>
             <br>
@@ -36,7 +37,7 @@
                 <div class="roomReservation_Rooms bordered">
                     <label id="room1" for="room1">
                         <p>Raum Typ A</p>
-                        <input type="radio" name="room" id="room1" value="room1">
+                        <input type="radio" name="room" id="room1" value="1">
                         <img src="pictures/sleepingChamber1.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ A. Es enthält ein Doppelbett, einen Kleiderschrank und einen Schreibtisch.">
                         <p>Dieser Raum bietet Ihnen ein bequemes Doppelbett und einen großen Schreibtisch.</p>
 
@@ -45,7 +46,7 @@
                 <div class="roomReservation_Rooms bordered">
                     <label id="room2" for="room2">
                         <p>Raum Typ B</p>
-                        <input type="radio" name="room" id="room2" value="room2">
+                        <input type="radio" name="room" id="room2" value="2">
                         <img src="pictures/sleepingChamber2.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ B. Es enthält ein Doppelbett, einen Kleiderschrank und ein Bücherregal zur Unterhaltung.">
                         <p>Dieser Raum bietet Ihnen zusäzlich zum Doppelbett auch ein gut ausgestattetes Bücherregal.</p>
                     </label>
@@ -79,8 +80,8 @@
                 <div class="roomReservation_Rooms">
                     <label id="breakfast" for="breakfast">Frühstück:</label><br>
                     <select for="breakfast" id="breakfast" name="breakfast">
-                        <option value="without_breakfast">ohne Frühstück</option>
-                        <option value="with_breakfast">mit Frühstück (+7€/Nacht)</option>
+                        <option value="0">ohne Frühstück</option>
+                        <option value="1">mit Frühstück (+7€/Nacht)</option>
                     </select>
                 </div>
                 <br>
@@ -88,8 +89,8 @@
                 <div class="roomReservation_Rooms">
                     <label id="parking" for="parking">Parkplatz:</label><br>
                     <select for="parking" id="parking" name="parking">
-                        <option value="without_parking">ohne Parkplatz</option>
-                        <option value="with_parking">mit Parkplatz (+2€/Nacht)</option>
+                        <option value="0">ohne Parkplatz</option>
+                        <option value="1">mit Parkplatz (+2€/Nacht)</option>
                     </select>
                 </div>
             </div>

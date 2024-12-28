@@ -37,7 +37,7 @@
     include 'db_utils.php';
     db_conn_check();
  // SQL-Abfrage, um die Daten aus der 'person'-Tabelle zu holen
-    $sql = "SELECT vorname, nachname, gender, E_Mail, Admin_ID FROM person WHERE username = ?";
+    $sql = "SELECT vorname, nachname, gender, E_Mail, Admin_ID, Person_ID FROM person WHERE username = ?";
 
 // Bereite die SQL-Anweisung vor (um SQL-Injektionen zu verhindern)
     $stmt = $db->prepare($sql);
@@ -47,18 +47,19 @@
     $stmt->execute();
 
 // Hole das Ergebnis
-    $stmt->bind_result($first_name, $last_name, $gender, $email, $admin);
+    $stmt->bind_result($first_name, $last_name, $gender, $email, $admin, $ID);
 
-// Wenn es ein Ergebnis gibt, setze die Session-Variablen
+// Wenn es ein Ergebnis gibt, werden die Session-Variablen gesetzt
     if ($stmt->fetch()) {
         $_SESSION["first_name"] = $first_name;
         $_SESSION["last_name"] = $last_name;
         $_SESSION["gender"] = $gender;
         $_SESSION["email"] = $email;
         $_SESSION["admin"] = $admin;
+        $_SESSION["ID"] = $ID;
     }
 
-// Schließe die vorbereitete Anweisung
+// Die vorbereitete Anweisung wird geschlossen
     $stmt->close();
 
 ////////////////////////////////////////
