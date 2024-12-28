@@ -32,6 +32,11 @@
         <form class="col-12 bordered" action="room_reservation_action.php" method="Post"> 
             <h2>Zimmerreservierung</h2>
             <br>
+            <?php 
+                if($_SESSION["error_reservation"] & 1){
+                    echo'<p class="warning">Anreisedatum, Abreisedatum, Raumauswahl, Frühstückswahl und Parkplatzwahl sind notwendige Asuwahlen.</p>';
+                }
+            ?>
             <!--Raumwahl-->
             <div class="row">
                 <div class="roomReservation_Rooms bordered">
@@ -72,6 +77,12 @@
                             <br>
                         ';
                     }
+                    if($_SESSION["error_reservation"] & 8){
+                        echo'
+                            <p class="warning">Leider ist das dieser Raum in dem Zeitraum bereits reserviert.</p>
+                            <br>
+                        ';
+                    }
                 
             ?>
             <br>
@@ -80,8 +91,8 @@
                 <div class="roomReservation_Rooms">
                     <label id="breakfast" for="breakfast">Frühstück:</label><br>
                     <select for="breakfast" id="breakfast" name="breakfast">
-                        <option value="0">ohne Frühstück</option>
-                        <option value="1">mit Frühstück (+7€/Nacht)</option>
+                        <option value="1">ohne Frühstück</option>
+                        <option value="2">mit Frühstück (+7€/Nacht)</option>
                     </select>
                 </div>
                 <br>
@@ -89,8 +100,8 @@
                 <div class="roomReservation_Rooms">
                     <label id="parking" for="parking">Parkplatz:</label><br>
                     <select for="parking" id="parking" name="parking">
-                        <option value="0">ohne Parkplatz</option>
-                        <option value="1">mit Parkplatz (+2€/Nacht)</option>
+                        <option value="1">ohne Parkplatz</option>
+                        <option value="2">mit Parkplatz (+2€/Nacht)</option>
                     </select>
                 </div>
             </div>

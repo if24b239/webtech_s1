@@ -62,9 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT Anreisedatum, Abreisedatum FROM reservierung 
             WHERE FK_Zimmer_ID = " . $_POST['room'] . "
             AND 
-            (Anreisedatum BETWEEN $arrival AND $departure)
-            OR (Abreisedatum BETWEEN $arrival AND $departure)
-            OR (Anreisedatum <= $arrival AND Abreisedatum >= $departure);
+            (Anreisedatum BETWEEN '$arrival' AND '$departure')
+            OR (Abreisedatum BETWEEN '$arrival' AND '$departure')
+            OR (Anreisedatum <= '$arrival' AND Abreisedatum >= '$departure');
             ";
     $result = $db->query($sql);
 
@@ -80,13 +80,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dateTimestampArrival = strtotime($arrival);
     $dateTimestampDeparture = strtotime($departure);
     if($dateTimestampDeparture <= $dateTimestampArrival){
-        $_SESSION["error_reservation"] += 64;
-        
+        $_SESSION["error_reservation"] += 64;     
     }
     if($_SESSION["error_reservation"] > 0){
-        echo'room '.$room.', Ankunft: '. $arrival .', Abreise: '. $departure .'';
-        /*header("Location:room_reservation.php");
-        exit();*/
+        /*DEBUGGING echo'room: '.$room.', Ankunft: '. $arrival .', Abreise: '. $departure .', breakfast: '. $breakfast .', Parkplatz: '. $parking .'';*/
+        header("Location:room_reservation.php");
+        exit();
+    }
+    if($_SESSION["error_reservation"] == 0){
+    //////EINTRAG IN DIE DB////////////////
+        //Datenbankverbindungaufbauen
+        db_conn_check();
+        //SQL-Statement erstellen
+        $sql2 = "INSERT INTO `reservierung` (`Anreisedatum`, `Abreisedatum`, `Anlegedatum`, `Parkplatz`, `Fruehstueck`, `Haustier`, `Sonderwuensche`, `status`, `FK_Zimmer_ID`, `FK_KundInnen_ID`)
+                    VALUES(?, ?, NOW(), ?, ?, ?, ?, 'neu', ?, ?)
+                ";
+        //SQL-Statement „vorbereiten”
+        $stmt2 = $db->prepare($sql2);
+        //Parameter binden
+        $stmt2->bind_param("ssiiisii", $arrival, $departure, $parking, $breakfast, $pet, $special_requests, $room, $customer);
+        //VariablenmitWerteversehen
+            /*die Werte für arrival, departure, parking, breakfast, pet, special_requests und room haben wir oben bei der validierung schon festgelegt*/
+            /*Was noch fehlt ist die Kund*In  von der die Reservierung durchgeführt wurde, diese ist in der Session gespeichert*/
+        $customer = $_SESSION["ID"];
+        //Statement ausführen
+        $stmt2->execute();
+
+        header("Location:profile.php");
+        exit();
     }
 }
 
@@ -103,28 +124,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $_SESSION["reservierungen"][] = $reservation;
 */
-
-//////EINTRAG IN DIE DB////////////////
-//Datenbankverbindungaufbauen
-db_conn_check();
-//SQL-Statement erstellen
-$sql2 = "INSERT INTO `reservierung` (`Anreisedatum`, `Abreisedatum`, `Anlegedatum`, `Parkplatz`, `Fruehstueck`, `Haustier`, `Sonderwuensche`, `status`, `FK_Zimmer_ID`, `FK_KundInnen_ID`)
-            VALUES(?, ?, NOW(), ?, ?, ?, ?, 'neu', ?, ?)
-        ";
-//SQL-Statement „vorbereiten”
-$stmt2 = $db->prepare($sql2);
-//Parameter binden
-$stmt2->bind_param("ssiiisii", $arrival, $departure, $parking, $breakfast, $pet, $special_requests, $room, $customer);
-//VariablenmitWerteversehen
-    /*die Werte für arrival, departure, parking, breakfast, pet, special_requests und room haben wir oben bei der validierung schon festgelegt*/
-    /*Was noch fehlt ist die Kund*In  von der die Reservierung durchgeführt wurde, diese ist in der Session gespeichert*/
-$customer = $_SESSION["ID"];
-//Statement ausführen
-$stmt2->execute();
-
-
-
-
-header("Location:profile.php");
-exit();
 ?>
