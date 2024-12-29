@@ -79,12 +79,12 @@ Bewertungsmatrix:
                     echo'
                         <hr>
                         <p style="font-weight: bold;"> Reservierung vom ' . $row['Anreisedatum'] . ' bis ' . $row['Abreisedatum'] . '</p>
-                        Raumtyp: ';
+                        Raum: ';
                         if($row['FK_Zimmer_ID'] == 1){
-                            echo'A';
+                            echo'Sonnenraum';
                         }
                         if($row['FK_Zimmer_ID'] == 2){
-                            echo'B';
+                            echo'Mondscheinzimmer';
                         }
                     echo'
                         <br> 
@@ -138,7 +138,7 @@ Bewertungsmatrix:
                     ';
                     echo'
                         <br>
-                        Status: ' . $row['status'] . '
+                        <p style="font-size: 18px"> Status: ' . $row['status'] . '<p>
                     ';
 
                     echo'

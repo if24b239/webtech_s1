@@ -42,7 +42,7 @@
                 <div class="roomReservation_Rooms">
                     <div class="roomReservation_Rooms bordered">
                         <label id="room1" for="room1">
-                            <p>Raum Typ A</p>
+                            <p>Sonnenraum</p>
                             <input type="radio" name="room" id="room1" value="1">
                             <img src="pictures/sleepingChamber1.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ A. Es enthält ein Doppelbett, einen Kleiderschrank und einen Schreibtisch.">
                             <p>Dieser Raum bietet Ihnen ein bequemes Doppelbett und einen großen Schreibtisch.</p>
@@ -51,7 +51,7 @@
                         <br>
                         <br>
                         <details class="profile_change">
-                            <summary>Vergebene Zeiträume Typ-A</summary>
+                            <summary>Vergebene Zeiträume Sonnenzimmer</summary>
                             <p class="warning">Zeiträume ausgeben in denen der Raum reserviert ist</p>
                             
                         </details>
@@ -59,7 +59,7 @@
                 <div class="roomReservation_Rooms">
                     <div class="roomReservation_Rooms bordered">
                         <label id="room2" for="room2">
-                            <p>Raum Typ B</p>
+                            <p>Mondscheinzimmer</p>
                             <input type="radio" name="room" id="room2" value="2">
                             <img src="pictures/sleepingChamber2.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ B. Es enthält ein Doppelbett, einen Kleiderschrank und ein Bücherregal zur Unterhaltung.">
                             <p>Dieser Raum bietet Ihnen zusäzlich zum Doppelbett auch ein gut ausgestattetes Bücherregal.</p>
@@ -68,7 +68,7 @@
                         <br>
                         <br>
                         <details class="profile_change">
-                            <summary>Vergebene Zeiträume Typ-A</summary>
+                            <summary>Vergebene Zeiträume Mondscheinzimmer</summary>
                             <p class="warning">Zeiträume ausgeben in denen der Raum reserviert ist</p>
                             
                         </details>
