@@ -48,7 +48,7 @@
           || (empty($user))
           || (empty($gender))
         ){
-            $_SESSION["error_registration"] += 1; 
+            $_SESSION["error_profile_change"] += 1; 
         }
         if (!empty($last_name)&&(!preg_match('/^[-a-zA-Z[:space:]äöüÄÖÜ_]+$/', $last_name))){
             $_SESSION["error_profile_change"] += 4; 
@@ -63,24 +63,39 @@
           $_SESSION["error_profile_change"] += 32;
         }
 
+        if($_SESSION["error_profile_change"] != 0){
+          header("Location:profile.php");
+          exit();
+        }
+
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////|DATENBANKEINTRAG - Profildaten|////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //Datenbankverbindungaufbauen 
-        include 'db_utils.php';
-        db_conn_check();
+          include 'db_utils.php';
+          db_conn_check();
         //SQL-Statement erstellen 
-        $sql = "UPDATE person (vorname, nachname, e_mail, Gender, username)
-                VALUES (?, ?, ?, ?, ?);
-                ";
+          $sql = "UPDATE person
+                  SET vorname = ?, 
+                      nachname = ?, 
+                      E_Mail = ?,
+                      Gender = ?,
+                      username = ?
+                  WHERE Person_ID = " . $_SESSION['ID'] . ";
+                  ";
+              
         //SQL-Statement „vorbereiten” 
-        $stmt = $db->prepare($sql);
+          $stmt = $db->prepare($sql);
         //Parameter binden
-        $stmt-> bind_param("ssssss", $first_name, $last_name, $email, $gender, $user_name_registration);
+          $stmt-> bind_param("sssss", $first_name, $last_name, $email, $gender, $user);
         //VariablenmitWerteversehen 
-        $hashedpassword = password_hash($password, PASSWORD_DEFAULT); /*Erklärung: In der PHP-Funktion password_hash($passwordplaintext, PASSWORD_DEFAULT) wird der Parameter PASSWORD_DEFAULT verwendet, um anzugeben, dass die Funktion den "besten" (aktuellsten) verfügbaren Hashing-Algorithmus für die Passwortsicherung verwenden soll. Im Moment (Stand Dezember 2024) ist dies der BCRYPT-Algorithmus, der als sicher gilt.*/
+          /*oben schon alle festgelegt*/
         //Statement ausführen
-        $stmt->execute();  
+          $stmt->execute(); 
+          
+        $_SESSION["profile_change"] = 1;
+        header("Location:profile.php");
+        exit();
   }
 
 

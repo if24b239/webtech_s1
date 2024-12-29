@@ -1,25 +1,33 @@
 
-erledigt - Begrüßen Sie den/die „eingeloggten“ User*in auf der Website.
+NICHT ERLEDIGT - Ausgabe der Profildaten im Profil nicht über Session Variablen, 
+sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt angezeigt werden. 
 
-Prüfen Sie die eingegebenen Daten vorerst gegen statische Werte (hardcoded).
-	Ergänzung:
+
+
+
+
+
+
+
+
+erledigt - Begrüßen Sie den/die „eingeloggten“ User*in auf der Website.
 
 Erledigt- Merken Sie sich die Login-Informationen in der Session. Username wird gemerkt
 
-NICHT Erledigt - Eingeloggte User*innen können die eigenen Profildaten einsehen (ERLEDIGT) und bearbeiten (FEHLT NOCH - Formular anlegen würg) (Stammdaten bearbeiten, Passwort
+Erledigt - Eingeloggte User*innen können die eigenen Profildaten einsehen (ERLEDIGT) und bearbeiten (ERLEDIGT) (Stammdaten bearbeiten, Passwort
 neu setzen, …).
 	//Registrierungsdaten in Array speichern und im Profil ausgeben
 
-FAST Erledigt - Eingeloggte User*innen haben folgende Möglichkeiten (vorerst mit statischen Daten):
+Erledigt - Eingeloggte User*innen haben folgende Möglichkeiten (vorerst mit statischen Daten):
 	ERLEDITGi. neue Zimmerreservierung anlegen
-	FAST ERLEDIGTii. eine Liste aller eigener Reservierungen einsehen (vorerst statische Werte)
+	ERLEDIGTii. eine Liste aller eigener Reservierungen einsehen 
 		Haustiere fehlen noch
 
 erledigt - PHP-Funktionalitäten, um eine Zimmerreservierung durchzuführen.
-NICHT Erledigt - Serverseitige Validierung room_reservation - Marold
+Erledigt - Serverseitige Validierung room_reservation - Marold
 
 
-NICHT Erledigt - Serverseitige Validierung Login - Empty usw. 
+Erledigt - Serverseitige Validierung Login - Empty usw. 
 
 Erledigt - serverseite Passwort validation in der Registrierung wenn leer --> zurückschicken und beschweren - Lena
 

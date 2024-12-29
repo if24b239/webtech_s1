@@ -8,8 +8,8 @@
 
 <!-- 
 Bewertungsmatrix:
-    a) eingeloggte User können Profildaten einsehen und bearbeiten 
-    b) Passwörter werden nicht angezeigt und beim Ändern des Passwortes muss das alte PW eingegeben werden 
+        -> Profildaten aus der DB ausgeben und nicht über die Session,
+        damit sie nach einer Änderung gleich korrekt angegeben werden. 
 -->
 
 <?php $title = "Profilverwaltung"; include 'php_inserts\head.php' ?>
@@ -35,6 +35,16 @@ Bewertungsmatrix:
                         </form>
                     ';
                 }
+                if($_SESSION["profile_change"] == 1){
+                    echo'
+                        Profildaten erfolgreich geändert!
+                        Änderungen nach erneutem Einloggen sichtbar
+                        <form action="profile_change_action.php" method="POST">
+                            <input type="hidden" name="form" value="password_changed">
+                            <button type="submit">Ok!</button>
+                        </form>
+                    ';
+                }
             }
         ?>
         <div class="halfScreen">
@@ -42,7 +52,6 @@ Bewertungsmatrix:
                 <h1>Reservierungsdetails</h1>
                 <br>
                 
- 
             <?php
 ////////////////////////////////////////////////////////////////
 ///////////////////AUSGABE DER RESERVIERUNGEN///////////////////
