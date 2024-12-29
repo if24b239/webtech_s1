@@ -7,11 +7,9 @@ if (!isset($_SESSION["user_name"])) {
 }
 
 
-
-
 //TO-DOS
 //this file Should be in a private folder not in a public one for security reasons
-//c) Passwort muss zweimal eingegeben werden und wird in DB verschlüsselt
+//erledigt . Passwort muss zweimal eingegeben werden und wird in DB verschlüsselt
 
 
 //Kontrolle ob Input mit der Methode "Post" geschickt wurde 
@@ -49,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     || (empty($user_name_registration))
     || (empty($password))
     || (empty($password_repitition))
+    || (empty($gender))
     ){
         $_SESSION["error_registration"] += 1; 
     }
@@ -71,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //E-Mail muss ein @ enthalten darf keine Leerzeichen enthalten
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)){ /*Funktion prüft ob die eingegebene E-Mail eine valide ist*/ 
         $_SESSION["error_registration"] += 16; //wird auf 5 gesetzt, damit auf der registration.php die richtige Errormeldung ausgegeben wird.
-        
     }
 
     //Anrede soll nur female male other sein
@@ -93,8 +91,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
+//////////////////////////////////////////////////////////////////////////
+////////////////////INSERT INTO DB////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 
-    //INSERT INTO DB
     //Datenbankverbindungaufbauen 
     include 'db_utils.php';
     db_conn_check();
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION["user_name"]=$user_name_registration;
     //Ende Session_Variablen für die Ausgabe der Reservierungsdaten beim Profil - bitte löschen, wenn Datenbank inkludiert
 
-    header("Location:main.php");
+    header("Location:login.php");
     exit();
 }
 
