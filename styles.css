@@ -89,6 +89,19 @@ hr {
     color: var(--accent-color); 
     background-color: var(--accent-color);
 }
+
+h1 {
+    font-size:larger;
+}
+
+h2 {
+    font-size: x-large;
+}
+
+table {
+    border: #4F3006;
+    border-style: dotted;
+}
 /*Header*/
 header {
     background-image: url("pictures/tileable_background.jpg");
@@ -174,11 +187,12 @@ nav input[type="checkbox"]{
     border-radius: 100px;
 }
 
-nav h1{
+nav p{
     justify-self: flex-start;
     padding-left:10px;
     padding-right: 10px;
 }
+
 @media only screen and (max-width: 768px){
     .toggle_button_nav{
         display: flex;

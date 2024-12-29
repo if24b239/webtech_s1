@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<?php $title = "USer*Innenverwaltung"; include 'php_inserts\head.php' ?>
+<?php $title = "User*Innenverwaltung"; include 'php_inserts\head.php' ?>
 
 <body>
 

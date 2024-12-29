@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }/*Wenn parking ausgewählt ist, ist es bereits 2 was dem Preis für Parking entspricht, daher kein else if statement notwendig*/
 
             if($breakfast == 1){
-                $breakfast = 1;
+                $breakfast = 0;
             }
             else if($breakfast == 2){
                 $breakfast = 7;

@@ -31,14 +31,15 @@
         </details>
         <br>
         <details style="border-style: groove;">
-            <summary> 2.FAQ</summary>
+            <summary>Ich habe mein Passwort vergessen</summary>
             <br>
-            <p></p>
+            <p>Bitte schreiben Sie unseren MitarbeiterInnen unter: zurGoldenenGans@office.com</p>
+            <p>Unsere MitarbeiterInnen setzen sich dann mit Ihnen in Kontakt und legen Ihnen ein neues Passwort an.</p>
         </details>
         <br>
         <details style="border-style: groove;">
             <summary> 3. FAQ </summary>
-            <p>Antwort auf die zweithäufigste Frage</p>
+            <p>Antwort auf die dritthäufigste Frage</p>
         </details>
 
     </section>

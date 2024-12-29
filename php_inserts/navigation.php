@@ -80,7 +80,15 @@ echo '
         <span class="bar"></span>
     </label>
 
-    <ul>
+    <ul>';
+    /*Versuch etwas nur anzuzeigen wenn ein Admin eingeloggt ist*/
+        if($_SESSION["admin"] != NULL){
+            echo'
+                <li><a href="admin_user_administration.php">User-Verwaltung</a></li>
+                <li><a href="admin_reservation_administration.php">Reservierungs-Verwaltung</a></li>
+            ';
+        }
+    echo'
         <p style="font-weight: bold;">';
             if($_SESSION["logged_in"] == 1){
                 if($_SESSION["gender"]=='female'){
@@ -100,12 +108,6 @@ echo '
         <li><a href="main.php">Startseite</a></li>
         <li><a href="news.php">News</a></li>
 ';
-/*Versuch etwas nur anzuzeigen wenn ein Admin eingeloggt ist*/
-if($_SESSION["admin"] != NULL){
-    echo'
-        <li><a href="user_administration.php">User-Verwaltung</a></li>
-    ';
-}
 
 if ($_SESSION["logged_in"] == 1) {
     echo '

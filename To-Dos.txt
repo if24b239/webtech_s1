@@ -2,6 +2,8 @@
 NICHT ERLEDIGT - Ausgabe der Profildaten im Profil nicht über Session Variablen, 
 sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt angezeigt werden. 
 
+NICHT ERLEDIGT - Letzte Eingaben sollen in Formularen als value erhalten bleiben
+
 
 
 

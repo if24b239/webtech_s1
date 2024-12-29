@@ -49,7 +49,7 @@ Bewertungsmatrix:
         ?>
         <div class="halfScreen">
             <div class="col-8" style="border: var(--accent-color); border-style: double;"">
-                <h1>Reservierungsdetails</h1>
+                <h2>Reservierungsdetails</h2>
                 <br>
                 
             <?php
@@ -92,8 +92,9 @@ Bewertungsmatrix:
                     ';
                     echo'
                         <br>
+                        <div style="font-size: 19px">
                     ';
-                        if($row['Fruehstueck'] == 1){
+                        if($row['Fruehstueck'] == 0){
                             echo'Ohne Frühstück';
                         }
                         if($row['Fruehstueck'] > 2){
@@ -130,10 +131,10 @@ Bewertungsmatrix:
                         }
                     echo'   
                         <br>
-                        Anmerkungen: ' . $row['Sonderwuensche'] . '        
+                        Anmerkungen: ' . $row['Sonderwuensche'] . '    
                     ';
                     echo'
-                        <br>
+                        </div>
                         Gesammtpreis mit Zuschlägen: ' . $row['GesammtpreisMitZulagen'] . ' €
                     ';
                     echo'
@@ -158,7 +159,7 @@ Bewertungsmatrix:
 ?>
             
             <div class="col-4" style="border: var(--accent-color); border-style: double;">
-                <h1>Profildaten</h1>
+                <h2>Profildaten</h2>
 
                     <div>
                         <div class="col-12">
@@ -202,7 +203,7 @@ Bewertungsmatrix:
                     <hr>
                     <br>  
                     <div>
-                        <h1>Profildaten ändern</h1>
+                        <h2>Profildaten ändern</h2>
                         <details class="profile_change">
                             <summary>Formular öffnen</summary>
                             <br>
