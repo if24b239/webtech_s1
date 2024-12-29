@@ -84,6 +84,11 @@ body {
 a {
     color: var(--text-color);
 }
+
+hr {
+    color: var(--accent-color); 
+    background-color: var(--accent-color);
+}
 /*Header*/
 header {
     background-image: url("pictures/tileable_background.jpg");
@@ -595,6 +600,32 @@ p.main{
 /*Start test*/
 .stopBeeingSoDamnWide{
     width:100%;
+}
+
+.radio-container {
+    position: relative;
+    width: 300px; /* Beispielgröße */
+    height: 100px; /* Beispielgröße */
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Radiobutton wird unsichtbar gemacht, aber bleibt funktional */
+.radio-container input[type="radio"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Der Label wird als Ersatz für den Radiobutton verwendet */
+.radio-container label {
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
 }
 
 /*Ende Test*/

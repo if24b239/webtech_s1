@@ -25,7 +25,7 @@ Bewertungsmatrix:
         <h1> Profil und Reservierungsverwaltung </h1>
         <br>
         <div class="halfScreen">
-            <div class="halfScreenChild" style="border: var(--accent-color); border-style: double;"">
+            <div class="col-8" style="border: var(--accent-color); border-style: double;"">
                 <h1>Reservierungsdetails</h1>
                 <br>
                 
@@ -38,9 +38,13 @@ Bewertungsmatrix:
                 //SQL Abfrage über alle Reservierungen mit der person ID der eingeloggten Person
                 db_conn_check();
 
-                $sql = "SELECT r.Abreisedatum, date_format(Anreisedatum, '%d.%m.%Y') AS 'Anreisedatum', 
-                               r.Fruehstueck, r.Parkplatz, r.Haustier, r.FK_Zimmer_ID, r.status, r.Sonderwuensche, 
+                $sql = "SELECT  date_format(Abreisedatum, '%d.%m.%Y') AS 'Abreisedatum',
+                                date_format(Anreisedatum, '%d.%m.%Y') AS 'Anreisedatum', 
+                                r.Fruehstueck, r.Parkplatz, r.Haustier, r.FK_Zimmer_ID, r.status, r.Sonderwuensche, 
                                (DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht) AS 'GesammtpreisOhneZulagen',
+                               (DATEDIFF(Abreisedatum, Anreisedatum)*r.Fruehstueck) AS 'ZuschlagFruechstueck',
+                               (DATEDIFF(Abreisedatum, Anreisedatum)*r.Haustier) AS 'ZuschlagTiere',
+                               (DATEDIFF(Abreisedatum, Anreisedatum)*r.Parkplatz) AS 'ZuschlagParkplatz',
                                 ((DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Fruehstueck)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Parkplatz)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Haustier)) AS 'GesammtpreisMitZulagen'        
                         FROM reservierung r JOIN zimmer z
                             ON r.FK_Zimmer_ID = z.Zimmer_ID
@@ -51,16 +55,27 @@ Bewertungsmatrix:
                 //Alle Einträge ausgeben
                 while ($row = $result->fetch_array()) {
                     echo'
+                        <hr>
                         <p style="font-weight: bold;"> Reservierung vom ' . $row['Anreisedatum'] . ' bis ' . $row['Abreisedatum'] . '</p>
-                        Raum: ' . $row['FK_Zimmer_ID'] . '
+                        Raumtyp: ';
+                        if($row['FK_Zimmer_ID'] == 1){
+                            echo'A';
+                        }
+                        if($row['FK_Zimmer_ID'] == 2){
+                            echo'B';
+                        }
+                    echo'
+                        <br> 
+                        Gesammtpreis ohne Zuschlägen: ' . $row['GesammtpreisOhneZulagen'] . ' €
+                    ';
+                    echo'
                         <br>
-                        Frühstück:
                     ';
                         if($row['Fruehstueck'] == 1){
                             echo'Ohne Frühstück';
                         }
-                        if($row['Fruehstueck'] == 2){
-                            echo'Mit Frühstück';
+                        if($row['Fruehstueck'] > 2){
+                            echo'Mit Frühstück / Zuschlag: '.$row['ZuschlagFruechstueck'].'€';
                         }
 
                     echo'
@@ -70,36 +85,34 @@ Bewertungsmatrix:
                         if($row['Haustier'] < 1){
                             echo'keine Tiere kommen mit';
                         }
-                        if($row['Haustier'] & 8){
-                            echo' Pferd';
-                        }
-                        if($row['Haustier'] & 4){
-                            echo' Hund';
-                        }
-                        if($row['Haustier'] & 16){
-                            echo' Chimäre';
+                        if($row['Haustier'] > 1){
+                            if($row['Haustier'] & 4){
+                                echo' Pferd / ';
+                            }
+                            if($row['Haustier'] & 2){
+                                echo' Hund / ';
+                            }
+                            if($row['Haustier'] & 8){
+                                echo' Chimäre / ';
+                            }
+                            echo'Gesammtzuschlag Haustiere: '.$row['ZuschlagTiere'].'€ ';
                         }
                     echo'
                         <br>
-                          Parkplatz:
                     ';
                         if($row['Parkplatz'] == 1){
                             echo'ohne Parkplatz';
                         }
                         if($row['Parkplatz'] == 2){
-                            echo'mit Parkplatz';
+                            echo'mit Parkplatz / Zuschlag: '.$row['ZuschlagParkplatz'].'€  ';
                         }
                     echo'   
                         <br>
                         Anmerkungen: ' . $row['Sonderwuensche'] . '        
                     ';
                     echo'
-                       <br> 
-                       Gesammtpreis ohne Zulagen: ' . $row['GesammtpreisOhneZulagen'] . ' €
-                    ';
-                    echo'
                         <br>
-                        Gesammtpreis mit Zulagen: ' . $row['GesammtpreisMitZulagen'] . ' €
+                        Gesammtpreis mit Zuschlägen: ' . $row['GesammtpreisMitZulagen'] . ' €
                     ';
                     echo'
                         <br>
@@ -122,7 +135,7 @@ Bewertungsmatrix:
 ////////////////////////////////////////////////////////////////
 ?>
             
-            <div class="halfScreenChild right" style="border: var(--accent-color); border-style: double;">
+            <div class="col-4" style="border: var(--accent-color); border-style: double;">
                 <h1>Profildaten</h1>
 
                     <div>
@@ -164,6 +177,7 @@ Bewertungsmatrix:
                         <br>
                         </div>   
                     </div>
+                    <hr>
                     <br>  
                     <div>
                         <h1>Profildaten ändern</h1>
