@@ -28,6 +28,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
     /*$_SESSION["pet"] = htmlspecialchars($pet);*/
+
+    //DEBUGGING
+    /*echo'Arrival: '.$arrival.'
+    <br>
+    Departure: '.$departure.'';
+    die();*/
+
+    //VARIABLEN damit die Einträge, bei Fehlermeldung trotzdem erhalten bleiben.
+    $_SESSION["res_room"] = $room;
+    $_SESSION["res_arrival"] = $arrival;
+    $_SESSION["res_departure"] = $departure;
+    $_SESSION["res_breakfast"] = $breakfast;
+    $_SESSION["res_parking"] = $parking;
+    $_SESSION["res_pet"] = $pet;
+    $_SESSION["res_requests"] = $special_requests;
     
     $_SESSION["error_reservation"] = 0;
     /*0=kein Error, 

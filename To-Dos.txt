@@ -3,6 +3,15 @@ NICHT ERLEDIGT - Ausgabe der Profildaten im Profil nicht über Session Variablen
 sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt angezeigt werden. 
 
 NICHT ERLEDIGT - Letzte Eingaben sollen in Formularen als value erhalten bleiben
+				erledigt-registration
+				erledigt-Login
+				-Zimmerreservierung
+
+NICHT ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschlossen wurde.
+
+NICHT ERLEDIGT - positive Rückmeldung wenn Registrierung erfolgreich abgeschlossen wurde.
+
+NICHT ERLEDIGT - Vergebene Zeiträume bei der Zimmerreservierung ausgeben
 
 
 
