@@ -5,6 +5,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     $_SESSION["admin"] = FALSE;
     $_SESSION["error_login"] = 0;
+    
     /*  0=kein Error, 
         1=Eine Eingabe ist leer, 
         2=Passwort und Benutzername wurden nicht im selben Datensatz in der DB gefunden.     
@@ -15,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password_input = htmlspecialchars($_POST["password_login"]);
         $hashed_password = password_hash($_POST["password_login"], PASSWORD_DEFAULT);
 
-    
+    //Variable damit der Username im Formular bleibt, falls Fehlermeldung
+    $_SESSION["log_user"] = $username_input;
     //Überprüfung ob Eingabe leer, wenn ja zurück schicken. ->das funktioniert
         if(empty($username_input)||empty($password_input)){
             $_SESSION["error_login"]+=1;

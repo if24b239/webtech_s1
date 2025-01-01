@@ -123,7 +123,7 @@ Bewertungsmatrix:
                     echo'
                         <br>
                     ';
-                        if($row['Parkplatz'] == 1){
+                        if($row['Parkplatz'] == 0){
                             echo'ohne Parkplatz';
                         }
                         if($row['Parkplatz'] == 2){

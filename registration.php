@@ -3,6 +3,11 @@
     session_start();
     if(!isset($_SESSION["error_registration"])){
         $_SESSION["error_registration"]= 0;
+        $_SESSION["reg_first_name"] = '';
+        $_SESSION["reg_last_name"] = '';
+        $_SESSION["reg_email"] = '';
+        $_SESSION["reg_user"] = '';
+        $_SESSION["reg_gender"] = '';
     }
 
 ?>
@@ -37,9 +42,9 @@
             <div class="col-4">
                 <label id="gender" for="gender">Anrede:</label><br>
                 <select for="gender" id="gender" name="gender">
-                    <option value="female">Frau</option>
-                    <option value="male">Herr</option>
-                    <option value="other">Vorname Nachname</option>
+                    <option <?php if($_SESSION["reg_gender"]== "female"){echo'selected="selected"';}?> value="female">Frau</option>
+                    <option <?php if($_SESSION["reg_gender"]== "male"){echo'selected="selected"';}?> value="male">Herr</option>
+                    <option <?php if($_SESSION["reg_gender"]== "other"){echo'selected="selected"';}?> value="other">Vorname Nachname</option>
                 </select>
                 <?php 
                     if($_SESSION["error_registration"] & 32) {
@@ -49,7 +54,7 @@
             </div>
             <div class="col-4">
                 <label id="first_name" for="first_name">Vorname:</label><br>
-                <input type="text" name="first_name" id="first_name" required >
+                <input type="text" name="first_name" id="first_name" value="<?php echo''.$_SESSION["reg_first_name"].'';?>" required >
                 <?php 
                     if($_SESSION["error_registration"] & 8){
                         echo '<p class="warning">Der Vorname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.</p>';
@@ -58,7 +63,7 @@
             </div>
             <div class="col-4">
                 <label id="last_name" for="last_name">Nachname:</label><br>
-                <input type="text" name="last_name" id="last_name" required>
+                <input type="text" name="last_name" id="last_name" value="<?php echo''.$_SESSION["reg_last_name"].'';?>" required>
                 <?php 
                     if($_SESSION["error_registration"] & 4){
                         echo '<p class="warning">Der Nachname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.</p>';
@@ -67,7 +72,7 @@
             </div>
             <div class="col-4">
                 <label id="email">E-Mail Adresse:</label><br>
-                <input type="email" name="email" id="email" required> 
+                <input type="email" name="email" id="email" value="<?php echo''.$_SESSION["reg_email"].'';?>" required> 
                 <?php 
                     if($_SESSION["error_registration"] & 16){
                         echo '<p class="warning">Die E-Mailadresse ist nicht valide!</p>';
@@ -76,7 +81,7 @@
             </div>
             <div class="col-4">
                 <label id="user_name_registration" for="user_name_registration">Username:</label><br>
-                <input type="text" name="user_name_registration" id="user_name_registration" required>
+                <input type="text" name="user_name_registration" id="user_name_registration" value="<?php echo''.$_SESSION["reg_user"].'';?>" required>
             </div>
             <div class="col-4">
                 <label id="password" for="password">Passwort:</label><br>

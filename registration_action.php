@@ -14,9 +14,9 @@ if (!isset($_SESSION["user_name"])) {
 
 //Kontrolle ob Input mit der Methode "Post" geschickt wurde 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    //nach der Kontrolle werden die Daten in Variablen gespeichert
-        //"htmlspecialchars"-Funktion wandelt Data in html-Enteties um und verhindert so, dass Code über die Formulare injiziert werden kann (Cross-site Scripting attacks)
+
+    //"htmlspecialchars"-Funktion wandelt Data in html-Enteties um und verhindert so, dass Code über die Formulare injiziert werden kann (Cross-site Scripting attacks)
+    //VARAIBLEN zur Verwendung in diesem File
     $first_name = htmlspecialchars($_POST["first_name"]);
     $last_name = htmlspecialchars($_POST["last_name"]);
     $email = htmlspecialchars($_POST["email"]);
@@ -28,6 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $site_we_send_to_in_case_of_wrong_input = 'registration.php';
 
+    //VARIABLEN damit die Einträge, bei Fehlermeldung trotzdem erhalten bleiben.
+    $_SESSION["reg_first_name"] = $first_name;
+    $_SESSION["reg_last_name"] = $last_name;
+    $_SESSION["reg_email"] = $email;
+    $_SESSION["reg_user"] = $user_name_registration;
+    $_SESSION["reg_gender"] = $gender;
+
+//////////////////////////////////////////
+/////SERVERSEITIGE VALIDIERUNG////////////
+//////////////////////////////////////////
     //globale Variable zum ausgeben der richtigen Error-message
     $_SESSION["error_registration"]=0; 
     /*0=kein Error, 

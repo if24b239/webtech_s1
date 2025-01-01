@@ -7,6 +7,7 @@
     }
     if (!isset($_SESSION["error_login"])) {
         $_SESSION["error_login"] = 0;
+        $_SESSION["log_user"] = '';
     }
 ?>
 
@@ -40,11 +41,11 @@
                         }
                     ?>
                     <label id="user_name_login" for="user_name_login">Username:</label><br>
-                    <input type="text" name="user_name_login" id="user_name_login"> <!--required fürs DEBUGGEN entfernt-->
+                    <input type="text" name="user_name_login" id="user_name_login" value="<?php echo''.$_SESSION["log_user"].'';?>" required> 
                 </div>
                 <div class="col-12">
                     <label id="password_login" for="password_login">Passwort:</label><br>
-                    <input type="password" name="password_login" id="password_login"> <!--required fürs DEBUGGEN entfernt-->
+                    <input type="password" name="password_login" id="password_login" required>
                 </div>
                 <?php /*Fehlermeldung Benutzername und Passwort nicht in einem Datensatz in DB*/
                     if($_SESSION["error_login"] & 2){
