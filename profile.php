@@ -81,7 +81,7 @@ Bewertungsmatrix:
                         <p style="font-weight: bold;"> Reservierung vom ' . $row['Anreisedatum'] . ' bis ' . $row['Abreisedatum'] . '</p>
                         Raum: ';
                         if($row['FK_Zimmer_ID'] == 1){
-                            echo'Sonnenraum';
+                            echo'Sonnenscheinraum';
                         }
                         if($row['FK_Zimmer_ID'] == 2){
                             echo'Mondscheinzimmer';

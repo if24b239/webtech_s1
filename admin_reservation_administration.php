@@ -1,5 +1,17 @@
 <?php
     session_start();
+    if(isset($_POST["status_filter"])){
+        $db_filter = "WHERE status = '".$_POST["status_filter"]."'";
+        if($_POST["status_filter"]=='clear'){
+            $db_filter='';
+        }
+    }
+    else{
+        
+        $db_filter='';
+        $_POST["status_filter"]='clear';
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -13,24 +25,23 @@
 
     <?php include 'php_inserts\navigation.php' ?>
     
-    <section> 
-    <!--Alle Reservierungen nach nähestem Anreisedatum ausgeben -->
-    <?php
-        if(isset($_POST["status_filter"])){
-            $db_filter = "WHERE status = '".$_POST["status_filter"]."'";
-            if($_POST["status_filter"]=='clear'){
-                $db_filter='';
-            }
-        }
-        else{
-            
-            $db_filter='';
-            $_POST["status_filter"]='clear';
-        }
-
-            
+    <section class="flex"> 
+        <div>
+        <form class="right" action="admin_reservation_administration.php" method="POST">
+            <select name="status_filter" id="status_filter">
+                
+                <option <?php if($_POST["status_filter"]== "clear"){echo'selected="selected"';}?>value="clear">Alle anzeigen</option>
+                <option <?php if($_POST["status_filter"]== "neu"){echo'selected="selected"';}?>value="neu">Status - neu</option>
+                <option <?php if($_POST["status_filter"]== "bestaetigt"){echo'selected="selected"';}?>value="bestaetigt">Status - bestätigt</option>
+                <option <?php if($_POST["status_filter"]== "storniert"){echo'selected="selected"';}?>value="storniert">Status - storniert</option>
+            </select>
+            <button typ="submit">sortiere</button>
+        </form>
+    <!--Alle Reservierungen ausgeben -->
+    <?php   
         db_conn_check();
-        $i = 0;
+        $i = 0; //Variable um jede Zweite Reservierung in einer anderen Farbe anzuzeigen.
+        //DATENBANKABFRAGE
         $sql = "SELECT  date_format(Abreisedatum, '%d.%m.%Y') AS 'Abreisedatum',
                         date_format(Anreisedatum, '%d.%m.%Y') AS 'Anreisedatum', 
                         r.Fruehstueck, r.Parkplatz, r.Haustier, r.FK_Zimmer_ID, r.status, r.Sonderwuensche, r.Reservierungs_ID, 
@@ -48,9 +59,10 @@
                 ORDER BY Anreisedatum asc;
                 ";
         $result = $db->query($sql);
-
+       
         while ($row = $result->fetch_array()) {
             
+            /**/ 
             $i++;
             if($i==1){
                 $bg_color = 'var(--background-color)';
@@ -74,7 +86,7 @@
                                 <td>
                                     im ';
                                         if($row['FK_Zimmer_ID'] == 1){
-                                            echo'Sonnenraum';
+                                            echo'Sonnenscheinraum';
                                         }
                                         if($row['FK_Zimmer_ID'] == 2){
                                             echo'Mondscheinzimmer';
@@ -191,16 +203,7 @@
         }
 
     ?>
-        <form class="" action="admin_reservation_administration.php" method="POST">
-            <select name="status_filter" id="status_filter">
-                
-                <option <?php if($_POST["status_filter"]== "clear"){echo'selected="selected"';}?>value="clear">Alle anzeigen</option>
-                <option <?php if($_POST["status_filter"]== "neu"){echo'selected="selected"';}?>value="neu">Status - neu</option>
-                <option <?php if($_POST["status_filter"]== "bestaetigt"){echo'selected="selected"';}?>value="bestaetigt">Status - bestätigt</option>
-                <option <?php if($_POST["status_filter"]== "storniert"){echo'selected="selected"';}?>value="storniert">Status - storniert</option>
-            </select>
-            <button typ="submit">sortiere</button>
-        </form>
+    </div>
     </section>
     <!--Status ändern über Reservierungs ID-->
 

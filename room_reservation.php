@@ -42,7 +42,7 @@
                 <div class="roomReservation_Rooms">
                     <div class="roomReservation_Rooms bordered">
                         <label id="room1" for="room1">
-                            <p>Sonnenraum</p>
+                            <p>Sonnenscheinraum</p>
                             <input type="radio" name="room" id="room1" value="1">
                             <img src="pictures/sleepingChamber1.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ A. Es enthält ein Doppelbett, einen Kleiderschrank und einen Schreibtisch.">
                             <p>Dieser Raum bietet Ihnen ein bequemes Doppelbett und einen großen Schreibtisch.</p>
@@ -51,7 +51,7 @@
                         <br>
                         <br>
                         <details class="profile_change">
-                            <summary>Vergebene Zeiträume Sonnenzimmer</summary>
+                            <summary>Vergebene Zeiträume Sonnenscheinzimmer</summary>
                             <p class="warning">Zeiträume ausgeben in denen der Raum reserviert ist</p>
                             
                         </details>

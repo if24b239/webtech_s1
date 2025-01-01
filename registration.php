@@ -49,7 +49,7 @@
             </div>
             <div class="col-4">
                 <label id="first_name" for="first_name">Vorname:</label><br>
-                <input type="text" name="first_name" id="first_name" required>
+                <input type="text" name="first_name" id="first_name" required >
                 <?php 
                     if($_SESSION["error_registration"] & 8){
                         echo '<p class="warning">Der Vorname darf nur Buchstaben, Leerzeichen und Bindestriche enthalten.</p>';
