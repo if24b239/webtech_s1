@@ -23,7 +23,9 @@
             }
         }
         else{
+            
             $db_filter='';
+            $_POST["status_filter"]='clear';
         }
 
             
@@ -154,7 +156,7 @@
                     <div style="border-style: dotted; border-color: var(--darker-background-color);">
                         Status der Reservierung:
 
-                        <form class="" action="reservation_change_action.php" method="POST" style="display:inline">
+                        <form class="" action="admin_reservation_change_action.php" method="POST" style="display:inline">
 
                             <input type="hidden" name="Reservierungs_ID" value="' . $row['Reservierungs_ID'] . '">
                             <select name="new_status" id="new_status">';

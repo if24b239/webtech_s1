@@ -18,6 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     8 = Status keine der 3 Optionen
     */
 
+    //DEBUGGING
+   /* echo'Reservierungs-ID: '.$reservation_ID.'
+        <br>
+        neuer Status: '.$new_status.' 
+    ';
+    die();*/
+
     /////////////////////////////////////////////////////
     ////////////////VALIDIERUNG//////////////////////////
     /////////////////////////////////////////////////////
@@ -27,9 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(!is_numeric($reservation_ID)){
         $_SESSION["error_reservation_change"] += 2;
     }
-    if($new_status!='neu'||$new_status!='storniert'||$new_status!='bestaetigt'){
+    //geht in jedem Fall in diese Unterscheidung
+    if(!($new_status=='neu'||$new_status=='storniert'||$new_status=='bestaetigt')){
         $_SESSION["error_reservation_change"] += 8;
     }
+
+
+    //DEBUGGING
+    /*echo''.$_SESSION["error_reservation_change"].'';
+    die();*/
 
     if($_SESSION["error_reservation_change"]>0){
         header("Location:admin_reservation_administration.php");
@@ -40,13 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ////////////////DATENBANKEINTRAG/////////////////////
     /////////////////////////////////////////////////////
 
+    
+   
+
     //Datenbankverbindungaufbauen
     include 'db_utils.php';
     db_conn_check();
      //SQL-Statement erstellen 
     $sql = "UPDATE reservierung
                 SET status = ? 
-                WHERE Rerservierungs_ID = ?;
+                WHERE Reservierungs_ID = ?;
             ";
      //SQL-Statement „vorbereiten” 
     $stmt = $db->prepare($sql); 
