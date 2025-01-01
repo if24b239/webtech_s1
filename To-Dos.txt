@@ -5,7 +5,8 @@ sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt an
 NICHT ERLEDIGT - Letzte Eingaben sollen in Formularen als value erhalten bleiben
 				erledigt-registration
 				erledigt-Login
-				-Zimmerreservierung
+				erledigt- Zimmerreservierung
+				- Profiländerung
 
 NICHT ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschlossen wurde.
 
