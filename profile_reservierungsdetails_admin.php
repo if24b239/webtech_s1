@@ -1,0 +1,120 @@
+<?php
+
+function anrede($gender, $fname, $sname) {
+    switch ($gender) {
+        case 'male':
+            echo "Herr " . $sname;
+            break;
+        case 'female':
+            echo "Frau " . $sname;
+            break;
+        case 'other':
+            echo $fname . " " . $sname;
+    }
+}
+
+
+//SQL Abfrage über alle Reservierungen mit der person ID der eingeloggten Person
+db_conn_check();
+
+$sql = "SELECT  date_format(Abreisedatum, '%d.%m.%Y') AS 'Abreisedatum',
+                date_format(Anreisedatum, '%d.%m.%Y') AS 'Anreisedatum',
+                p.vorname AS 'GastVorname',
+                p.nachname AS 'GastNachname',
+                p.Gender AS 'Gender',
+                r.Fruehstueck, r.Parkplatz, r.Haustier, r.FK_Zimmer_ID, r.status, r.Sonderwuensche, 
+               (DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht) AS 'GesammtpreisOhneZulagen',
+               (DATEDIFF(Abreisedatum, Anreisedatum)*r.Fruehstueck) AS 'ZuschlagFruechstueck',
+               (DATEDIFF(Abreisedatum, Anreisedatum)*r.Haustier) AS 'ZuschlagTiere',
+               (DATEDIFF(Abreisedatum, Anreisedatum)*r.Parkplatz) AS 'ZuschlagParkplatz',
+                ((DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Fruehstueck)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Parkplatz)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Haustier)) AS 'GesammtpreisMitZulagen'        
+        FROM reservierung r 
+            JOIN zimmer z ON r.FK_Zimmer_ID = z.Zimmer_ID
+            JOIN person p ON r.FK_KundInnen_ID = p.Person_ID";
+$result = $db->query($sql);
+
+//Alle Einträge ausgeben
+while ($in_row = $result->fetch_array()) {
+
+    $row = array_map('htmlentities', $in_row);
+
+    anrede($row['Gender'], $row['GastVorname'], $row['GastVorname']);
+    echo'
+        <hr>
+        <p style="font-weight: bold;"> Reservierung vom ' . $row['Anreisedatum'] . ' bis ' . $row['Abreisedatum'] . '</p>
+        Raum: ';
+        if($row['FK_Zimmer_ID'] == 1){
+            echo'Sonnenscheinraum';
+        }
+        if($row['FK_Zimmer_ID'] == 2){
+            echo'Mondscheinzimmer';
+        }
+    echo'
+        <br> 
+        Gesammtpreis ohne Zuschlägen: ' . $row['GesammtpreisOhneZulagen'] . ' €
+    ';
+    echo'
+        <br>
+        <div style="font-size: 19px">
+    ';
+        if($row['Fruehstueck'] == 0){
+            echo'Ohne Frühstück';
+        }
+        if($row['Fruehstueck'] > 2){
+            echo'Mit Frühstück / Zuschlag: '.$row['ZuschlagFruechstueck'].'€';
+        }
+
+    echo'
+        <br>
+        Haustiere:
+    ';
+        if($row['Haustier'] < 1){
+            echo'keine Tiere kommen mit';
+        }
+        if($row['Haustier'] > 1){
+            if($row['Haustier'] & 4){
+                echo' Pferd / ';
+            }
+            if($row['Haustier'] & 2){
+                echo' Hund / ';
+            }
+            if($row['Haustier'] & 8){
+                echo htmlentities(' Chimäre / ');
+            }
+            echo'Gesammtzuschlag Haustiere: '.$row['ZuschlagTiere'].'€ ';
+        }
+    echo'
+        <br>
+    ';
+        if($row['Parkplatz'] == 0){
+            echo'ohne Parkplatz';
+        }
+        if($row['Parkplatz'] == 2){
+            echo'mit Parkplatz / Zuschlag: '.$row['ZuschlagParkplatz'].'€  ';
+        }
+    echo'   
+        <br>
+        Anmerkungen: ' . $row['Sonderwuensche'] . '    
+    ';
+    echo'
+        </div>
+        Gesammtpreis mit Zuschlägen: ' . $row['GesammtpreisMitZulagen'] . ' €
+    ';
+    echo'
+        <br>
+        <p style="font-size: 18px"> Status: ' . $row['status'] . '<p>
+        <form action="">
+            <label for="status"></label>
+            <input type="" id="status" name="status">
+        </form>
+    ';
+
+    echo'
+
+        <br>
+        <br>
+
+    ';
+}
+
+?>
