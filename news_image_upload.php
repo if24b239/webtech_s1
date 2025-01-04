@@ -72,6 +72,7 @@
         $headline = htmlspecialchars($_POST["headline"]);
         $content = htmlspecialchars($_POST["content"]);
 
+        
          
         if ($_SESSION["error_news"] == 0) { 
         ///////BILDER Im Pictures Ordner SPEICHERN 
@@ -90,7 +91,7 @@
             /*Parameter binden*/
             $stmt->bind_param("ssssi", $headline, $content, $alt_image, $image, $admin);
             /*Variablen mit Werten versehen*/
-            $admin = 5; /*Im Moment habe ich Ad Min hier noch hardgecodet, weil ich nicht ganz sicher bin, wie ich die ID als Integer übergeben kann*/         
+            $admin = $_SESSION["ID"]; 
             /*Statement ausführen*/ 
             $stmt->execute();
         ////////////////////////////////////////////////////////////////////////////////////
@@ -98,3 +99,5 @@
         header("Location:news.php");
         exit();
     }
+
+  
