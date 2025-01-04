@@ -47,14 +47,14 @@
             <!--Raumwahl-->
             <div class="row">
                 <div class="roomReservation_Rooms">
-                    <div class="roomReservation_Rooms bordered">
-                        <label id="room1" for="room1">
+                    <input type="radio" name="room" id="room1" value="1" class="radio-container" <?php if($_SESSION["res_room"]==1){echo'checked';}?>>
+                    <label id="room1" for="room1">
+                        <div class="roomReservation_Rooms bordered">
                             <p>Sonnenscheinraum</p>
-                            <input type="radio" name="room" id="room1" value="1" <?php if($_SESSION["res_room"]==1){echo'checked';}?>>
                             <img src="pictures/sleepingChamber1.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ A. Es enthält ein Doppelbett, einen Kleiderschrank und einen Schreibtisch.">
                             <p>Dieser Raum bietet Ihnen ein bequemes Doppelbett und einen großen Schreibtisch.</p>
-                        </label>
-                    </div>
+                        </div>
+                    </label>
                         <br>
                         <br>
                         <details class="profile_change">
@@ -64,14 +64,14 @@
                         </details>
                     </div>  
                 <div class="roomReservation_Rooms">
-                    <div class="roomReservation_Rooms bordered">
-                        <label id="room2" for="room2">
+                    <input type="radio" name="room" id="room2" value="2" class="radio-container" <?php if($_SESSION["res_room"]==2){echo'checked';}?>>
+                    <label id="room2" for="room2">
+                        <div class="roomReservation_Rooms bordered">
                             <p>Mondscheinzimmer</p>
-                            <input type="radio" name="room" id="room2" value="2" <?php if($_SESSION["res_room"]==2){echo'checked';}?>>
                             <img src="pictures/sleepingChamber2.jpg" alt="Auswahl und Bild unseres Zimmers vom Typ B. Es enthält ein Doppelbett, einen Kleiderschrank und ein Bücherregal zur Unterhaltung.">
                             <p>Dieser Raum bietet Ihnen zusäzlich zum Doppelbett auch ein gut ausgestattetes Bücherregal.</p>
-                        </label>
-                    </div>
+                        </div>
+                    </label>
                         <br>
                         <br>
                         <details class="profile_change">
