@@ -103,10 +103,6 @@ while ($in_row = $result->fetch_array()) {
     echo'
         <br>
         <p style="font-size: 18px"> Status: ' . $row['status'] . '<p>
-        <form action="">
-            <label for="status"></label>
-            <input type="" id="status" name="status">
-        </form>
     ';
 
     echo'

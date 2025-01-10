@@ -624,7 +624,7 @@ p.main{
 }
 
 .radio-container:checked + label div{
-    border-color:aqua;
+    border-color:var(--accent-color);
 }
 
 /*Ende Test*/
