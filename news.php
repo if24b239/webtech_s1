@@ -101,32 +101,7 @@
 <!--AUSGABE DER NEWSBEITRÄGE -->
     <!-- TO-DO: das ganze in eine Funktion in db_utils.php auslagern -->
     <section class="reversed_orientation">
-        <?php
-        db_conn_check(); 
-        $sql2 = "SELECT n.Ueberschrift, n.Inhalt, date_format(Datum, '%d.%m.%Y') AS 'Datum_formatiert', n.img_alt, n.img_path, n.FK_Admin_ID, p.vorname, p.nachname, p.Gender
-                FROM newsbeitrag n JOIN person p
-                    ON n.FK_Admin_ID = p.Person_ID;"
-        ;
-        $result2 = $db->query($sql2);
-        while ($row = $result2->fetch_array()) {
-            echo'
-                <div class="inbetween"> </div>
-                <section class="section-mainLeft bordered">
-                    <img class="img-main" src="' . $row['img_path'] . '" alt="' . $row['img_alt'] . '">
-                    <section class="text-inside-section"> 
-                        <h3> ' . $row['Ueberschrift'] . ' </h3>
-                        <br>
-                        <p> ' . $row['Inhalt'] . ' </p>
-                        <br>
-                        <br>
-                        <p style="font-size: 18px; align-self: right"> <!--geht nicht-->
-                            erstellt am ' . $row['Datum_formatiert'] . ' von ' . $row['vorname'] . ' ' . $row['nachname'] . '
-                        </p>
-                    </section> 
-                </section>  
-            ';
-        }
-        ?>              
+        <?php db_news_get();?>   
     </section>    
     
     <?php include 'php_inserts\footer.php' ?>

@@ -12,7 +12,7 @@ NICHT ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschloss
 
 NICHT ERLEDIGT - positive Rückmeldung wenn Registrierung erfolgreich abgeschlossen wurde.
 
-NICHT ERLEDIGT - Vergebene Zeiträume bei der Zimmerreservierung ausgeben
+ERLEDIGT - Vergebene Zeiträume bei der Zimmerreservierung ausgeben
 LENA/ NICHT ERLEDIGT - mit Screenreader lesen
 
 LENA / NICHT ERLEDIGT - Alle Eingaben aller Formulare (Registrierung, Login, etc ...) werden clientseitig und serverseitig überprüft und validiert.
