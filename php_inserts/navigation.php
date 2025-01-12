@@ -105,7 +105,7 @@ echo '
         </p>
         
         
-        <li><a href="main.php">Startseite</a></li>
+        <li><a href="index.php">Startseite</a></li>
         <li><a href="news.php">News</a></li>
 ';
 

@@ -195,6 +195,10 @@ nav p{
     padding-right: 10px;
 }
 
+/*////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////// ANPASSUNGEN FÜR KLEINE BILDSCHIRME//////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 @media only screen and (max-width: 768px){
     .toggle_button_nav{
         display: flex;
@@ -224,15 +228,27 @@ nav p{
         display: block;
     }
 
+    .section-mainRight{
+        width: 100%;
+        display: block;
+    }
+    .section-mainLeft{
+        width:100%;
+        display: block;
+    }
     .text-inside-section p {
         font-size: 15px;
+    
+    }
+    .text-inside-section{
+        display: block;
     }
     .img-main{
         width: 100%;
         max-width: none;
         max-height: none;
     }
-    
+
 }
 
 /*Footer*/
@@ -317,12 +333,14 @@ form {
     border: none;
 }
 
-/*.section-mainRight{
+.section-mainRight{
     background-color: rgba(161, 138, 74, 0.69); 
+    width: 58.33%;
 }
 .section-mainLeft{
     background-color: rgba(160, 148, 115, 0.69);
-} */
+    width: 58.33%
+} 
 
 
 .inbetween{
@@ -373,9 +391,11 @@ figure.impressum {
     align-self: ;
     order: ;*/
 }
- /*STARTSEITE*/
+/*//////////////////////////////////////////////////////////////*/
+/*///////////////////////STARTSEITE/////////////////////////////*/
+/*//////////////////////////////////////////////////////////////*/
 
-.section.main{
+.main{
     /*Child Propertys*/
     width: 100%;
     /*flex-grow: ;
@@ -388,7 +408,7 @@ figure.impressum {
     /*Parent-Propertys*/
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     /*align-content: ;*/
     /*gap: ;*/
@@ -417,17 +437,19 @@ figure.impressum {
     /*gap: ;*/
 }
 .container-faq{
-    padding:35px;  
-    min-height: 275px;
+  padding:35px;  
+  min-height: 275px;
 }
 
 details {
     max-width: 900px;
 }
+
+
 .section-mainLeft {
         /*Flex-Box Child Propertys*/
         width: 100%;
-        max-height: 600px;
+        max-height: 480px;
         /*flex-grow: ;
         flex-shrink: ;
         flex-basis: ;
@@ -438,7 +460,7 @@ details {
         display: flex;
         justify-content: left;
         align-items: center;
-        flex-wrap:nowrap;
+        flex-wrap:wrap;
         /*align-content: ;*/
         /*gap: ;*/
 
@@ -448,7 +470,7 @@ details {
 .section-mainRight{
         /*Flex-Box Child Propertys*/
         width: 100%;
-        max-height: 600px;
+        max-height: 480px;
         /*flex-grow: ;
         flex-shrink: ;
         flex-basis: ;
@@ -461,7 +483,7 @@ details {
         flex-direction: row-reverse;
         justify-content: right;
         align-items: center;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         /*align-content: ;*/
         /*gap: ;*/
 
@@ -470,41 +492,15 @@ details {
 }
 
 .img-main{
-    /*Flex-Box Child Propertys*/
-    width: 45%;
-    flex-grow: 1;
-    flex-shrink: 2;
-    flex-basis: 2;
-    /*flex: ;
-    align-self: ;
-    order: ;*/
-
-    /*Allgemeine CSS Propertys*/
+    width:41%;
     max-height: 480px;
-
+    display:inline-flexbox
 }
 
 .text-inside-section{
-    /*Flex-Box Child Propertys*/
-    width: 55%;
-    flex-grow: 2;
-    /*flex-shrink: ;*/
-    flex-basis: 1;
-    /*flex: ;
-    align-self: ;
-    order: ;*/
-    margin: 15px;
-        
-    /*Flex-Box Parent-Propertys*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    /*align-content: ;*/
-    /*gap: ;*/
-    
-    /*Allgemeine CSS Propertys*/
-    
+    width: 58%;
+    display:inline-flexbox;
+
 }
 p.main{
     display: inline;
@@ -518,6 +514,8 @@ p.main{
     justify-self: center;
     /*order: ;*/
 }
+
+
 /*RoomReservation*/
 .main-reservation{
     display:flex;
@@ -595,7 +593,6 @@ p.main{
     background-color:var(--accent-color);
 }
 
-/*RadioButton auf gesammtes elternelement vergrößern*/
 
 .roomReservation_Rooms{
     display:inline-block;
@@ -606,25 +603,63 @@ p.main{
     display: inline;
 }
 
-
 .warning{
     color: rgb(202, 41, 41);
     font-size: 32;
 
 }
 
-/*Start test*/
-.stopBeeingSoDamnWide{
-    width:100%;
+/*RadioButton auf gesammtes elternelement vergrößern*/
+
+.radio-container {
+    position: relative;
+    width: 300px; /* Beispielgröße */
+    height: 100px; /* Beispielgröße */
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Radiobutton wird unsichtbar gemacht, aber bleibt funktional */
-.radio-container {
-    display: none;
+.radio-container input[type="radio"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
 
-.radio-container:checked + label div{
-    border-color:var(--accent-color);
+/* Der Label wird als Ersatz für den Radiobutton verwendet */
+.radio-container label {
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
 }
+
+
+/*Start test*/
+
+.img-main2{
+ max-height: 480px;
+}
+.text-inside-section2{
+    justify-content: center;
+    align-items: center;
+
+}
+
+@media only screen and (max-width: 768px){
+    .img-main2{
+        display:block !important;
+
+    }
+    .text-inside-section2{
+        display: block !important;
+    
+    }
+
+}
+
 
 /*Ende Test*/

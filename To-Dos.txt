@@ -1,16 +1,16 @@
 
 LENA/ NICHT ERLEDIGT - mit Screenreader lesen
 
-LENA / NICHT ERLEDIGT - Alle Eingaben aller Formulare (Registrierung, Login, etc ...) werden clientseitig und serverseitig überprüft und validiert.
+LENA ERLEDIGT - Alle Eingaben aller Formulare (Registrierung, Login, etc ...) werden clientseitig und serverseitig überprüft und validiert.
+	- user_verwaltung Admin fehlt noch - Marold
 
 
+
+ERLEDIGT -Lena- Main in index umbennenen und bei allen Links dorthin auch
 ERLEDIGT- LENA- Letzte Eingaben sollen in Formularen als value erhalten bleiben
 				erledigt-registration
 				erledigt-Login
 				erledigt- Zimmerreservierung
-				
-
-
 
 ERLEDIGT -  LENA - Ausgabe der Profildaten im Profil nicht über Session Variablen, 
 sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt angezeigt werden. 
