@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ";
     $result = $db->query($sql);
 
-    //Erhöhen des Errors, wenn die SQL Abfrage einen Datensatz enthält. 
+    //Erhöhen des Errors, wenn die SQL Abfrage keinen Datensatz enthält. 
     if($result->num_rows > 0 ) {
         $_SESSION["error_reservation"] += 8;
     }
