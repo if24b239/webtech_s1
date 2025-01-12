@@ -32,6 +32,7 @@ function db_conn_check() {
     db_connect();
 }
 
+
 ////////// Funktion prüft ob eingegebener username und passwort in der DB in einem Datensatz gespeichert sind, wenn ja: returned true////////////
 function db_login_check($username, $password) {
     global $db;
@@ -95,6 +96,30 @@ function db_news_get() {
 function db_news_add() {
     global $db;
     db_conn_check();
+}
+
+function db_reserved_timeduration($room){
+    global $db;
+    db_conn_check();
+
+//////////////Versuch mit DB/////////////
+ // SQL-Abfrage, um die Daten aus der 'reservation'-Tabelle zu holen
+    $sql = "SELECT date_format(Abreisedatum, '%d.%m.%Y') AS 'Abreisedatum', date_format(Anreisedatum, '%d.%m.%Y') AS 'Anreisedatum'  
+            FROM reservierung 
+            WHERE FK_Zimmer_ID = $room";
+
+    $result = $db->query($sql);
+
+    echo'<br>';
+
+    while ($row = $result->fetch_array()) {
+        echo'
+            <p> '.$row['Anreisedatum'] .' bis '.$row['Abreisedatum'] .' </p>
+        ';
+    }
+
+////////////////////////////////////////
+
 }
 
 ?>

@@ -59,8 +59,9 @@
                         <br>
                         <details class="profile_change">
                             <summary>Vergebene Zeiträume Sonnenscheinzimmer</summary>
-                            <p class="warning">Zeiträume ausgeben in denen der Raum reserviert ist</p>
-                            
+                            <?php
+                                db_reserved_timeduration(1);
+                            ?> 
                         </details>
                     </div>  
                 <div class="roomReservation_Rooms">
@@ -76,8 +77,9 @@
                         <br>
                         <details class="profile_change">
                             <summary>Vergebene Zeiträume Mondscheinzimmer</summary>
-                            <p class="warning">Zeiträume ausgeben in denen der Raum reserviert ist</p>
-                            
+                            <?php
+                                db_reserved_timeduration(2);
+                            ?> 
                         </details>
                 </div>
             </div>
