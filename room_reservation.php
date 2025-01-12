@@ -136,11 +136,11 @@
             <div class="row">
                 <div class="roomReservation_Rooms">
                     <p>Folgende Haustiere kommen mit: </p>
-                    <input type="checkbox" id="pet1" name="pet1" value="1" <?php if($_SESSION["res_pet"]&4){echo'checked';}?>>
+                    <input type="checkbox" id="pet1" name="pet1" value="1" class="pet-checkbox"<?php if($_SESSION["res_pet"]&4){echo'checked';}?>>
                     <label id="pet1" for="pet1">Pferd (+4€/Nacht)</label><br>
-                    <input type="checkbox" id="pet2" name="pet2" value="2" <?php if($_SESSION["res_pet"]&2){echo'checked';}?>>
+                    <input type="checkbox" id="pet2" name="pet2" value="2" class="pet-checkbox"<?php if($_SESSION["res_pet"]&2){echo'checked';}?>>
                     <label id="pet2" for="pet2">Hund (+2€/Nacht)</label><br>
-                    <input type="checkbox" id="pet3" name="pet3" value="4" <?php if($_SESSION["res_pet"]&8){echo'checked';}?>>
+                    <input type="checkbox" id="pet3" name="pet3" value="4" class="pet-checkbox"<?php if($_SESSION["res_pet"]&8){echo'checked';}?>>
                     <label id="pet3" for="pet3">Chimäre (+8€/Nacht)</label><br>
                 </div>
                 

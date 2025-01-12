@@ -530,15 +530,44 @@ p.main{
 }
 
 /*RadioButton auf gesammtes elternelement vergrößern*/
-
 .radio-container {
     position: relative;
     width: 300px; /* Beispielgröße */
     height: 100px; /* Beispielgröße */
     background-color: #f0f0f0;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+}
+
+.roomReservation_Rooms label {
+    display: block; /* Das Label wird als Blockelement angezeigt */
+    cursor: pointer; /* Mauszeiger zeigt an, dass es klickbar ist */
+    width: 100%; /* Label nimmt die gesamte Breite des Containers ein */
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Sanfter Übergang bei Hover */
+}
+
+.roomReservation_Rooms label:hover {
+    border-style: double;
+    border-width: 5px;
+    border-color: var(--accent-color);
+}
+
+.radio-container:checked + label {
+    border-style: double;
+    border-width: 5px;
+    border-color: var(--accent-color);
+}
+
+.pet-checkbox{
+    opacity: 0;
+}
+.pet-checkbox:checked + label {
+    border-style: double;
+    border-width: 5px;
+    border-color: var(--accent-color);
 }
 
 /* Radiobutton wird unsichtbar gemacht, aber bleibt funktional */
@@ -557,6 +586,12 @@ p.main{
     cursor: pointer;
 }
 
+.roomReservation_Rooms img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 10px 0;
+}
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*////////////////INDEX//////////////////////////////////////////////////////////////////////////////////////////*/
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
