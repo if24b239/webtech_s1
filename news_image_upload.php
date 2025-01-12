@@ -4,16 +4,16 @@
     /*TO-DO:
         ERLEDIGT Bild-Endungen prüfen + passende Rückmeldung 
         
-        - Hochgeladenes Bild auf fixe Größe croppen
+        ERLEDIGT Hochgeladenes Bild auf fixe Größe croppen
 
-        - Beim hochladen Admin nicht hardcoden, sondern Admin-Id der Admin, die angemeldet ist, hochladen
+        ERLEDIGT Beim hochladen Admin nicht hardcoden, sondern Person-Id der Admin, die angemeldet ist, hochladen
         
         ERLEDIGT Bild soll auch das aktuelle Datum (sysdate) speichern - ohne Uhrzeit
 
         Bewertungsmatrix:
         ERLEDIGT a) Beiträge werden öffentlich in eigenem Bereich angezeigt, Bilder sind gut sichtbar, neuester Beitrag ganz oben 
-        b) Für den Upload sind nur Bilddateien erlaubt, Bilder landen in "uploads/news" (target_dir ändern)
-            b) i) Bilder werden serverseitig verkleinert und als Thumbnails konstanter Größe dargestellt
+        b) Für den Upload sind nur Bilddateien erlaubt, Bilder landen in "uploads/news" (heißt bei uns pictures/news
+            ERLEDIGTb) i) Bilder werden serverseitig verkleinert und als Thumbnails konstanter Größe dargestellt
         ERLEDIGT c) Übersichtliche Darstellung (Beiträge klar voneinander getrennt)
         ERLEDIGT d) Datum des Beitrags soll angezeigt werden
     
@@ -45,16 +45,26 @@
             $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
             if ($check == false) {
                 $_SESSION["error_news"] += 2;   
-            } else {
+            } 
+            else {
                 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
                 
                 
 
                 //überprüfung ob Format von Bild in ordnung
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                if($imageFileType != "jpg") {
-                    $_SESSION["error_news"] += 8; 
+                $allowed_img_types = array("jpg", "gif", "png", "webp"); //ich lege ein Array mit den erlauben Endungen an
+                $temp = 0;
+                foreach ($allowed_img_types as &$x) { //Das Array wird durchlaufen und wenn die Endung des hochgeladenen Bildes 
+                        if($x == $imageFileType){//dem entspricht wird die temp-Variable = 0 gesetzt und das durchlaufen unterbrochen
+                            $temp = 0;
+                            break;
+                        }
+                        else{ //nicht dem entspricht wird eine temp Variable = 8 gesetzt. 
+                            $temp = 8;
+                        }
                 }
+                        $_SESSION["error_news"] += $temp;      //am ende wird die $_SESSION["error_news] += der temp-Variable gesetzt.
                 
             }
         }

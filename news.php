@@ -60,7 +60,7 @@
                     }
                     if($_SESSION["error_news"]&8){
                         echo'
-                            <p class="warning">Momentan sind nur jpg Bilder erlaubt</p>
+                            <p class="warning">Momentan sind nur jpg, gif, png und webp Bilder erlaubt</p>
                             <br>
                         ';
                     }

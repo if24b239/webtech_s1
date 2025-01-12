@@ -50,8 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     2=room falsches format or existiert nicht, 
     4=arrival/departure wrong format,
     8=room not available
-    16=pet currently not allowed
-    32=no parking free
+    16=
+    32=
     64=departure <= arrival*/
 
     //1=Eine Eingabe ist leer
@@ -138,6 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //Statement ausführen
         $stmt2->execute();
 
+        $_SESSION["reservation_ok"] = 1;
         header("Location:profile.php");
         exit();
     }

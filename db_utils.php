@@ -97,7 +97,7 @@ function db_news_get(){
 
     global $db;
     db_conn_check(); 
-    $sql2 = "SELECT n.Ueberschrift, n.Inhalt, date_format(Datum, '%d.%m.%Y') AS 'Datum_formatiert', n.img_alt, n.img_path, n.FK_Admin_ID, p.vorname, p.nachname, p.Gender
+    $sql2 = "SELECT n.Ueberschrift, n.Inhalt, date_format(Datum, '%d.%m.%Y') AS 'Datum_formatiert', n.img_alt, n.img_path, n.FK_Admin_ID, p.vorname, p.nachname, p.Gender, n.Beitrags_ID
             FROM newsbeitrag n JOIN person p
                 ON n.FK_Admin_ID = p.Person_ID;"
     ;
@@ -117,6 +117,16 @@ function db_news_get(){
                         erstellt am ' . $row['Datum_formatiert'] . ' von ' . $row['vorname'] . ' ' . $row['nachname'] . '
                     </p>
                 </section> 
+        ';    
+            if(isset($_SESSION["admin"])&&($_SESSION["admin"]!=NULL)){ 
+                echo'
+                    <form action="news_delete.php" method="POST">
+                        <input type="hidden" name="beitrags_ID" value="'.$row['Beitrags_ID'].'">
+                        <button type="submit">Beitrag löschen</button>
+                   </form>
+                ';
+            }
+        echo'
             </section>  
         
         ';

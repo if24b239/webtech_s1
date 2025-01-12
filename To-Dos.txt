@@ -8,7 +8,7 @@ NICHT ERLEDIGT - Letzte Eingaben sollen in Formularen als value erhalten bleiben
 				erledigt- Zimmerreservierung
 				- Profiländerung
 
-NICHT ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschlossen wurde.
+ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschlossen wurde.
 
 
 
@@ -18,7 +18,7 @@ LENA/ NICHT ERLEDIGT - mit Screenreader lesen
 LENA / NICHT ERLEDIGT - Alle Eingaben aller Formulare (Registrierung, Login, etc ...) werden clientseitig und serverseitig überprüft und validiert.
 
 
-LENA - News-Beiträge (inkl. Bildupload) erstellen und LÖSCHEN
+ERLEDIGT - LENA - News-Beiträge (inkl. Bildupload) erstellen und LÖSCHEN
 
 
 

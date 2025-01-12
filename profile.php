@@ -45,6 +45,19 @@ Bewertungsmatrix:
                     ';
                 }
             }
+            if(isset($_SESSION["reservation_ok"])){
+                if($_SESSION["reservation_ok"] == 1){
+                    echo'
+                        <p>Reservierung erfolgreich angelegt!</p>
+                        <p>Eine unserer MitarbeiterInnen wird die Reservierung in kürze bestätigen.</p>
+                        <p>der Status der Reservierung wird dann von "neu" auf "bestätigt" geändert</p>
+                        <form action="profile_change_action.php" method="POST">
+                            <input type="hidden" name="form" value="reservation_ok">
+                            <button type="submit">Ok!</button>
+                        </form>
+                    ';                   
+                }
+            }
         ?>
         <div class="halfScreen">
             <div class="col-8" style="border: var(--accent-color); border-style: double;"">
@@ -78,6 +91,7 @@ Bewertungsmatrix:
                 <h2>Profildaten</h2>
 
                     <?php db_userinformation_profile(); /*Funktion gibt die Profildaten der eingeloggten Userin aus*/?>
+                    
                     <hr>
                     <br>  
                     <div>
