@@ -26,7 +26,7 @@
     <?php
 
         
-        if(isset($_SESSION["admin"])&&($_SESSION["admin"]!=NULL)){ //eventuell sollte die Bedingung eine Abfrage an die Datenbank sein, ob die Admin-ID != NULL? sonst kann man auf den Bereich ja einfach durch änderung des Codes in den Developertool zugreifen, oder?
+        if(isset($_SESSION["admin"])&&($_SESSION["admin"]!=NULL)){ 
             echo'
                 <section class="p-wholeContainer">
 
@@ -67,12 +67,12 @@
                     echo'
                         <div class="col-6">
                             <label id="headline" for="headline">Überschrift:</label><br>
-                            <input type="text" name="headline" id="headline" required style="width:95%; height:25px;">
+                            <input type="text" name="headline" id="headline" required style="width:95%; height:25px;" required>
                             <br>
                             <br>
 
                             <label id="content" for="content">Beitragsinhalt:</label><br>
-                            <textarea name="content" id="content" style="min-width:95%; max-width:95%; min-height:150px;" ></textarea>
+                            <textarea name="content" id="content" style="min-width:95%; max-width:95%; min-height:150px" required ></textarea>
                         </div>
 
                         <div class="col-6">
@@ -81,7 +81,7 @@
                             <br>
                             <br>
                             <label id="alt_image" for="alt_image">Alternativtext für das Bild:</label><br>
-                            <input type="text" name="alt_image" id="alt_image" style="width:95%; height: 30px;" >
+                            <input type="text" name="alt_image" id="alt_image" style="width:95%; height: 30px;" required >
                             
                         </div>
 

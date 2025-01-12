@@ -8,7 +8,7 @@ session_write_close();
 
 $_SESSION["logged_in"] = 0;
 
-header("Location:main.php");
+header("Location:index.php");
 exit();
 
 ?>

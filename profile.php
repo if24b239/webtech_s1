@@ -85,16 +85,19 @@ Bewertungsmatrix:
 ////////////////////////////////////////////////////////////////
 ///////////////////AUSGABE DER PROFILDATEN//////////////////////
 ////////////////////////////////////////////////////////////////
-?>
-            
+?>        
             <div class="col-4" style="border: var(--accent-color); border-style: double;">
                 <h2>Profildaten</h2>
 
-                    <?php db_userinformation_profile(); /*Funktion gibt die Profildaten der eingeloggten Userin aus*/?>
-                    
+                    <?php db_userinformation_profile(); /*Funktion gibt die Profildaten der eingeloggten Userin aus*/?>                 
                     <hr>
                     <br>  
                     <div>
+<?php
+////////////////////////////////////////////////////////////////
+/////////////////////PROFILDATEN ÄNDERN ////////////////////////
+////////////////////////////////////////////////////////////////
+?>
                         <h2>Profildaten ändern</h2>
                         <details class="profile_change">
                             <summary>Formular öffnen</summary>

@@ -1,25 +1,22 @@
 
-ERLEDIGT - Ausgabe der Profildaten im Profil nicht über Session Variablen, 
-sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt angezeigt werden. 
-
-NICHT ERLEDIGT - Letzte Eingaben sollen in Formularen als value erhalten bleiben
-				erledigt-registration
-				erledigt-Login
-				erledigt- Zimmerreservierung
-				- Profiländerung
-
-ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschlossen wurde.
-
-
-
-
 LENA/ NICHT ERLEDIGT - mit Screenreader lesen
 
 LENA / NICHT ERLEDIGT - Alle Eingaben aller Formulare (Registrierung, Login, etc ...) werden clientseitig und serverseitig überprüft und validiert.
 
 
-ERLEDIGT - LENA - News-Beiträge (inkl. Bildupload) erstellen und LÖSCHEN
+ERLEDIGT- LENA- Letzte Eingaben sollen in Formularen als value erhalten bleiben
+				erledigt-registration
+				erledigt-Login
+				erledigt- Zimmerreservierung
+				
 
+
+
+ERLEDIGT -  LENA - Ausgabe der Profildaten im Profil nicht über Session Variablen, 
+sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt angezeigt werden. 
+
+ERLEDIGT - LENA - News-Beiträge (inkl. Bildupload) erstellen und LÖSCHEN
+ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschlossen wurde.
 
 
 ERLEDIGT - Vergebene Zeiträume bei der Zimmerreservierung ausgeben

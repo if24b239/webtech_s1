@@ -99,7 +99,9 @@ function db_news_get(){
     db_conn_check(); 
     $sql2 = "SELECT n.Ueberschrift, n.Inhalt, date_format(Datum, '%d.%m.%Y') AS 'Datum_formatiert', n.img_alt, n.img_path, n.FK_Admin_ID, p.vorname, p.nachname, p.Gender, n.Beitrags_ID
             FROM newsbeitrag n JOIN person p
-                ON n.FK_Admin_ID = p.Person_ID;"
+                ON n.FK_Admin_ID = p.Person_ID
+            ORDER BY Datum_formatiert asc
+            ;"
     ;
     $result2 = $db->query($sql2);
     while ($row = $result2->fetch_array()) {

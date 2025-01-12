@@ -4,7 +4,7 @@
     /*TO-DO:
         ERLEDIGT Bild-Endungen prüfen + passende Rückmeldung 
         
-        ERLEDIGT Hochgeladenes Bild auf fixe Größe croppen
+        ERLEDIGT? Hochgeladenes Bild auf fixe Größe croppen
 
         ERLEDIGT Beim hochladen Admin nicht hardcoden, sondern Person-Id der Admin, die angemeldet ist, hochladen
         
@@ -13,7 +13,7 @@
         Bewertungsmatrix:
         ERLEDIGT a) Beiträge werden öffentlich in eigenem Bereich angezeigt, Bilder sind gut sichtbar, neuester Beitrag ganz oben 
         b) Für den Upload sind nur Bilddateien erlaubt, Bilder landen in "uploads/news" (heißt bei uns pictures/news
-            ERLEDIGTb) i) Bilder werden serverseitig verkleinert und als Thumbnails konstanter Größe dargestellt
+            ERLEDIGT? b) i) Bilder werden serverseitig verkleinert und als Thumbnails konstanter Größe dargestellt
         ERLEDIGT c) Übersichtliche Darstellung (Beiträge klar voneinander getrennt)
         ERLEDIGT d) Datum des Beitrags soll angezeigt werden
     
