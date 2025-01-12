@@ -13,38 +13,42 @@
 
     <?php include 'php_inserts\navigation.php' ?>
 
-    <section class="main">
-        
-            <img class="col-5" src="pictures/tavernInside.jpg" alt="Ein Bild unseres Frühstücksbereichs">
-            <section class="col-7">
-                <h2 display="inline">Willkommen in unserer Taverne</h2>
+    <section class="index">
+        <section class="section-mainLeft">
+
+                <img class="img-index col-5-index" src="pictures/tavernInside.jpg" alt="Ein Bild unseres Frühstücksbereichs">
+
+            <div class="col-7-index">
+                <h2 class="h2-index">Willkommen in unserer Taverne</h2>
                 <br>
                 <br>
-                <p display="inline">Beginnen Sie Ihren Morgen mit einem herzhaften Frühstück, das keine Wünsche offenlässt. 
-                    In unserer Taverne bieten wir Ihnen eine Auswahl an frischen, regionalen Zutaten – von knusprigem Brot, 
-                    das noch warm aus dem Ofen kommt, bis hin zu kräftigen Käsesorten und zartem Fleisch aus der Region. 
-                    Unsere Eier stammen von freilaufenden Basilisken. Neben diesen Köstlichkeiten bieten wir Ihnen auch herzhafte Eintöpfe und Suppen, 
-                    die in großen Töpfen auf dem offenen Feuer langsam gegart wurden, sowie süße Aufstriche und frisch gepresste Säfte, 
+                <div class="text-inside-section">
+                <p class="p-index">Beginnen Sie Ihren Morgen mit einem herzhaften Frühstück, das keine Wünsche offenlässt. 
+                    In unserer Taverne bieten wir Ihnen eine Auswahl an frischen Zutaten, wie Spiegelei von
+                    freilaufenden Basilisken, süße Aufstriche und frisch gepresste Säfte, 
                     die den Tag mit einem frischen und belebenden Geschmack starten lassen.</p>
-            </section>
-        
+                </div>    
+            </div>
+        </section>
 
-
-            <section class="col-7 text-inside-section2">
-                <h2>Ein Ort der Erholung</h2>
+        <section class="section-mainRight">
+            
+                <img class="img-index col-5-index" src="pictures/garden.jpg" alt="Ein Foto unseres Gartens.">
+            
+            <div class="col-7-index">
+                <h2 class="h2-index">Ein Ort der Erholung</h2>
                     <br>
                     <br>
-                <p>Unser Hotel-Garten ist ein wahres Paradies, 
+                <div class="text-inside-section">    
+                    <p class="p-index">Unser Hotel-Garten ist ein wahres Paradies, 
                     das die perfekte Ergänzung zu Ihrem Aufenthalt darstellt. 
                     Eingebettet inmitten von üppigem Grün und umgeben von der beruhigenden Natur, 
                     bietet unser Garten einen Ort der Erholung und Entspannung.</p>
                     <br>
-                    <br>
                     <p>Ein Rückzugsort, der nur darauf wartet, von Ihnen entdeckt zu werden!</p>
-            </section>
+                </div>
+            </div>
 
-            <img class="col-5" src="pictures/garden.jpg" alt="Ein Foto unseres Gartens.">
-        
         </section>
 
     <?php include 'php_inserts\footer.php' ?>

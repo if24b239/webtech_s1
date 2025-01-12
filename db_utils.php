@@ -108,7 +108,7 @@ function db_news_get(){
         echo'
             <div class="inbetween"> </div>
             <section class="section-mainLeft bordered">
-                <img class="img-main" src="' . $row['img_path'] . '" alt="' . $row['img_alt'] . '">
+                <img class="img-news" src="' . $row['img_path'] . '" alt="' . $row['img_alt'] . '">
                 <section class="text-inside-section"> 
                     <h3> ' . $row['Ueberschrift'] . ' </h3>
                     <br>

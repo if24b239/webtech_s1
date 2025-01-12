@@ -84,3 +84,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location:admin_reservation_administration.php");
     exit();
 }
+
+echo'';

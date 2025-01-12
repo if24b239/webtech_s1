@@ -228,27 +228,6 @@ nav p{
         display: block;
     }
 
-    .section-mainRight{
-        width: 100%;
-        display: block;
-    }
-    .section-mainLeft{
-        width:100%;
-        display: block;
-    }
-    .text-inside-section p {
-        font-size: 15px;
-    
-    }
-    .text-inside-section{
-        display: block;
-    }
-    .img-main{
-        width: 100%;
-        max-width: none;
-        max-height: none;
-    }
-
 }
 
 /*Footer*/
@@ -333,14 +312,6 @@ form {
     border: none;
 }
 
-.section-mainRight{
-    background-color: rgba(161, 138, 74, 0.69); 
-    width: 58.33%;
-}
-.section-mainLeft{
-    background-color: rgba(160, 148, 115, 0.69);
-    width: 58.33%
-} 
 
 
 .inbetween{
@@ -445,57 +416,6 @@ details {
     max-width: 900px;
 }
 
-
-.section-mainLeft {
-        /*Flex-Box Child Propertys*/
-        width: 100%;
-        max-height: 480px;
-        /*flex-grow: ;
-        flex-shrink: ;
-        flex-basis: ;
-        flex: ;
-        align-self: ;
-        order: ;*/
-        /*Flex-Box Parent-Propertys*/
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        flex-wrap:wrap;
-        /*align-content: ;*/
-        /*gap: ;*/
-
-        /*Allgemeine CSS Propertys*/
-      
-}
-.section-mainRight{
-        /*Flex-Box Child Propertys*/
-        width: 100%;
-        max-height: 480px;
-        /*flex-grow: ;
-        flex-shrink: ;
-        flex-basis: ;
-        flex: ;
-        align-self: ;
-        order: ;*/
-    
-        /*Flex-Box Parent-Propertys*/
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: right;
-        align-items: center;
-        flex-wrap: wrap;
-        /*align-content: ;*/
-        /*gap: ;*/
-
-        /*Allgemeine CSS Propertys*/
-     
-}
-
-.img-main{
-    width:41%;
-    max-height: 480px;
-    display:inline-flexbox
-}
 
 .text-inside-section{
     width: 58%;
@@ -637,29 +557,141 @@ p.main{
     cursor: pointer;
 }
 
-
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*Start test*/
 
-.img-main2{
- max-height: 480px;
+.index{
+    width:100%;
+    margin:0%;
+    padding:0%;
+
+    display:flex;
+    flex-wrap: wrap;
 }
-.text-inside-section2{
+.col-5-index{
+    max-width: 41%;
+
+}
+.col-7-index{
+    max-width: 59%;
+    display: flex;
+    flex-direction: column; /*Damit der <h2> über dem <p> angezeigt wird und nicht daneben*/
     justify-content: center;
     align-items: center;
-
 }
 
-@media only screen and (max-width: 768px){
-    .img-main2{
-        display:block !important;
+.img-index{
+    max-height: 480px;
+}
 
+.h2-index{
+    display:block;
+}
+
+.p-index{
+    width:100%;
+}
+
+.text-inside-section{
+    flex-grow: 1;
+    width: 100%;
+}
+
+.section-mainLeft {
+    /*Flex-Box Child Propertys*/
+    width: 100%;
+    max-height: 480px;
+    /*flex-grow: ;
+    flex-shrink: ;
+    flex-basis: ;
+    flex: ;
+    align-self: ;
+    order: ;*/
+    /*Flex-Box Parent-Propertys*/
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap:wrap;
+    /*align-content: ;*/
+    /*gap: ;*/
+
+    /*Allgemeine CSS Propertys*/
+    margin:0%;
+    padding: 0%;
+}
+.section-mainRight{
+    /*Flex-Box Child Propertys*/
+    width: 100%;
+    max-height: 480px;
+    /*flex-grow: ;
+    flex-shrink: ;
+    flex-basis: ;
+    flex: ;
+    align-self: ;
+    order: ;*/
+
+    /*Flex-Box Parent-Propertys*/
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+    align-items: center;
+    flex-wrap: wrap;
+    /*align-content: ;*/
+    /*gap: ;*/
+
+    /*Allgemeine CSS Propertys*/
+    margin:0%;
+    padding: 0%;
+}
+
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .col-5-index{width: 100%;}
+    .col-7-index{width: 100%;}
+    .text-inside-section{
+        display: none;
     }
-    .text-inside-section2{
-        display: block !important;
+    .img-index{
+        width:100%;
+        max-height: none;
+    }
+
+}
+@media only screen and (max-width: 768px){
+    .col-5-index{width: 100%;}
+    .col-7-index{width: 100%;}
+    .section-mainRight{
+        width: 100%;
+    }
+    .section-mainLeft{
+        width:100%;
+    }
+    .text-inside-section p {
+        font-size: 15px;
+        display: none;
     
     }
+    .text-inside-section{
+        display: block;
+    }
+    .h2-index{
+        display:none;
+    }
+    .img-index{
+        min-width: 100%;
+    }
+
+
 
 }
 
 
 /*Ende Test*/
+
+/*NEWs*/
+.img-news{
+    max-height: 480px;
+}
