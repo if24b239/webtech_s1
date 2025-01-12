@@ -1,5 +1,5 @@
 
-NICHT ERLEDIGT - Ausgabe der Profildaten im Profil nicht über Session Variablen, 
+ERLEDIGT - Ausgabe der Profildaten im Profil nicht über Session Variablen, 
 sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt angezeigt werden. 
 
 NICHT ERLEDIGT - Letzte Eingaben sollen in Formularen als value erhalten bleiben
@@ -10,9 +10,9 @@ NICHT ERLEDIGT - Letzte Eingaben sollen in Formularen als value erhalten bleiben
 
 NICHT ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschlossen wurde.
 
-NICHT ERLEDIGT - positive Rückmeldung wenn Registrierung erfolgreich abgeschlossen wurde.
 
-ERLEDIGT - Vergebene Zeiträume bei der Zimmerreservierung ausgeben
+
+
 LENA/ NICHT ERLEDIGT - mit Screenreader lesen
 
 LENA / NICHT ERLEDIGT - Alle Eingaben aller Formulare (Registrierung, Login, etc ...) werden clientseitig und serverseitig überprüft und validiert.
@@ -22,7 +22,7 @@ LENA - News-Beiträge (inkl. Bildupload) erstellen und LÖSCHEN
 
 
 
-
+ERLEDIGT - Vergebene Zeiträume bei der Zimmerreservierung ausgeben
 erledigt - Begrüßen Sie den/die „eingeloggten“ User*in auf der Website.
 
 Erledigt- Merken Sie sich die Login-Informationen in der Session. Username wird gemerkt

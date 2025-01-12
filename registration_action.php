@@ -135,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 //Falls die Userin diese Seite auf einem anderen Weg als über das Formular erreicht hat, wird sie auf die Startseite verwiesen
 else { // if ($_SERVER["REQUEST_METHOD"] == "POST")
-    header("Location:profile.php");
+    header("Location:faq.php");
     exit();
 }
 

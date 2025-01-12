@@ -77,7 +77,6 @@ function db_reserved_timeduration($room){
     global $db;
     db_conn_check();
 
-//////////////Versuch mit DB/////////////
  // SQL-Abfrage, um die Daten aus der 'reservation'-Tabelle zu holen
     $sql = "SELECT date_format(Abreisedatum, '%d.%m.%Y') AS 'Abreisedatum', date_format(Anreisedatum, '%d.%m.%Y') AS 'Anreisedatum'  
             FROM reservierung 
@@ -92,9 +91,6 @@ function db_reserved_timeduration($room){
             <p> '.$row['Anreisedatum'] .' bis '.$row['Abreisedatum'] .' </p>
         ';
     }
-
-////////////////////////////////////////
-
 }
 
 function db_news_get(){
@@ -126,5 +122,64 @@ function db_news_get(){
         ';
     }             
 }
+
+
+function db_userinformation_profile(){
+    global $db;
+    db_conn_check(); 
+
+    $sql ="SELECT gender, vorname, nachname, username, E_Mail
+            FROM person
+            WHERE Person_ID = ?";
+    
+    // Bereite die SQL-Anweisung vor (um SQL-Injektionen zu verhindern)
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param("i", $_SESSION["ID"]); // Bindet den Session-Wert (ID) an die Abfrage
+
+// Führe die Abfrage aus
+    $stmt->execute();
+
+// Hole das Ergebnis
+    $stmt->bind_result($gender, $vorname, $nachname, $username, $E_Mail);
+
+// Wenn es ein Ergebnis gibt, werden sie ausgeben
+    if($stmt->fetch()){
+        echo'
+            <div>
+                <div class="col-12">
+                    Anrede: 
+        ';
+                    if($gender== "female"){
+                        echo'Frau';
+                    }
+                    if($gender=='male'){
+                        echo'Herr';
+                    }
+                    if($gender=='other'){
+                        echo'Vorname Nachname';
+                    }
+                    echo'
+                        <br>
+                        <br>
+                        Vorname:  '.$vorname.'
+                        <br>
+                        <br>
+                        Nachname:  '.$nachname.'
+                        <br>
+                        <br>
+                        Username:  '.$username.'
+                        <br>
+                        <br>
+                        E-Mail Adresse:  '.$E_Mail.'
+                        <br>
+                        <br>
+                </div>   
+            </div>
+                    ';
+    }
+// Die vorbereitete Anweisung wird geschlossen
+    $stmt->close();    
+}
+
 
 ?>
