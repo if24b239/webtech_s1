@@ -35,9 +35,6 @@
                     <br>
                     <p>Es sind nur Bilder vom Format jpg, gif, png, webp erlaubt.</p>
                     <br>
-                    <p> aus dem Bild wird beim Hochladen von der linken oberen Ecke ausgehend ein ____ x_____ pixel großen Bild ausgeschnitten.
-                        Wenn ein anderer Bildausschnitt hochgeladen werden soll, bitte diesen in der passenden Größe hochladen. </p>
-                    
                     ';
                 
                     if($_SESSION["error_news"]&1){

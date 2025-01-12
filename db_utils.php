@@ -107,27 +107,31 @@ function db_news_get(){
     while ($row = $result2->fetch_array()) {
         echo'
             <div class="inbetween"> </div>
-            <section class="section-mainLeft bordered">
+            <section class="section-newsLeft bordered">
                 <img class="img-news" src="' . $row['img_path'] . '" alt="' . $row['img_alt'] . '">
-                <section class="text-inside-section"> 
-                    <h3> ' . $row['Ueberschrift'] . ' </h3>
+                <section class="text-inside-news-section"> 
+                    <h1 class="h1-news"> ' . $row['Ueberschrift'] . ' </h3>
                     <br>
                     <p> ' . $row['Inhalt'] . ' </p>
                     <br>
                     <br>
-                    <p style="font-size: 18px; align-self: right"> <!--geht nicht-->
+                    <p class="p-news">
                         erstellt am ' . $row['Datum_formatiert'] . ' von ' . $row['vorname'] . ' ' . $row['nachname'] . '
                     </p>
-                </section> 
-        ';    
-            if(isset($_SESSION["admin"])&&($_SESSION["admin"]!=NULL)){ 
+                ';
+                if(isset($_SESSION["admin"])&&($_SESSION["admin"]!=NULL)){ 
                 echo'
+                    <br>  
                     <form action="news_delete.php" method="POST">
                         <input type="hidden" name="beitrags_ID" value="'.$row['Beitrags_ID'].'">
                         <button type="submit">Beitrag löschen</button>
                    </form>
                 ';
             }
+            echo'
+                </section> 
+            ';
+            
         echo'
             </section>  
         
