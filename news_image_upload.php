@@ -59,6 +59,14 @@
                 foreach ($allowed_img_types as &$x) { //Das Array wird durchlaufen und wenn die Endung des hochgeladenen Bildes 
                         if($x == $imageFileType){//dem entspricht wird die temp-Variable = 0 gesetzt und das durchlaufen unterbrochen
                             $temp = 0;
+
+                            $temp_image = imagecreatefromstring(file_get_contents($_FILES['fileToUpload']['tmp_name']));
+                            imagecopyresized( $image_to_upload,
+                                $temp_image,
+                                0, 0, 0, 0,
+                                640, 480,
+                                $check[0], $check[1]);
+                            imagedestroy($temp_image);
                             break;
                         }
                         else{ //nicht dem entspricht wird eine temp Variable = 8 gesetzt. 
