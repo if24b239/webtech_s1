@@ -54,12 +54,12 @@
 
                 //überprüfung ob Format von Bild in ordnung
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                $allowed_img_types = array("jpg", "gif", "png", "webp"); //ich lege ein Array mit den erlauben Endungen an
+                $allowed_img_types = array("jpg", "gif", "png"); //ich lege ein Array mit den erlauben Endungen an
                 $temp = 0;
                 foreach ($allowed_img_types as &$x) { //Das Array wird durchlaufen und wenn die Endung des hochgeladenen Bildes 
                         if($x == $imageFileType){//dem entspricht wird die temp-Variable = 0 gesetzt und das durchlaufen unterbrochen
                             $temp = 0;
-
+ 
                             $temp_image = imagecreatefromstring(file_get_contents($_FILES['fileToUpload']['tmp_name']));
                             imagecopyresized( $image_to_upload,
                                 $temp_image,

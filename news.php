@@ -33,7 +33,7 @@
                     <form class="bordered" action="news_image_upload.php" method="post" enctype="multipart/form-data">
                     <legend>Neues News-Beitrag anlegen:</legend>
                     <br>
-                    <p>Es sind nur Bilder vom Format jpg, gif, png, webp erlaubt.</p>
+                    <p>Es sind nur Bilder vom Format jpg, gif, png erlaubt.</p>
                     <br>
                     ';
                 
