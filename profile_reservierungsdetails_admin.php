@@ -23,11 +23,11 @@ $sql = "SELECT  date_format(Abreisedatum, '%d.%m.%Y') AS 'Abreisedatum',
                 p.nachname AS 'GastNachname',
                 p.Gender AS 'Gender',
                 r.Fruehstueck, r.Parkplatz, r.Haustier, r.FK_Zimmer_ID, r.status, r.Sonderwuensche, 
-               (DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht) AS 'GesammtpreisOhneZulagen',
+               (DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht) AS 'GesamtpreisOhneZulagen',
                (DATEDIFF(Abreisedatum, Anreisedatum)*r.Fruehstueck) AS 'ZuschlagFruechstueck',
                (DATEDIFF(Abreisedatum, Anreisedatum)*r.Haustier) AS 'ZuschlagTiere',
                (DATEDIFF(Abreisedatum, Anreisedatum)*r.Parkplatz) AS 'ZuschlagParkplatz',
-                ((DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Fruehstueck)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Parkplatz)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Haustier)) AS 'GesammtpreisMitZulagen'        
+                ((DATEDIFF(Abreisedatum, Anreisedatum)*z.PreisProNacht)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Fruehstueck)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Parkplatz)+(DATEDIFF(Abreisedatum, Anreisedatum)*r.Haustier)) AS 'GesamtpreisMitZulagen'        
         FROM reservierung r 
             JOIN zimmer z ON r.FK_Zimmer_ID = z.Zimmer_ID
             JOIN person p ON r.FK_KundInnen_ID = p.Person_ID";
@@ -51,7 +51,7 @@ while ($in_row = $result->fetch_array()) {
         }
     echo'
         <br> 
-        Gesammtpreis ohne Zuschlägen: ' . $row['GesammtpreisOhneZulagen'] . ' €
+        Gesamtpreis ohne Zuschlägen: ' . $row['GesamtpreisOhneZulagen'] . ' €
     ';
     echo'
         <br>
@@ -81,7 +81,7 @@ while ($in_row = $result->fetch_array()) {
             if($row['Haustier'] & 8){
                 echo htmlentities(' Chimäre / ');
             }
-            echo'Gesammtzuschlag Haustiere: '.$row['ZuschlagTiere'].'€ ';
+            echo'Gesamtzuschlag Haustiere: '.$row['ZuschlagTiere'].'€ ';
         }
     echo'
         <br>
@@ -98,7 +98,7 @@ while ($in_row = $result->fetch_array()) {
     ';
     echo'
         </div>
-        Gesammtpreis mit Zuschlägen: ' . $row['GesammtpreisMitZulagen'] . ' €
+        Gesamtpreis mit Zuschlägen: ' . $row['GesamtpreisMitZulagen'] . ' €
     ';
     echo'
         <br>

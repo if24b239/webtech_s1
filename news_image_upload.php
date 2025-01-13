@@ -37,6 +37,7 @@
         
         $target_dir = "./pictures/news/"; 
         $target_file = '';
+        $image_to_upload = imagecreatetruecolor(640, 480);
 
         if ($_FILES["fileToUpload"]["tmp_name"] == '' || $_FILES["fileToUpload"]["name"] == '') {
             $_SESSION["error_news"] += 1; 
@@ -54,6 +55,14 @@
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
                 if($imageFileType != "jpg") {
                     $_SESSION["error_news"] += 8; 
+                } else {
+                    $temp_image = imagecreatefromstring(file_get_contents($_FILES['fileToUpload']['tmp_name']));
+                    imagecopyresized( $image_to_upload,
+                        $temp_image,
+                        0, 0, 0, 0,
+                        640, 480,
+                        $check[0], $check[1]);
+                    imagedestroy($temp_image);
                 }
                 
             }
@@ -75,10 +84,12 @@
         
          
         if ($_SESSION["error_news"] == 0) { 
-        ///////BILDER Im Pictures Ordner SPEICHERN 
-            move_uploaded_file( $_FILES['fileToUpload']['tmp_name'], $target_file);
+        //BILDER Im pictures/news Ordner SPEICHERN 
+            //move_uploaded_file( $image_to_upload, $target_file);
+            imagejpeg($image_to_upload, $target_file);
+            imagedestroy($image_to_upload);
 
-        ///////NEWSBEITRÄGE IN DIE DATENBANK HOCHLADEN////////////////////
+        //NEWSBEITRÄGE IN DIE DATENBANK HOCHLADEN
             /*Datenverbindung aufbauen*/ 
             include 'db_utils.php';
             db_conn_check();

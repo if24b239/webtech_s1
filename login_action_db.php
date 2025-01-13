@@ -8,7 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     /*  0=kein Error, 
         1=Eine Eingabe ist leer, 
-        2=Passwort und Benutzername wurden nicht im selben Datensatz in der DB gefunden.     
+        2=Passwort und Benutzername wurden nicht im selben Datensatz in der DB gefunden.
+        4=Account nicht aktiv     
     */
 
     //Eingabewerte vorbereiten
@@ -32,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         db_conn_check();
 
         //SELECT-Abfrage über Usernamen, Passwörter und Admin_ID aus der DB
-        $sql ="SELECT username, passwort, Admin_ID FROM person;";
+        $sql ="SELECT username, passwort, active, Admin_ID FROM person;";
         $result = $db->query($sql);
 
         //Abfrage an die DB ob passwort und username in einer Abfrage vorkommen
@@ -46,6 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     //Wenn die person, die sich einloggt ein Admin ist, hat sie einen Eintrag in der Spalte Admin_ID wir setzten die Session Variable diesbezüglich auf 1, damit Admin spezifische Dinge freigeschaltet werden.
                     if($row['Admin_ID']!=NULL){
                         $_SESSION["admin"]=1;
+                    } else if ($row["active"] == 0) {
+                        $_SESSION["error_login"];
                     }
                 //dann verlinken wir zum Profil
                 header("Location:profile.php");
