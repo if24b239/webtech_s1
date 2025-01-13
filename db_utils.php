@@ -106,7 +106,7 @@ function db_news_get(){
     $result2 = $db->query($sql2);
     while ($row = $result2->fetch_array()) {
         echo'
-            <div class="inbetween"> </div>
+            
             <section class="section-newsLeft bordered">
                 <img class="img-news" src="' . $row['img_path'] . '" alt="' . $row['img_alt'] . '">
                 <section class="text-inside-news-section"> 
@@ -133,7 +133,9 @@ function db_news_get(){
             ';
             
         echo'
+            
             </section>  
+            <div class="inbetween"> </div>
         
         ';
     }             

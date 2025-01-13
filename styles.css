@@ -26,6 +26,7 @@
 /*//////////////////           VARIABLEN                        /////////////////////////////////////////////////*/
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 :root{ /*Der :root-Selektor ermöglicht als strukturelle Pseudoklasse, die Wurzel eines Dokumentes anzusprechen*/
+    /*Kontrast ist mit Tool kontrolliert*/
     --background-color: #704610;
     --darker-background-color:#4F3006;
     --accent-color:#C7A239;
@@ -733,8 +734,8 @@ p.main{
 }
 
 .img-news{
-    height: 440px;
-    width:41%; 
+    height: 480px;
+    width:640px; 
 }
 .section-newsLeft{
     display:flex;
@@ -751,18 +752,40 @@ p.main{
 }
 
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 1024px) and (min-width: 769px){
     .section-newsLeft{
         display:flex;
         flex-direction: column;
     }
-    .img-news{
+
+    .text-inside-news-section{
         width:100%;
+        align-self: center;
+        justify-self: center;
+    }
+    
+    .img-news{
+        align-self: center;
+        justify-self: center;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+
+    .section-newsLeft{
+        display:flex;
+        flex-direction: column;
     }
     .text-inside-news-section{
         width:100%;
+        align-self: center;
+        justify-self: center;
     }
-
+    
+    .img-news{
+        align-self: center;
+        justify-self: center;
+    }
 }
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
