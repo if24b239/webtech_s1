@@ -74,6 +74,7 @@
 
                         <div class="col-6">
                             <br>
+                            <label id="fileToUpload" for="fileToUpload">Bild zum hochladen:</label><br>
                             <input type="file" name="fileToUpload" id="fileToUpload"> <br>
                             <br>
                             <br>

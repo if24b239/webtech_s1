@@ -103,6 +103,7 @@ Bewertungsmatrix:
                             <summary>Formular öffnen</summary>
                             <br>
                             <form class="col-12" action="profile_change_action.php" method="POST">
+                                <label id="gender" for="gender">Anrede:</label><br>
                                 <select for="gender" id="gender" name="gender">
                                     <option <?php if($_SESSION["gender"]== "female"){echo'selected="selected"';}?> value="female">Frau</option>
                                     <option <?php if($_SESSION["gender"]== "male"){echo'selected="selected"';}?> value="male">Herr</option>
@@ -110,12 +111,16 @@ Bewertungsmatrix:
                                 </select>
                                 <br>
                                 <input type="hidden" name="form" value="change_profile"><!--Über diese Variable wird auf profile_change_action.php entschieden welches Formular ausgewertet wird.-->
+                                <label id="first_name" for="first_name">Vorname:</label><br>
                                 <input type="text" name="first_name" id="first_name" value="<?php echo''.$_SESSION["first_name"].'';?>" required>
                                 <br>
+                                <label id="last_name" for="last_name">Nachname:</label><br>
                                 <input type="text" name="last_name" id="last_name" value="<?php echo''.$_SESSION["last_name"].'';?>" required>
                                 <br>
+                                <label id="user" for="user">Username:</label><br>
                                 <input type="text" name="user" id="user" value="<?php echo''.$_SESSION["user"].'';?>" required>
                                 <br>
+                                <label id="email" for="email">E-Mail:</label><br>
                                 <input type="text" name="email" id="email" value="<?php echo''.$_SESSION["email"].'';?>" required>
                                 <br>
                                 <br>

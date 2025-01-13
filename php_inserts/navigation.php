@@ -88,6 +88,7 @@ echo '
                 <li><a href="admin_reservation_administration.php">Reservierungs-Verwaltung</a></li>
             ';
         }
+/*Begrüßung wenn eingeloggt*/
     echo'
         <p style="font-weight: bold;">';
             if($_SESSION["logged_in"] == 1){
@@ -103,8 +104,7 @@ echo '
             }
         echo'
         </p>
-        
-        
+            
         <li><a href="index.php">Startseite</a></li>
         <li><a href="news.php">News</a></li>
 ';

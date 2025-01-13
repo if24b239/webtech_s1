@@ -1,4 +1,30 @@
-/*Variablen*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////               INHALTSVERZEICHNIS                     ///////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/* VARIABLEN                                                                        */
+/* RESPONSIVE DESIGN - ALLGEMEIN                                                    */
+/* ALLGEMEINE KLASSEN                                                               */
+/* HEADER                                                                           */
+/* NAVIGATION                                                                       */
+/* ANPASSUNGEN DER NAVIGATION FÜR KLEINE BILDSCHIRME                                */
+/* FOOTER                                                                           */
+/* FORMULARE                                                                        */
+/* PROFIL                                                                           */
+/* IMPRESSUM                                                                        */
+/* STARTSEITE  / INDEX                                                              */
+/* RESERVIERUNG                                                                     */
+/* FAQ                                                                              */
+/* NEWS                                                                             */
+/* BEREICH FÜR TESTS                                                                */
+/* NICHT MEHR IN VERWENDUNG - aber ich traue mich nicht es zu löschen               */
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////           VARIABLEN                        /////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 :root{ /*Der :root-Selektor ermöglicht als strukturelle Pseudoklasse, die Wurzel eines Dokumentes anzusprechen*/
     --background-color: #704610;
     --darker-background-color:#4F3006;
@@ -9,6 +35,10 @@
     --navbar-height: 80px;
     --header-height: 135px;/*wegen der Größe vom Logo-Bild*/
 }
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////responsive design/////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /*base columns and column design*/
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
@@ -28,7 +58,6 @@
     box-sizing: border-box;
 }
 
-/*responsive design*/
 @media only screen and (max-width: 768px) {
     /*small/phone screens*/
     [class*="col-"] {
@@ -60,7 +89,10 @@
     .col-12 {width: 100%;}
 }
 
-/*FARBEN TEXTGRÖßE PADDING MARGIN USW*/
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////          ALLGEMEINE KLASSEN / ARTEN VON           /////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 html{
     height: 100%;
 }
@@ -98,13 +130,59 @@ h2 {
     font-size: x-large;
 }
 
+details{
+    border-style: groove;
+    border-color: var(--accent-color);
+    max-width: 900px;
+}
+
 table {
     border: #4F3006;
     border-style: dotted;
     width:100%;
     
 }
-/*Header*/
+
+.bordered{
+    border: var(--darker-background-color);
+    border-width: 2px;
+    border-style: double;
+}
+
+.right{
+    justify-self: flex-end;
+}
+
+.warning{
+    color: rgb(202, 41, 41);
+    font-size: 32;
+
+}
+
+.flex p{
+    display:block;
+}
+.flex a{
+    color:var(--text-color);
+    border:var(--text-color);
+    text-decoration: none;
+
+    background-color: var(--darker-background-color);
+    padding: 10px;
+    margin: 0;
+    font-size: 22px;
+    color: var(--text-color);
+    height: 30px;
+    width: 100%;
+}
+
+.flex a:hover{
+    background-color:var(--accent-color);
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////                       HEADER                      /////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 header {
     background-image: url("pictures/tileable_background.jpg");
     background-size: contain;
@@ -120,7 +198,12 @@ img.header{
     content: url("pictures/woodenLogo3.png");
 }
 
-/*Navigation*/ /*erstellt mit Video: https://youtu.be/QrTG4iu8cUk?si=NWcGc0uyOkB9yBuA  */
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////                     NAVIGATION                    /////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*erstellt mit Video: https://youtu.be/QrTG4iu8cUk?si=NWcGc0uyOkB9yBuA  */
+
 nav {
     background-color: var(--darker-background-color);
     text-align: right;
@@ -196,7 +279,7 @@ nav p{
 }
 
 /*////////////////////////////////////////////////////////////////////////////////////////////////*/
-/*/////////////////////////////// ANPASSUNGEN FÜR KLEINE BILDSCHIRME//////////////////////////////*/
+/*////////////// ANPASSUNGEN DER NAVIGATION FÜR KLEINE BILDSCHIRME  //////////////////////////////*/
 /*////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 @media only screen and (max-width: 768px){
@@ -230,7 +313,9 @@ nav p{
 
 }
 
-/*Footer*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////                      FOOTER                       /////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 a.footer {
     color: var(--text-color);
     text-decoration: none;   
@@ -247,12 +332,10 @@ footer {
     position:sticky;
 }
 
-details{
-    border-style: groove;
-    border-color: var(--accent-color);
-}
 
-/*Formulare*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////                      FORMULARE                    /////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 input {
     color: var(--darker-background-color);
@@ -302,50 +385,24 @@ submit:hover {
     background-color: var(--accent-color);
 }
 
-/*Teil der nicht stetig ist, also nicht im Header, Navigation oder Footer*/
 form {
     background-color: var(--background-color);
     margin:5px;
 }
 
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////        PROFIL                                             //////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .profile_change {
     border: none;
 }
 
 
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////            IMPRESSUM                                      //////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
-.inbetween{
-    background-color: var(--accent-color);
-    min-height: 30px;
-    width:100%;
-}
-.reversed_orientation{
-    display: flex;
-    flex-direction: column-reverse;
-}
-/*FLEXBOXPROPERTYS*/ /*--> Flexbox lässt sich eh einfach in die normalen CSS Anweisungn eintragen, ich war damals glaube ich von der Klassenzuweisung verwirrt :0  */
-
-
-.body{
-    display: flex;
-    justify-content:center;
-    align-items:flex-start;
-    flex-wrap:wrap;
-    /*align-content: ;*/
-    /*gap: ;*/
-}
-
-.header{
-    width: 100%;
-    /*flex-grow: ;
-    flex-shrink: ;
-    flex-basis: ;
-    flex: ;
-    align-self: ;
-    order: ;*/
-}
-
-/* Impressum*/
 figure.impressum {
     display: inline-block;
     width: auto;
@@ -362,10 +419,20 @@ figure.impressum {
     align-self: ;
     order: ;*/
 }
-/*//////////////////////////////////////////////////////////////*/
-/*///////////////////////STARTSEITE/////////////////////////////*/
-/*//////////////////////////////////////////////////////////////*/
 
+.halfScreenChild{
+    flex-wrap: wrap;
+    min-width:fit-content;
+    max-width: 45%;
+    border: var(--accent-color);
+    padding-top: 45px;   
+    padding-bottom: 45px;
+    margin-bottom: 20px;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////                      STARTSEITE  / INDEX                  /////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 .main{
     /*Child Propertys*/
     width: 100%;
@@ -388,40 +455,7 @@ figure.impressum {
     /*margin:;/*Macht hier nichts wsl weil width 100%?*/
 }
 
-.section-mainCenter{
-    padding:50px;
-    /*Child Propertys*/
-    width: 100%;
-    /*flex-grow: ;
-    flex-shrink: ;
-    flex-basis: ;
-    flex: ;
-    align-self: ;
-    order: ;*/
 
-    /*Parent-Propertys*/
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    /*align-content: ;*/
-    /*gap: ;*/
-}
-.container-faq{
-  padding:35px;  
-  min-height: 275px;
-}
-
-details {
-    max-width: 900px;
-}
-
-
-.text-inside-section{
-    width: 58%;
-    display:inline-flexbox;
-
-}
 p.main{
     display: inline;
     /*Flex-Box Child Propertys*/
@@ -465,136 +499,7 @@ p.main{
     align-content:center;
     justify-content: space-around;
 }
-.halfScreenChild{
-    flex-wrap: wrap;
-    min-width:fit-content;
-    max-width: 45%;
-    border: var(--accent-color);
-    padding-top: 45px;   
-    padding-bottom: 45px;
-    margin-bottom: 20px;
-}
 
-.halfScreenChild-reservation{
-    width: 45%;
-    flex-wrap: wrap;
-    min-width:fit-content;
-    max-width: 45%;
-    border: var(--accent-color);
-}
-
-.bordered{
-    border: var(--darker-background-color);
-    border-width: 2px;
-    border-style: double;
-}
-.right{
-    justify-self: flex-end;
-}
-
-.flex p{
-    display:block;
-}
-.flex a{
-    color:var(--text-color);
-    border:var(--text-color);
-    text-decoration: none;
-
-    background-color: var(--darker-background-color);
-    padding: 10px;
-    margin: 0;
-    font-size: 22px;
-    color: var(--text-color);
-    height: 30px;
-    width: 100%;
-}
-
-.flex a:hover{
-    background-color:var(--accent-color);
-}
-
-
-.roomReservation_Rooms{
-    display:inline-block;
-    max-width: 330px;
-    padding:5px;
-}
--roomReservations_Rooms p{
-    display: inline;
-}
-
-.warning{
-    color: rgb(202, 41, 41);
-    font-size: 32;
-
-}
-
-/*RadioButton auf gesammtes elternelement vergrößern*/
-.radio-container {
-    position: relative;
-    width: 300px; /* Beispielgröße */
-    height: 100px; /* Beispielgröße */
-    background-color: #f0f0f0;
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-.roomReservation_Rooms label {
-    display: block; /* Das Label wird als Blockelement angezeigt */
-    cursor: pointer; /* Mauszeiger zeigt an, dass es klickbar ist */
-    width: 100%; /* Label nimmt die gesamte Breite des Containers ein */
-    padding: 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease; /* Sanfter Übergang bei Hover */
-}
-
-.roomReservation_Rooms label:hover {
-    border-style: double;
-    border-width: 5px;
-    border-color: var(--accent-color);
-}
-
-.radio-container:checked + label {
-    border-style: double;
-    border-width: 5px;
-    border-color: var(--accent-color);
-}
-
-.pet-checkbox{
-    opacity: 0;
-}
-.pet-checkbox:checked + label {
-    border-style: double;
-    border-width: 5px;
-    border-color: var(--accent-color);
-}
-
-/* Radiobutton wird unsichtbar gemacht, aber bleibt funktional */
-.radio-container input[type="radio"] {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-}
-
-/* Der Label wird als Ersatz für den Radiobutton verwendet */
-.radio-container label {
-    font-size: 20px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.roomReservation_Rooms img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin: 10px 0;
-}
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-/*////////////////INDEX//////////////////////////////////////////////////////////////////////////////////////////*/
-/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 .index{
     width:100%;
@@ -604,6 +509,7 @@ p.main{
     display:flex;
     flex-wrap: wrap;
 }
+
 .col-5-index{
     max-width: 41%;
 
@@ -627,7 +533,10 @@ p.main{
 .p-index{
     width:100%;
 }
-
+.text-inside-section{
+    width: 58%;
+    display:inline-flexbox;
+}
 .text-inside-section{
     flex-grow: 1;
     width: 100%;
@@ -717,14 +626,112 @@ p.main{
         min-width: 100%;
     }
 
-
-
 }
 
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////    RESERVIERUNG         //////////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.roomReservation_Rooms{
+    display:inline-block;
+    max-width: 330px;
+    padding:5px;
+}
+-roomReservations_Rooms p{
+    display: inline;
+}
 
-/*Start Test*/
+/*RadioButton auf gesammtes elternelement vergrößern*/
+.radio-container {
+    position: relative;
+    width: 300px; /* Beispielgröße */
+    height: 100px; /* Beispielgröße */
+    background-color: #f0f0f0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
 
-/*NEWS*/
+.roomReservation_Rooms label {
+    display: block; /* Das Label wird als Blockelement angezeigt */
+    cursor: pointer; /* Mauszeiger zeigt an, dass es klickbar ist */
+    width: 100%; /* Label nimmt die gesamte Breite des Containers ein */
+    border-radius: 5px;
+}
+
+.roomReservation_Rooms label:hover {
+    border-style: groove;
+    border-width: 5px;
+    border-color: var(--accent-color);
+}
+
+.radio-container:checked + label {
+    border-style: double;
+    border-width: 5px;
+    border-color: var(--accent-color);
+}
+
+.pet-checkbox{
+    opacity: 0;
+}
+.pet-checkbox:checked + label {
+    border-style: double;
+    border-width: 5px;
+    border-color: var(--accent-color);
+}
+
+.radio-container input[type="radio"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Radiobutton wird unsichtbar */
+    cursor: pointer;
+}
+
+/* Der Label wird als Ersatz für den Radiobutton verwendet */
+.radio-container label {
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.roomReservation_Rooms img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 10px 0;
+}
+
+.halfScreenChild-reservation{
+    width: 45%;
+    flex-wrap: wrap;
+    min-width:fit-content;
+    max-width: 45%;
+    border: var(--accent-color);
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////                      FAQ                  ////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.container-faq{
+    padding:35px;  
+    min-height: 275px;
+  }
+
+
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////                   NEWS                 /////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+.inbetween{
+    background-color: var(--accent-color);
+    min-height: 30px;
+    width:100%;
+}
+
+.reversed_orientation{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .img-news{
     height: 440px;
     width:41%; 
@@ -743,6 +750,7 @@ p.main{
     align-items: center;
 }
 
+
 @media only screen and (max-width: 768px){
     .section-newsLeft{
         display:flex;
@@ -756,4 +764,58 @@ p.main{
     }
 
 }
-/*Ende Test*/
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////                   BEREICH FÜR TESTS                         /////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+
+
+
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////              NICHT MEHR IN VERWENDUNG                       /////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+.section-mainCenter{
+    padding:50px;
+    /*Child Propertys*/
+    width: 100%;
+    /*flex-grow: ;
+    flex-shrink: ;
+    flex-basis: ;
+    flex: ;
+    align-self: ;
+    order: ;*/
+
+    /*Parent-Propertys*/
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /*align-content: ;*/
+    /*gap: ;*/
+}
+
+.body{
+    display: flex;
+    justify-content:center;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    /*align-content: ;*/
+    /*gap: ;*/
+}
+
+.header{
+    width: 100%;
+    /*flex-grow: ;
+    flex-shrink: ;
+    flex-basis: ;
+    flex: ;
+    align-self: ;
+    order: ;*/
+}

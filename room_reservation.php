@@ -34,7 +34,7 @@
     <section>
   
 
-        <?php echo'DEBUGGING: error_reservation: '.$_SESSION["error_reservation"].' '?>
+        <?php /*echo'DEBUGGING: error_reservation: '.$_SESSION["error_reservation"].' '*/?>
 
         <form class="col-12 bordered" action="room_reservation_action.php" method="Post"> 
             <h2>Zimmerreservierung</h2>
