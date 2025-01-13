@@ -38,12 +38,24 @@ Bewertungsmatrix:
                 if($_SESSION["profile_change"] == 1){
                     echo'
                         Profildaten erfolgreich geändert!
-                        Änderungen nach erneutem Einloggen sichtbar
                         <form action="profile_change_action.php" method="POST">
                             <input type="hidden" name="form" value="password_changed">
                             <button type="submit">Ok!</button>
                         </form>
                     ';
+                }
+            }
+            if(isset($_SESSION["reservation_ok"])){
+                if($_SESSION["reservation_ok"] == 1){
+                    echo'
+                        <p>Reservierung erfolgreich angelegt!</p>
+                        <p>Eine unserer MitarbeiterInnen wird die Reservierung in kürze bestätigen.</p>
+                        <p>der Status der Reservierung wird dann von "neu" auf "bestätigt" geändert</p>
+                        <form action="profile_change_action.php" method="POST">
+                            <input type="hidden" name="form" value="reservation_ok">
+                            <button type="submit">Ok!</button>
+                        </form>
+                    ';                   
                 }
             }
         ?>
@@ -66,8 +78,6 @@ Bewertungsmatrix:
                     include 'profile_reservierungsdetails_user.php';
 
                 }
-
-                
             ?>
             </div>
 
@@ -75,53 +85,19 @@ Bewertungsmatrix:
 ////////////////////////////////////////////////////////////////
 ///////////////////AUSGABE DER PROFILDATEN//////////////////////
 ////////////////////////////////////////////////////////////////
-?>
-            
+?>        
             <div class="col-4" style="border: var(--accent-color); border-style: double;">
                 <h2>Profildaten</h2>
 
-                    <div>
-                        <div class="col-12">
-                            <?php
-                                echo'
-                                Anrede: ';
-                                if($_SESSION["gender"]== "female"){
-                                    echo'Frau';
-                                }
-                                if($_SESSION["gender"]=='male'){
-                                    echo'Herr';
-                                }
-                                if($_SESSION["gender"]=='other'){
-                                    echo'Vorname Nachname';
-                                }
-                                echo'
-                                    <br>
-                                    <br>
-                                    Vorname:  '.$_SESSION["first_name"].'
-                                ';
-                                echo'
-                                    <br>
-                                    <br>
-                                    Nachname:  '.$_SESSION["last_name"].'
-                                ';
-                                    echo'
-                                        <br>
-                                        <br>
-                                        Username:  '.$_SESSION["user"].'
-                                    ';
-                                echo'
-                                    <br>
-                                    <br>
-                                    E-Mail Adresse:  '.$_SESSION["email"].'
-                                ';
-                            ?>
-                        <br>
-                        <br>
-                        </div>   
-                    </div>
+                    <?php db_userinformation_profile(); /*Funktion gibt die Profildaten der eingeloggten Userin aus*/?>                 
                     <hr>
                     <br>  
                     <div>
+<?php
+////////////////////////////////////////////////////////////////
+/////////////////////PROFILDATEN ÄNDERN ////////////////////////
+////////////////////////////////////////////////////////////////
+?>
                         <h2>Profildaten ändern</h2>
                         <details class="profile_change">
                             <summary>Formular öffnen</summary>
@@ -134,13 +110,13 @@ Bewertungsmatrix:
                                 </select>
                                 <br>
                                 <input type="hidden" name="form" value="change_profile"><!--Über diese Variable wird auf profile_change_action.php entschieden welches Formular ausgewertet wird.-->
-                                <input type="text" name="first_name" id="first_name" value="<?php echo''.$_SESSION["first_name"].'';?>">
+                                <input type="text" name="first_name" id="first_name" value="<?php echo''.$_SESSION["first_name"].'';?>" required>
                                 <br>
-                                <input type="text" name="last_name" id="last_name" value="<?php echo''.$_SESSION["last_name"].'';?>">
+                                <input type="text" name="last_name" id="last_name" value="<?php echo''.$_SESSION["last_name"].'';?>" required>
                                 <br>
-                                <input type="text" name="user" id="user" value="<?php echo''.$_SESSION["user"].'';?>">
+                                <input type="text" name="user" id="user" value="<?php echo''.$_SESSION["user"].'';?>" required>
                                 <br>
-                                <input type="text" name="email" id="email" value="<?php echo''.$_SESSION["email"].'';?>">
+                                <input type="text" name="email" id="email" value="<?php echo''.$_SESSION["email"].'';?>" required>
                                 <br>
                                 <br>
                                 <button type="submit">Profildaten ändern</button>

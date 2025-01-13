@@ -1,27 +1,25 @@
 
-NICHT ERLEDIGT - Ausgabe der Profildaten im Profil nicht über Session Variablen, 
-sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt angezeigt werden. 
+LENA/ NICHT ERLEDIGT - mit Screenreader lesen
 
-NICHT ERLEDIGT - Letzte Eingaben sollen in Formularen als value erhalten bleiben
+LENA ERLEDIGT - Alle Eingaben aller Formulare (Registrierung, Login, etc ...) werden clientseitig und serverseitig überprüft und validiert.
+	- user_verwaltung Admin fehlt noch - Marold
+
+
+
+ERLEDIGT -Lena- Main in index umbennenen und bei allen Links dorthin auch
+ERLEDIGT- LENA- Letzte Eingaben sollen in Formularen als value erhalten bleiben
 				erledigt-registration
 				erledigt-Login
 				erledigt- Zimmerreservierung
-				- Profiländerung
 
-NICHT ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschlossen wurde.
+ERLEDIGT -  LENA - Ausgabe der Profildaten im Profil nicht über Session Variablen, 
+sondern über Datenbankabfrage, damit sie nach einer Änderung gleich korrekt angezeigt werden. 
 
-NICHT ERLEDIGT - positive Rückmeldung wenn Registrierung erfolgreich abgeschlossen wurde.
-
-NICHT ERLEDIGT - Vergebene Zeiträume bei der Zimmerreservierung ausgeben
-
+ERLEDIGT - LENA - News-Beiträge (inkl. Bildupload) erstellen und LÖSCHEN
+ERLEDIGT - positive Rückmeldung wenn Reservierung erfolgreich abgeschlossen wurde.
 
 
-
-
-
-
-
-
+ERLEDIGT - Vergebene Zeiträume bei der Zimmerreservierung ausgeben
 erledigt - Begrüßen Sie den/die „eingeloggten“ User*in auf der Website.
 
 Erledigt- Merken Sie sich die Login-Informationen in der Session. Username wird gemerkt

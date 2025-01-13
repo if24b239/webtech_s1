@@ -195,6 +195,10 @@ nav p{
     padding-right: 10px;
 }
 
+/*////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////// ANPASSUNGEN FÜR KLEINE BILDSCHIRME//////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////////////////////////////////*/
+
 @media only screen and (max-width: 768px){
     .toggle_button_nav{
         display: flex;
@@ -224,15 +228,6 @@ nav p{
         display: block;
     }
 
-    .text-inside-section p {
-        font-size: 15px;
-    }
-    .img-main{
-        width: 100%;
-        max-width: none;
-        max-height: none;
-    }
-    
 }
 
 /*Footer*/
@@ -317,12 +312,6 @@ form {
     border: none;
 }
 
-/*.section-mainRight{
-    background-color: rgba(161, 138, 74, 0.69); 
-}
-.section-mainLeft{
-    background-color: rgba(160, 148, 115, 0.69);
-} */
 
 
 .inbetween{
@@ -373,9 +362,11 @@ figure.impressum {
     align-self: ;
     order: ;*/
 }
- /*STARTSEITE*/
+/*//////////////////////////////////////////////////////////////*/
+/*///////////////////////STARTSEITE/////////////////////////////*/
+/*//////////////////////////////////////////////////////////////*/
 
-.section.main{
+.main{
     /*Child Propertys*/
     width: 100%;
     /*flex-grow: ;
@@ -388,7 +379,7 @@ figure.impressum {
     /*Parent-Propertys*/
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     /*align-content: ;*/
     /*gap: ;*/
@@ -417,94 +408,19 @@ figure.impressum {
     /*gap: ;*/
 }
 .container-faq{
-    padding:35px;  
-    min-height: 275px;
+  padding:35px;  
+  min-height: 275px;
 }
 
 details {
     max-width: 900px;
 }
-.section-mainLeft {
-        /*Flex-Box Child Propertys*/
-        width: 100%;
-        max-height: 600px;
-        /*flex-grow: ;
-        flex-shrink: ;
-        flex-basis: ;
-        flex: ;
-        align-self: ;
-        order: ;*/
-        /*Flex-Box Parent-Propertys*/
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        flex-wrap:nowrap;
-        /*align-content: ;*/
-        /*gap: ;*/
 
-        /*Allgemeine CSS Propertys*/
-      
-}
-.section-mainRight{
-        /*Flex-Box Child Propertys*/
-        width: 100%;
-        max-height: 600px;
-        /*flex-grow: ;
-        flex-shrink: ;
-        flex-basis: ;
-        flex: ;
-        align-self: ;
-        order: ;*/
-    
-        /*Flex-Box Parent-Propertys*/
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: right;
-        align-items: center;
-        flex-wrap: nowrap;
-        /*align-content: ;*/
-        /*gap: ;*/
-
-        /*Allgemeine CSS Propertys*/
-     
-}
-
-.img-main{
-    /*Flex-Box Child Propertys*/
-    width: 45%;
-    flex-grow: 1;
-    flex-shrink: 2;
-    flex-basis: 2;
-    /*flex: ;
-    align-self: ;
-    order: ;*/
-
-    /*Allgemeine CSS Propertys*/
-    max-height: 480px;
-
-}
 
 .text-inside-section{
-    /*Flex-Box Child Propertys*/
-    width: 55%;
-    flex-grow: 2;
-    /*flex-shrink: ;*/
-    flex-basis: 1;
-    /*flex: ;
-    align-self: ;
-    order: ;*/
-    margin: 15px;
-        
-    /*Flex-Box Parent-Propertys*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    /*align-content: ;*/
-    /*gap: ;*/
-    
-    /*Allgemeine CSS Propertys*/
-    
+    width: 58%;
+    display:inline-flexbox;
+
 }
 p.main{
     display: inline;
@@ -518,6 +434,8 @@ p.main{
     justify-self: center;
     /*order: ;*/
 }
+
+
 /*RoomReservation*/
 .main-reservation{
     display:flex;
@@ -595,7 +513,6 @@ p.main{
     background-color:var(--accent-color);
 }
 
-/*RadioButton auf gesammtes elternelement vergrößern*/
 
 .roomReservation_Rooms{
     display:inline-block;
@@ -606,25 +523,237 @@ p.main{
     display: inline;
 }
 
-
 .warning{
     color: rgb(202, 41, 41);
     font-size: 32;
 
 }
 
-/*Start test*/
-.stopBeeingSoDamnWide{
-    width:100%;
+/*RadioButton auf gesammtes elternelement vergrößern*/
+.radio-container {
+    position: relative;
+    width: 300px; /* Beispielgröße */
+    height: 100px; /* Beispielgröße */
+    background-color: #f0f0f0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.roomReservation_Rooms label {
+    display: block; /* Das Label wird als Blockelement angezeigt */
+    cursor: pointer; /* Mauszeiger zeigt an, dass es klickbar ist */
+    width: 100%; /* Label nimmt die gesamte Breite des Containers ein */
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Sanfter Übergang bei Hover */
+}
+
+.roomReservation_Rooms label:hover {
+    border-style: double;
+    border-width: 5px;
+    border-color: var(--accent-color);
+}
+
+.radio-container:checked + label {
+    border-style: double;
+    border-width: 5px;
+    border-color: var(--accent-color);
+}
+
+.pet-checkbox{
+    opacity: 0;
+}
+.pet-checkbox:checked + label {
+    border-style: double;
+    border-width: 5px;
+    border-color: var(--accent-color);
 }
 
 /* Radiobutton wird unsichtbar gemacht, aber bleibt funktional */
-.radio-container {
-    display: none;
+.radio-container input[type="radio"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
 }
 
-.radio-container:checked + label div{
-    border-color:var(--accent-color);
+/* Der Label wird als Ersatz für den Radiobutton verwendet */
+.radio-container label {
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
 }
 
+.roomReservation_Rooms img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 10px 0;
+}
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*////////////////INDEX//////////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.index{
+    width:100%;
+    margin:0%;
+    padding:0%;
+
+    display:flex;
+    flex-wrap: wrap;
+}
+.col-5-index{
+    max-width: 41%;
+
+}
+.col-7-index{
+    max-width: 59%;
+    display: flex;
+    flex-direction: column; /*Damit der <h2> über dem <p> angezeigt wird und nicht daneben*/
+    justify-content: center;
+    align-items: center;
+}
+
+.img-index{
+    max-height: 480px;
+}
+
+.h2-index{
+    display:block;
+}
+
+.p-index{
+    width:100%;
+}
+
+.text-inside-section{
+    flex-grow: 1;
+    width: 100%;
+}
+
+.section-mainLeft {
+    /*Flex-Box Child Propertys*/
+    width: 100%;
+    max-height: 480px;
+    /*flex-grow: ;
+    flex-shrink: ;
+    flex-basis: ;
+    flex: ;
+    align-self: ;
+    order: ;*/
+    /*Flex-Box Parent-Propertys*/
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap:wrap;
+    /*align-content: ;*/
+    /*gap: ;*/
+
+    /*Allgemeine CSS Propertys*/
+    margin:0%;
+    padding: 0%;
+}
+.section-mainRight{
+    /*Flex-Box Child Propertys*/
+    width: 100%;
+    max-height: 480px;
+    /*flex-grow: ;
+    flex-shrink: ;
+    flex-basis: ;
+    flex: ;
+    align-self: ;
+    order: ;*/
+
+    /*Flex-Box Parent-Propertys*/
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: right;
+    align-items: center;
+    flex-wrap: wrap;
+    /*align-content: ;*/
+    /*gap: ;*/
+
+    /*Allgemeine CSS Propertys*/
+    margin:0%;
+    padding: 0%;
+}
+
+
+@media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .col-5-index{width: 100%;}
+    .col-7-index{width: 100%;}
+    .text-inside-section{
+        display: none;
+    }
+    .img-index{
+        width:100%;
+        max-height: none;
+    }
+
+}
+@media only screen and (max-width: 768px){
+    .col-5-index{width: 100%;}
+    .col-7-index{width: 100%;}
+    .section-mainRight{
+        width: 100%;
+    }
+    .section-mainLeft{
+        width:100%;
+    }
+    .text-inside-section p {
+        font-size: 15px;
+        display: none;
+    
+    }
+    .text-inside-section{
+        display: block;
+    }
+    .h2-index{
+        display:none;
+    }
+    .img-index{
+        min-width: 100%;
+    }
+
+
+
+}
+
+
+/*Start Test*/
+
+/*NEWS*/
+.img-news{
+    height: 440px;
+    width:41%; 
+}
+.section-newsLeft{
+    display:flex;
+}
+
+.text-inside-news-section{
+    width:58%;
+    padding:15px;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 768px){
+    .section-newsLeft{
+        display:flex;
+        flex-direction: column;
+    }
+    .img-news{
+        width:100%;
+    }
+    .text-inside-news-section{
+        width:100%;
+    }
+
+}
 /*Ende Test*/

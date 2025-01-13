@@ -26,7 +26,7 @@
     <?php
 
         
-        if(isset($_SESSION["admin"])&&($_SESSION["admin"]!=NULL)){ //eventuell sollte die Bedingung eine Abfrage an die Datenbank sein, ob die Admin-ID != NULL? sonst kann man auf den Bereich ja einfach durch änderung des Codes in den Developertool zugreifen, oder?
+        if(isset($_SESSION["admin"])&&($_SESSION["admin"]!=NULL)){ 
             echo'
                 <section class="p-wholeContainer">
 
@@ -35,9 +35,6 @@
                     <br>
                     <p>Es sind nur Bilder vom Format jpg, gif, png, webp erlaubt.</p>
                     <br>
-                    <p> aus dem Bild wird beim Hochladen von der linken oberen Ecke ausgehend ein ____ x_____ pixel großen Bild ausgeschnitten.
-                        Wenn ein anderer Bildausschnitt hochgeladen werden soll, bitte diesen in der passenden Größe hochladen. </p>
-                    
                     ';
                 
                     if($_SESSION["error_news"]&1){
@@ -60,19 +57,19 @@
                     }
                     if($_SESSION["error_news"]&8){
                         echo'
-                            <p class="warning">Momentan sind nur jpg Bilder erlaubt</p>
+                            <p class="warning">Momentan sind nur jpg, gif, png und webp Bilder erlaubt</p>
                             <br>
                         ';
                     }
                     echo'
                         <div class="col-6">
                             <label id="headline" for="headline">Überschrift:</label><br>
-                            <input type="text" name="headline" id="headline" required style="width:95%; height:25px;">
+                            <input type="text" name="headline" id="headline" required style="width:95%; height:25px;" required>
                             <br>
                             <br>
 
                             <label id="content" for="content">Beitragsinhalt:</label><br>
-                            <textarea name="content" id="content" style="min-width:95%; max-width:95%; min-height:150px;" ></textarea>
+                            <textarea name="content" id="content" style="min-width:95%; max-width:95%; min-height:150px" required ></textarea>
                         </div>
 
                         <div class="col-6">
@@ -81,7 +78,7 @@
                             <br>
                             <br>
                             <label id="alt_image" for="alt_image">Alternativtext für das Bild:</label><br>
-                            <input type="text" name="alt_image" id="alt_image" style="width:95%; height: 30px;" >
+                            <input type="text" name="alt_image" id="alt_image" style="width:95%; height: 30px;" required >
                             
                         </div>
 
@@ -101,32 +98,7 @@
 <!--AUSGABE DER NEWSBEITRÄGE -->
     <!-- TO-DO: das ganze in eine Funktion in db_utils.php auslagern -->
     <section class="reversed_orientation">
-        <?php
-        db_conn_check(); 
-        $sql2 = "SELECT n.Ueberschrift, n.Inhalt, date_format(Datum, '%d.%m.%Y') AS 'Datum_formatiert', n.img_alt, n.img_path, n.FK_Admin_ID, p.vorname, p.nachname, p.Gender
-                FROM newsbeitrag n JOIN person p
-                    ON n.FK_Admin_ID = p.Person_ID;"
-        ;
-        $result2 = $db->query($sql2);
-        while ($row = $result2->fetch_array()) {
-            echo'
-                <div class="inbetween"> </div>
-                <section class="section-mainLeft bordered">
-                    <img class="img-main" src="' . $row['img_path'] . '" alt="' . $row['img_alt'] . '">
-                    <section class="text-inside-section"> 
-                        <h3> ' . $row['Ueberschrift'] . ' </h3>
-                        <br>
-                        <p> ' . $row['Inhalt'] . ' </p>
-                        <br>
-                        <br>
-                        <p style="font-size: 18px; align-self: right"> <!--geht nicht-->
-                            erstellt am ' . $row['Datum_formatiert'] . ' von ' . $row['vorname'] . ' ' . $row['nachname'] . '
-                        </p>
-                    </section> 
-                </section>  
-            ';
-        }
-        ?>              
+        <?php db_news_get();?>   
     </section>    
     
     <?php include 'php_inserts\footer.php' ?>

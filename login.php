@@ -30,6 +30,7 @@
 
     <?php include 'php_inserts\navigation.php' ?>
 
+
     <section class="flex">
         <div>
             <form class="col-12 bordered" action="login_action_db.php" method="POST"> <!--Daten werden an login_action_db.php geschickt mit der Methode Post-->

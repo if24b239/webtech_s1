@@ -10,6 +10,6 @@
     
     <a href="https://www.freepik.com/">Freepik</a> 
 
-    <a href="main.html">Zurück zur Startseite</a>
+    <a href="index.html">Zurück zur Startseite</a>
 </body>
 </html>

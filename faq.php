@@ -38,8 +38,19 @@
         </details>
         <br>
         <details style="border-style: groove;">
-            <summary> 3. FAQ </summary>
-            <p>Antwort auf die dritthäufigste Frage</p>
+            <summary> Warum ist es so teuer meine Chimäre mitzunehmen? </summary>
+            <br>
+            <p>Neben den hohen Futterkosten müssen wir für die Chimären speziell angepasste Unterkünfte bereitstellen. 
+                Die Stallungen und Gehege müssen nicht nur sicher und stabil sein, 
+                sondern auch ausreichend Platz bieten, um den verschiedenen Teilen der Chimäre gerecht zu werden. 
+                Ihre Reaktionsgeschwindigkeit und ihre Fähigkeit, zu entkommen oder Schaden anzurichten, 
+                erfordern außerdem spezielle Sicherheitsvorkehrungen, 
+                um sowohl das Hotelpersonal als auch die anderen Gäste zu schützen. </p>
+              <br>
+              <p>All diese Faktoren – von der Ernährung über die Unterbringung bis hin zur magischen Betreuung – 
+                führen zu den hohen Kosten, die mit der Mitnahme einer Chimäre verbunden sind. 
+                Aber keine Sorge: Unser Hotel sorgt dafür, 
+                dass sowohl Sie als auch Ihre magischen Begleiter sich wie zu Hause fühlen!</p>  
         </details>
 
     </section>

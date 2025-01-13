@@ -96,7 +96,7 @@
             </div>
             <div class="col-4">
                 <label id="password_repitition" for="password_repitition">Passwortwiederholung:</label><br>
-                <input type="password" name="password_repitition" id="password_repitition"  required>
+                <input type="password" name="password_repitition" id="password_repitition" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                 <?php 
                     if ($_SESSION["error_registration"] & 2) {
                         echo '<p class="warning">Passwörter stimmen nicht überein.</p>';
