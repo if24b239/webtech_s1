@@ -71,6 +71,7 @@
                 $bg_color = 'var(--darker-background-color)';
                 $i=0;
             }
+            // output the list of reservations
             echo'
 
                 <details style="border-style: groove; border-color: var(--text-color);">

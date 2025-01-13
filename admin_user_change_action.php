@@ -38,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include 'db_utils.php';
     db_conn_check();
 
+    // sql statement to update user
     $sql = "UPDATE person
     SET vorname = ?, 
         nachname = ?, 
@@ -48,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     WHERE Person_ID = " . $userid . ";
     ";
 
+    //prepare and run the statement
     $stmt = $db->prepare($sql);
 
     $stmt->bind_param("sssssi", $vorname, $nachname, $email, $gender, $username, $status);
@@ -61,10 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
 
+        // sql statement to update the password
         $sql = "UPDATE person
         SET passwort = ?
         WHERE Person_ID = ". $userid .";";
 
+        // prepare and run the statement
         $pw_stmt = $db->prepare($sql);
 
         $pw_stmt->bind_param("s", $hashedpassword);

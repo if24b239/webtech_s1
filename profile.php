@@ -26,6 +26,7 @@ Bewertungsmatrix:
         <br>
         <?php
             if(isset($_SESSION["profile_change"])){
+                // error ausgabe
                 if($_SESSION["profile_change"] == 2){
                     echo'
                         Passwort erfolgreich geändert!
@@ -45,6 +46,7 @@ Bewertungsmatrix:
                     ';
                 }
             }
+            // success ausgsabe
             if(isset($_SESSION["reservation_ok"])){
                 if($_SESSION["reservation_ok"] == 1){
                     echo'
