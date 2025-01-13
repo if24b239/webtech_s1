@@ -33,10 +33,10 @@
                     <form class="bordered" action="news_image_upload.php" method="post" enctype="multipart/form-data">
                     <legend>Neues News-Beitrag anlegen:</legend>
                     <br>
-                    <p>Es sind nur Bilder vom Format jpg, gif, png, webp erlaubt.</p>
+                    <p>Es sind nur Bilder vom Format jpg, gif, png erlaubt.</p>
                     <br>
                     ';
-                
+                    // error displays
                     if($_SESSION["error_news"]&1){
                         echo'
                             <p class="warning">Bitte wählen Sie ein Bild zum hochladen aus</p>
@@ -61,6 +61,7 @@
                             <br>
                         ';
                     }
+                    
                     echo'
                         <div class="col-6">
                             <label id="headline" for="headline">Überschrift:</label><br>

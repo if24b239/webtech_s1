@@ -104,6 +104,8 @@ function db_news_get(){
             ;"
     ;
     $result2 = $db->query($sql2);
+
+    // display the news beiträge
     while ($row = $result2->fetch_array()) {
         echo'
             

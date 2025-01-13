@@ -69,6 +69,7 @@
                 $bg_color = 'var(--darker-background-color)';
                 }
 
+                // get selection of gender
                 $gender_m = '';
                 $gender_f = '';
                 $gender_o = '';
@@ -83,6 +84,7 @@
                     $gender_o = 'selected="selected"';
                 }
 
+                // get selection of status
                 $active_y = '';
                 $active_n = '';
 
@@ -92,6 +94,7 @@
                     $active_n = 'selected="selected"';
                 }
 
+                // echo the list of all users and forms to edit them
                 echo '
         <details style="border-style: groove; border-color: var(--text-color);">
             <summary style="background-color:'.$bg_color.'; list-style: none;">
